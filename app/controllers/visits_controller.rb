@@ -17,5 +17,9 @@ class VisitsController < ApplicationController
   def show
     @visit = Visit.find(params[:id])
     @ip = request.remote_ip
+
+    location = Geocoder.search(@ip).first
+
+    @country = location.country_code
   end
 end
