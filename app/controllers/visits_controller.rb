@@ -13,8 +13,8 @@ class VisitsController < ApplicationController
   end
 
   def show
-    #@visit = Visit.find(params[:id])
-    location = Geocoder.search("50.200.5.113")
-    p @location[0].data['country_code']
+    @visit = Visit.find(params[:id])
+    location = Geocoder.search(@visit.ip)
+    @country = location[0].data['country_code']
   end
 end
