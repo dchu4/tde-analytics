@@ -16,6 +16,6 @@ class VisitsController < ApplicationController
 
   def show
     @visit = Visit.find(params[:id])
-    p @visit
+    @ip = request.remote_ip
   end
 end
