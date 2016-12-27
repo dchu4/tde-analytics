@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
   def create
-    User.create(
-        device_type: params[:device_type],
-        device_os: params[:device_os],
-        device_unique_id: params[:device_unique_id]
-      )
+    if(!User.find_by(params[:device_unique_id]))
+      User.create(
+          device_type: params[:device_type],
+          device_os: params[:device_os],
+          device_unique_id: params[:device_unique_id]
+        )
+    end
   end
 
   def show

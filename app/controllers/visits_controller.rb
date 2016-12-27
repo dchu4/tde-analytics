@@ -8,13 +8,14 @@ class VisitsController < ApplicationController
         user_id: params[:user_id],
         product_id: params[:product_id],
         time: Time.now,
-        ip: params[:ip]
+        ip: params[:ip],
+        latitude: params[:latitude].to_f,
+        longitude: params[:longitude].to_f
       )
   end
 
   def show
     @visit = Visit.find(params[:id])
-    location = Geocoder.search(@visit.ip)
-    @country = location[0].data['country_code']
+    p @visit
   end
 end
