@@ -1,3 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/' => 'visits#index'
+  get '/visits' => 'visits#index'
+  post '/visits' => 'visits#create'
+  get '/visits/:id' => 'visits#show'
+
+  post '/users' => 'users#create'
+  get '/users/:id' => 'users#show'
+
+  post '/products' => 'products#create'
+  delete '/products/:id' => 'products#destroy'
 end
