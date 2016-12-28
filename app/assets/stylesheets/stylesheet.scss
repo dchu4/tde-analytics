@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 body {
   background: #eeeeee;
 }
@@ -21,6 +23,20 @@ body {
   margin-bottom: 4px !important;
 }
 
+.card-image {
+  background: grey !important;
+}
+
 .brand-logo {
   margin-left:3.5%;
+}
+
+.section-card-title {
+  background: #bdbdbd;
+  text-align: center;
+  margin: 0px;
+  width: 100%;
+  padding: 5px;
+  color: #212121;
+  font-family: 'Montserrat', sans-serif;
 }

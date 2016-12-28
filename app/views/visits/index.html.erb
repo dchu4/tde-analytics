@@ -1,9 +1,11 @@
 <div class="row">
   <div class="col s12">
     <div class="card red">
+      <div class="section-card-title">
+        <span class="card-title">Products Views</span>
+      </div>
       <div class="card-content">
-        <span class="card-title white-text">Products</span>
-        <%= bar_chart Visit.group(:product_id).count, colors: ["pink"] %>
+        <%= bar_chart Visit.group(:product_id).count, colors: ["white"] %>
       </div>
     </div>
   </div>
@@ -14,8 +16,10 @@
 
   <div class="col s6">
     <div class="card blue">
+      <div class="section-card-title">
+        <span class="card-title">User Location</span>
+      </div>
       <div class="card-content">
-        <span class="card-title white-text">Products</span>
         <%= pie_chart Visit.group(:country).count, donut: true %>
       </div>
     </div>
@@ -23,9 +27,11 @@
 
   <div class="col s6">
     <div class="card green">
+      <div class="section-card-title">
+        <span class="card-title">Visitor Timeline</span>
+      </div>
       <div class="card-content">
-        <span class="card-title white-text">Products</span>
-        <%= line_chart Visit.group(:country).count %>
+        <%= line_chart Visit.group(:created_at).count %>
       </div>
     </div>
   </div>
@@ -37,19 +43,23 @@
 <div class="row">
 
   <div class="col s6">
-    <div class="card yellow">
+    <div class="card purple">
+      <div class="section-card-title">
+        <span class="card-title">Total User Visits</span>
+      </div>
       <div class="card-content">
-        <span class="card-title white-text">Products</span>
-        <%= area_chart Visit.group(:country).count %>
+        <%= area_chart Visit.group(:user_id).count %>
       </div>
     </div>
   </div>
 
   <div class="col s6">
-    <div class="card orange">
+    <div class="card yellow">
+      <div class="section-card-title">
+        <span class="card-title">User Device OS</span>
+      </div>
       <div class="card-content">
-        <span class="card-title white-text">Products</span>
-        <%= column_chart Visit.group(:country).count %>
+        <%= bar_chart User.group(:device_os).count %>
       </div>
     </div>
   </div>

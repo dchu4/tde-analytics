@@ -24,10 +24,17 @@
 #     )
 # end
 
-20.times do
-  10.times do
+20.times do |user_id|
+  10.times do |product_id|
     Visit.create(
-        
+        user_id: (user_id + 1),
+        product_id: (product_id + 1),
+        time: Time.now,
+        ip: "50.200.5.113",
+        country: "location.country",
+        city: "location.city",
+        state: "location.state",
+        postal_code: "location.postal_code"
       )
   end
 end
