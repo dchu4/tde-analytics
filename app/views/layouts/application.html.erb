@@ -10,7 +10,38 @@
     <%= stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons' %>
   </head>
 
+
   <body>
-    <%= yield %>
+
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper grey darken-4">
+          <span class="brand-logo">Dashboard</span>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#"><i class="material-icons right">perm_identity</i>Account</a></li>
+            <li><a href="#"><i class="material-icons right">settings</i>Settings</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="row">
+
+      <div class="col s2 side-navbar">
+        <!-- Grey navigation panel -->
+        <ul>
+          <li><a class="waves-effect waves-light btn navbar-button grey darken-4"><i class="material-icons right">dashboard</i>Home</a></li>
+          <li><a class="waves-effect waves-light btn navbar-button grey darken-4"><i class="material-icons right">store</i>Products</a></li>
+          <li><a class="waves-effect waves-light btn navbar-button grey darken-4"><i class="material-icons right">contacts</i>Users</a></li>
+          <li><a class="waves-effect waves-light btn navbar-button grey darken-4"><i class="material-icons right">insert_chart</i>Charts</a></li>
+          <li><a class="waves-effect waves-light btn navbar-button grey darken-4"><i class="material-icons right">language</i>Locations</a></li>
+        </ul>
+      </div>
+
+      <div class="col s10" style="position:relative;left:16.8%">
+        <%= yield %>
+      </div>
+
+    </div>
   </body>
 </html>

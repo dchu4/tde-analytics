@@ -5,3 +5,29 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+# 20.times do |device_id|
+#   User.create(
+#       device_type: "Nexus 4",
+#       device_os: "Android",
+#       device_unique_id: "123-123-#{device_id}"
+#     )
+# end
+
+# 10.times do |product_id|
+#   Product.create(
+#       product_number: "QAZ-#{product_id}",
+#       product_name: "Item-#{product_id}",
+#       retailer: "MyStuff",
+#       url: "www.mystuff.com/products/QAZ-#{product_id}"
+#     )
+# end
+
+20.times do
+  10.times do
+    Visit.create(
+        
+      )
+  end
+end
