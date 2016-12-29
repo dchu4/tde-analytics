@@ -1,11 +1,14 @@
-$primary-color: #283593;
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+$primary-color: #3f51b5;
 $primary-lighter: #9fa8da;
 $primary-deeper: #1a237e;
-$hover-color: #1a237e;
-$accent-color: #00b8d4;
+$hover-color: #3949ab;
+$accent-color: #ff5252;
 $grey: #e0e0e0;
 $light-grey: #f5f5f5;
 $dark-grey: #212121;
+$header-font: Poppins;
 
 body {
   background: $grey;
@@ -20,10 +23,9 @@ body {
 
 .navbar-button {
   margin: 0;
-  padding: 20px;
+  padding: 20px 10px;
   width: 100%;
-  box-shadow: none !important;
-  background: $primary-color !important;
+  background: $primary-color;
   color: #fff;
   border-bottom: 1px solid $light-grey;
 }
@@ -42,7 +44,10 @@ body {
 }
 
 .brand-logo {
-  margin-left: 3.5%;
+  /*margin-left: 2%;*/
+  margin-left: 4px;
+  font-family: $header-font, sans-serif;
+  font-size: 2.8rem !important;
 }
 
 .section-card-title {
@@ -51,9 +56,17 @@ body {
   margin: 0px;
   width: 100%;
   padding: 10px;
+  font-family: $header-font, sans-serif;
 }
 
 .card-title {
   font-size: 1.3rem !important;
   text-transform: uppercase !important;
+}
+
+.card-panel {
+  background: $accent-color !important;
+  color: #fff !important;
+  max-height: 125px;
+  overflow: scroll;
 }

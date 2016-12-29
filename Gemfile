@@ -19,6 +19,8 @@ gem 'geocoder'
 
 gem 'chartkick'
 
+gem 'groupdate'
+
 gem 'materialize-sass'
 
 # Use jquery as the JavaScript library
