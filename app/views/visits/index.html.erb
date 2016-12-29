@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col s12">
-    <div class="card red">
+    <div class="card red lighten-4">
       <div class="section-card-title">
-        <span class="card-title">Products Views</span>
+        <span class="card-title white-text">Products Views</span>
       </div>
       <div class="card-content">
         <%= bar_chart Visit.group(:product_id).count, colors: ["white"] %>
@@ -15,9 +15,9 @@
 <div class="row">
 
   <div class="col s6">
-    <div class="card blue">
+    <div class="card blue lighten-4">
       <div class="section-card-title">
-        <span class="card-title">User Location</span>
+        <span class="card-title white-text">User Location</span>
       </div>
       <div class="card-content">
         <%= pie_chart Visit.group(:country).count, donut: true %>
@@ -26,9 +26,9 @@
   </div>
 
   <div class="col s6">
-    <div class="card green">
+    <div class="card green lighten-4">
       <div class="section-card-title">
-        <span class="card-title">Visitor Timeline</span>
+        <span class="card-title white-text">Visitor Timeline</span>
       </div>
       <div class="card-content">
         <%= line_chart Visit.group(:created_at).count %>
@@ -43,9 +43,9 @@
 <div class="row">
 
   <div class="col s6">
-    <div class="card purple">
+    <div class="card purple lighten-4">
       <div class="section-card-title">
-        <span class="card-title">Total User Visits</span>
+        <span class="card-title white-text">Total User Visits</span>
       </div>
       <div class="card-content">
         <%= area_chart Visit.group(:user_id).count %>
@@ -54,9 +54,9 @@
   </div>
 
   <div class="col s6">
-    <div class="card yellow">
+    <div class="card yellow lighten-4">
       <div class="section-card-title">
-        <span class="card-title">User Device OS</span>
+        <span class="card-title white-text">User Device OS</span>
       </div>
       <div class="card-content">
         <%= bar_chart User.group(:device_os).count %>
