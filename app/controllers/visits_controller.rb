@@ -3,6 +3,8 @@ class VisitsController < ApplicationController
     @visits = Visit.all
 
     @visit_count = @visits.length
+    @user_count = User.count
+    @most_frequent_os = User.group(:device_os).order('count(*)').limit(1).pluck(:device_os).first
   end
 
   def create
