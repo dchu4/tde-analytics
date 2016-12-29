@@ -68,5 +68,6 @@ body {
   background: $accent-color !important;
   color: #fff !important;
   max-height: 125px;
+  min-height: 125px;
   overflow: scroll;
 }
