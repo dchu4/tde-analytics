@@ -8,37 +8,53 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons' %>
-  </head>
 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  </head>
 
   <body>
 
     <div class="navbar-fixed">
-      <nav>
-        <div class="nav-wrapper grey darken-4">
+      <nav class="z-depth-0">
+        <div class="nav-wrapper">
           <span class="brand-logo">Dashboard</span>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="#"><i class="material-icons right">perm_identity</i>Account</a></li>
-            <li><a href="#"><i class="material-icons right">settings</i>Settings</a></li>
+            <li><a href="#" class="waves-effect waves-light"><i class="material-icons right">perm_identity</i>Account</a></li>
+            <li><a href="#" class="waves-effect waves-light"><i class="material-icons right">settings</i>Settings</a></li>
           </ul>
         </div>
       </nav>
     </div>
 
     <div class="row">
-
-      <div class="col s2 side-navbar">
-        <!-- Grey navigation panel -->
-        <ul>
-          <li><a class="waves-effect waves-light btn navbar-button grey darken-3"><i class="material-icons right">dashboard</i>Home</a></li>
-          <li><a class="waves-effect waves-light btn navbar-button grey darken-3"><i class="material-icons right">store</i>Products</a></li>
-          <li><a class="waves-effect waves-light btn navbar-button grey darken-3"><i class="material-icons right">contacts</i>Users</a></li>
-          <li><a class="waves-effect waves-light btn navbar-button grey darken-3"><i class="material-icons right">insert_chart</i>Charts</a></li>
-          <li><a class="waves-effect waves-light btn navbar-button grey darken-3"><i class="material-icons right">language</i>Locations</a></li>
+      
+      <!-- side navbar for large and medium -->
+      <div class="col m2 l2 side-navbar hide-on-small-only" style="padding: 0">
+        <ul style="margin: 0">
+          <li><a href="#" class="waves-effect waves-light navbar-button" style="border-top: 1px solid #f5f5f5"><i class="material-icons right">dashboard</i>Home</a></li>
+          <li><a href="#" class="waves-effect waves-light navbar-button"><i class="material-icons right">store</i>Products</a></li>
+          <li><a href="#" class="waves-effect waves-light navbar-button"><i class="material-icons right">contacts</i>Users</a></li>
+          <li><a href="#" class="waves-effect waves-light navbar-button"><i class="material-icons right">insert_chart</i>Charts</a></li>
+          <li><a href="#" class="waves-effect waves-light navbar-button"><i class="material-icons right">language</i>Locations</a></li>
+        </ul>
+      </div>
+      
+      <!-- side navbar for small -->
+      <div class="col s2 side-navbar hide-on-med-and-up" style="padding: 0">
+        <ul style="margin: 0">
+          <li><a href="#" class="waves-effect waves-light navbar-button" style="border-top: 1px solid #f5f5f5"><i class="material-icons">dashboard</i></a></li>
+          <li><a href="#" class="waves-effect waves-light navbar-button"><i class="material-icons">store</i></a></li>
+          <li><a href="#" class="waves-effect waves-light navbar-button"><i class="material-icons">contacts</i></a></li>
+          <li><a href="#" class="waves-effect waves-light navbar-button"><i class="material-icons">insert_chart</i></a></li>
+          <li><a href="#" class="waves-effect waves-light navbar-button"><i class="material-icons">language</i></a></li>
+          <li><a href="#" class="waves-effect waves-light navbar-button"><i class="material-icons">perm_identity</i></a></li>
+          <li><a href="#" class="waves-effect waves-light navbar-button"><i class="material-icons">settings</i></a></li>
         </ul>
       </div>
 
-      <div class="col s10" style="position:relative;left:16.8%">
+      <div class="col s10 m10 l10 push-s2 push-m2 push-l2">
+        <br>
         <%= yield %>
       </div>
 
