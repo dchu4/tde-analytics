@@ -1,11 +1,12 @@
 <div class="row">
-  <div class="col s12">
-    <div class="card amber accent-1">
+
+  <div class="col s12 m12 l12">
+    <div class="card">
       <div class="section-card-title">
-        <span class="card-title white-text">Products Views</span>
+        <span class="card-title">Products Views</span>
       </div>
       <div class="card-content">
-        <%= bar_chart Visit.group(:product_id).count, colors: ["white"] %>
+        <%= bar_chart Visit.group(:product_id).count, colors: ["#ff6d00"], xtitle: "Number of Visitors", ytitle: "Product ID" %>
       </div>
     </div>
   </div>
@@ -14,24 +15,24 @@
 <!-- beginning row -->
 <div class="row">
 
-  <div class="col s6">
-    <div class="card amber accent-1">
+  <div class="col s12 m12 l6">
+    <div class="card">
       <div class="section-card-title">
-        <span class="card-title white-text">User Location</span>
+        <span class="card-title">User Location</span>
       </div>
       <div class="card-content">
-        <%= pie_chart Visit.group(:country).count, donut: true %>
+        <%= pie_chart Visit.group(:country).count, donut: true, colors: ["#ff6d00"] %>
       </div>
     </div>
   </div>
 
-  <div class="col s6">
-    <div class="card amber accent-1">
+  <div class="col s12 m12 l6">
+    <div class="card">
       <div class="section-card-title">
-        <span class="card-title white-text">Visitor Timeline</span>
+        <span class="card-title">Visitor Timeline</span>
       </div>
       <div class="card-content">
-        <%= line_chart Visit.group(:created_at).count %>
+        <%= line_chart Visit.group(:created_at).count, colors: ["#ff6d00"], xtitle: "Time", ytitle: "Number of Visitors" %>
       </div>
     </div>
   </div>
@@ -42,24 +43,24 @@
 <!-- beginning row -->
 <div class="row">
 
-  <div class="col s6">
-    <div class="card amber accent-1">
+  <div class="col s12 m12 l6">
+    <div class="card">
       <div class="section-card-title">
-        <span class="card-title white-text">Total User Visits</span>
+        <span class="card-title">Total User Visits</span>
       </div>
       <div class="card-content">
-        <%= area_chart Visit.group(:user_id).count %>
+        <%= area_chart Visit.group(:user_id).count, colors: ["#ff6d00"], xtitle: "User ID", ytitle: "Number of Visits" %>
       </div>
     </div>
   </div>
 
-  <div class="col s6">
-    <div class="card amber accent-1">
+  <div class="col s12 m12 l6">
+    <div class="card">
       <div class="section-card-title">
-        <span class="card-title white-text">User Device OS</span>
+        <span class="card-title">User Device OS</span>
       </div>
       <div class="card-content">
-        <%= bar_chart User.group(:device_os).count %>
+        <%= bar_chart User.group(:device_os).count, colors: ["#ff6d00"], xtitle: "Number of Users", ytitle: "OS" %>
       </div>
     </div>
   </div>
