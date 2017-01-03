@@ -1,4 +1,7 @@
 class ProductsController < ApplicationController
+  def new
+  end
+
   def create
     Product.create(
         product_number: params[:product_number], 

@@ -1,0 +1,15 @@
+<%= form_tag '/products', method: :post do %>
+  <%= label_tag :product_number %>
+  <%= text_field_tag :product_number %>
+
+  <%= label_tag :product_name %>
+  <%= text_field_tag :product_name %>
+
+  <%= label_tag :retailer %>
+  <%= text_field_tag :retailer %>
+
+  <%= label_tag :url %>
+  <%= text_field_tag :url %>
+
+  <%= submit_tag 'Add Product' %>
+<% end %>
