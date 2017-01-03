@@ -5,6 +5,7 @@ class VisitsController < ApplicationController
     @visit_count = @visits.length
     @user_count = User.count
     @most_frequent_os = User.group(:device_os).order('count(*)').limit(1).pluck(:device_os).first
+    @most_viewed_product = Visit.maximum(:product_id)
   end
 
   def create

@@ -3,7 +3,7 @@
 
   <div class="col s12 m2 l2">
     <div class="card-panel">
-      <div class="center-align">Total Visits</div>
+      <div class="center-align">Total Website Visits</div>
         <h4 class="center-align"><%= @visit_count %></h4>
     </div>
   </div>
@@ -24,21 +24,21 @@
 
   <div class="col s12 m2 l2">
     <div class="card-panel">
-      <div class="center-align">Other Stuff</div>
+      <div class="center-align">Most Frequent Device</div>
         <h4 class="center-align">Placeholder</h4>
     </div>
   </div>
 
   <div class="col s12 m2 l2">
     <div class="card-panel">
-      <div class="center-align">Other Stuff</div>
-        <h4 class="center-align">Placeholder</h4>
+      <div class="center-align">Most Viewed Product</div>
+        <h4 class="center-align"><%= @most_viewed_product %></h4>
     </div>
   </div>
 
   <div class="col s12 m2 l2">
     <div class="card-panel">
-      <div class="center-align">Other Stuff</div>
+      <div class="center-align">Most Common User City</div>
         <h4 class="center-align">Placeholder</h4>
     </div>
   </div>
@@ -51,7 +51,7 @@
   <div class="col s12 m12 l12">
     <div class="card">
       <div class="section-card-title">
-        <span class="card-title">Visitor Timeline</span>
+        <span class="card-title">Website Visitors Per Day</span>
       </div>
       <div class="card-content">
         <%= line_chart Visit.group_by_day(:created_at).count, ytitle: "Number of Visitors" %>
@@ -78,7 +78,7 @@
   <div class="col s12 m12 l6">
     <div class="card">
       <div class="section-card-title">
-        <span class="card-title">Product Views</span>
+        <span class="card-title">Product Page Views</span>
       </div>
       <div class="card-content">
         <%= bar_chart Visit.group(:product_id).count, xtitle: "Number of Visitors", ytitle: "Product ID" %>
@@ -126,4 +126,4 @@
   </div>
 
 </div>
-<!-- ending row
+<!-- ending row -->
