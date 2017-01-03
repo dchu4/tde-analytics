@@ -45,9 +45,9 @@ body {
 
 .brand-logo {
   /*margin-left: 2%;*/
-  margin-left: 4px;
+  margin-left: 5px;
   font-family: $header-font, sans-serif;
-  font-size: 2.8rem !important;
+  font-size: 2.7rem !important;
 }
 
 .section-card-title {
@@ -59,6 +59,10 @@ body {
   font-family: $header-font, sans-serif;
 }
 
+.collapsible-header {
+
+}
+
 .card-title {
   font-size: 1.3rem !important;
   text-transform: uppercase !important;
@@ -67,7 +71,7 @@ body {
 .card-panel {
   background: $accent-color !important;
   color: #fff !important;
-  max-height: 125px;
-  min-height: 125px;
+  max-height: 130px;
+  min-height: 130px;
   overflow: scroll;
 }
