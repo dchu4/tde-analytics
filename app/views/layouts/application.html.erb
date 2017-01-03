@@ -43,16 +43,15 @@
       <!-- side navbar for small -->
       <div class="col s2 side-navbar hide-on-med-and-up" style="padding: 0">
         <ul style="margin: 0" class="center-align">
-          <li><a href="#" class="waves-effect waves-light navbar-button" style="border-top: 1px solid #f5f5f5"><i class="material-icons">dashboard</i></a></li>
-          <li><a href="#" class="waves-effect waves-light navbar-button"><i class="material-icons">store</i></a></li>
-          <li><a href="#" class="waves-effect waves-light navbar-button"><i class="material-icons">contacts</i></a></li>
-          <li><a href="#" class="waves-effect waves-light navbar-button"><i class="material-icons">insert_chart</i></a></li>
-          <li><a href="#" class="waves-effect waves-light navbar-button"><i class="material-icons">language</i></a></li>
-          <li><a href="#" class="waves-effect waves-light navbar-button"><i class="material-icons">perm_identity</i></a></li>
-          <li><a href="#" class="waves-effect waves-light navbar-button"><i class="material-icons">settings</i></a></li>
+          <li><a href="/" class="waves-effect waves-light navbar-button tooltipped" data-position="right" data-delay="50" data-tooltip="Dashboard" style="border-top: 1px solid #f5f5f5"><i class="material-icons">dashboard</i></a></li>
+          <li><a href="/products" class="waves-effect waves-light navbar-button tooltipped" data-position="right" data-delay="50" data-tooltip="Products"><i class="material-icons">store</i></a></li>
+          <li><a href="#" class="waves-effect waves-light navbar-button tooltipped" data-position="right" data-delay="50" data-tooltip="Users"><i class="material-icons">contacts</i></a></li>
+<!--           <li><a href="#" class="waves-effect waves-light navbar-button"><i class="material-icons">insert_chart</i></a></li> -->
+          <li><a href="#" class="waves-effect waves-light navbar-button tooltipped" data-position="right" data-delay="50" data-tooltip="Locations"><i class="material-icons">language</i></a></li>
+          <li><a href="#" class="waves-effect waves-light navbar-button tooltipped" data-position="right" data-delay="50" data-tooltip="Account"><i class="material-icons">perm_identity</i></a></li>
+          <li><a href="#" class="waves-effect waves-light navbar-button tooltipped" data-position="right" data-delay="50" data-tooltip="Settings"><i class="material-icons">settings</i></a></li>
         </ul>
       </div>
-
       <div class="col s10 m10 l10 push-s2 push-m2 push-l2">
         <br>
         <%= yield %>

@@ -4,13 +4,10 @@ class VisitsController < ApplicationController
 
     @visit_count = @visits.length
     @user_count = User.count
-<<<<<<< HEAD
-    @most_frequent_os = User.group(:device_os).order('count(*)').limit(1).pluck(:device_os).first
-    @most_viewed_product = Visit.maximum(:product_id)
-=======
     @most_frequent_os = User.top(:device_os, 1).keys[0]
     @most_frequent_type = User.top(:device_type, 1).keys[0]
->>>>>>> added quick stats
+    most_viewed_product = Visit.top(:product_id).keys[0]
+    @most_viewed_product = Product.find(most_viewed_product).product_name
   end
 
   def create
