@@ -1,45 +1,104 @@
+<!-- for medium and large -->
 <!-- beginning row -->
-<div class="row">
+<div class="row" style="margin: 0">
+  <div class="col s12 m12 l12">
+    <div class="section-card-title center-align z-depth-1">
+      <span class="card-title">Quick Stats</span>
+    </div>
+  </div>
+</div>
+<!-- ending row -->
+
+<!-- for medium and small -->
+<!-- beginning row -->
+<div class="row hide-on-large-only">
+  <div class="col s12 m12 l12">
+    <ul class="collapsible" data-collapsible="accordion">
+
+      <li>
+        <div class="collapsible-header center-align">Total Visits</div>
+        <div class="collapsible-body">
+          <h4 class="center-align"><%= @visit_count %></h4>
+        </div>
+      </li>
+
+      <li>
+       <div class="collapsible-header center-align">Total Unique Visitors</div>
+       <div class="collapsible-body">
+         <h4 class="center-align"><%= @user_count %></h4>
+        </div>
+      </li>
+
+      <li>
+        <div class="collapsible-header center-align">Most Frequent OS</div>
+        <div class="collapsible-body">
+          <h5 class="center-align"><%= @most_frequent_os %></h5>
+        </div>
+      </li>
+
+      <li>
+        <div class="collapsible-header center-align">Most Frequent Device Type</div>
+        <div class="collapsible-body">
+          <h5 class="center-align"><%= @most_frequent_type %></h5>
+        </div>
+      </li>
+
+
+      <li>
+        <div class="collapsible-header center-align">Most Viewed Product</div>
+        <div class="collapsible-body">
+          <h5 class="center-align"><%= @most_viewed_product %></h5>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</div>
+ <!-- ending row -->
+
+<!-- for large only -->
+<!-- beginning row -->
+<div class="row hide-on-med-and-down">
 
   <div class="col s12 m2 l2">
     <div class="card-panel">
       <div class="center-align">Total Website Visits</div>
-        <h4 class="center-align"><%= @visit_count %></h4>
+      <h4 class="center-align"><%= @visit_count %></h4>
     </div>
   </div>
 
   <div class="col s12 m2 l2">
     <div class="card-panel">
-      <div class="center-align">Total Unique Visits</div>
-        <h4 class="center-align"><%= @user_count %></h4>
+      <div class="center-align">Total Unique Visitors</div>
+      <h4 class="center-align"><%= @user_count %></h4>
     </div>
   </div>
 
   <div class="col s12 m2 l2">
     <div class="card-panel">
       <div class="center-align">Most Frequent OS</div>
-        <h4 class="center-align"><%= @most_frequent_os %></h4>
+      <h5 class="center-align"><%= @most_frequent_os %></h5>
     </div>
   </div>
 
   <div class="col s12 m2 l2">
     <div class="card-panel">
-      <div class="center-align">Most Frequent Device</div>
-        <h4 class="center-align">Placeholder</h4>
+      <div class="center-align">Most Frequent Device Type</div>
+      <h5 class="center-align"><%= @most_frequent_type %></h5>
     </div>
   </div>
 
   <div class="col s12 m2 l2">
     <div class="card-panel">
       <div class="center-align">Most Viewed Product</div>
-        <h4 class="center-align"><%= @most_viewed_product %></h4>
+      <h5 class="center-align"><%= @most_viewed_product %></h5>
     </div>
   </div>
 
   <div class="col s12 m2 l2">
     <div class="card-panel">
       <div class="center-align">Most Common User City</div>
-        <h4 class="center-align">Placeholder</h4>
+      <h5 class="center-align">Placeholder</h5>
     </div>
   </div>
 

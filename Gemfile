@@ -21,6 +21,8 @@ gem 'chartkick'
 
 gem 'groupdate'
 
+gem 'hightop'
+
 gem 'materialize-sass'
 
 # Use jquery as the JavaScript library
