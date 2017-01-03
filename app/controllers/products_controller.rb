@@ -1,4 +1,8 @@
 class ProductsController < ApplicationController
+  def index
+    @products = Product.all
+  end
+
   def new
   end
 
@@ -9,6 +13,9 @@ class ProductsController < ApplicationController
         retailer: params[:retailer], 
         url: params[:url]
       )
+  end
+
+  def show
   end
 
   def destroy
