@@ -1,16 +1,16 @@
 <table class="bordered highlight responsive-table">
   <thead>
     <tr>
-        <th data-field="product_number">Product Number</th>
         <th data-field="product_name">Product Name</th>
+        <th data-field="product_number">Product Number</th>
     </tr>
   </thead>
 
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= product.product_number %></td>
         <td><%= product.product_name %></td>
+        <td><%= product.product_number %></td>
       </tr>
     <% end %>
   </tbody>
