@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  get '/' => 'visits#index'
+  get '/' => 'pages#index'
+  get '/product_charts' => 'pages#product_charts'
+  get '/user_charts' => 'pages#user_charts'
+  get '/location_charts' => 'pages#location_charts'
+  get '/visit_charts' => 'pages#visit_charts'
+  get '/purchase_charts' => 'pages#purchase_charts'
+
   get '/visits' => 'visits#index'
   post '/visits' => 'visits#create'
   get '/visits/:id' => 'visits#show'

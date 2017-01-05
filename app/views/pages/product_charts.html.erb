@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col">
+    <%= pie_chart Visit.group(:product_id).count %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <% @products.each do |product| %>
+      <p><%= product.id %>: <%= product.product_name %></p>
+    <% end %>
+  </div>
+</div>
