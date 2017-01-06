@@ -1,4 +1,3 @@
 class Purchase < ApplicationRecord
-  belongs_to :visit
-  has_one :user, through: :visit
+  belongs_to :product
 end
