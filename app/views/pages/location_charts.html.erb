@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col s12 m12 l12">
+    <div class="card">
+      <div class="section-card-title">
+        <span class="card-title">Visits By Country</span>
+      </div>
+      <div class="card-content">
+        <%= geo_chart Visit.group(:country).count %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s12 m6 l6">
+    <div class="card">
+      <div class="section-card-title">
+        <span class="card-title">Visits By State</span>
+      </div>
+      <div class="card-content">
+        <table class="highlight">
+          <thead>
+            <tr>
+              <th>State</th>
+              <th>Number of Visits</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @top_states.each do |visit| %>
+              <tr>
+                <td><%= visit[0] %></td>
+                <td><%= visit[1] %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col s12 m6 l6">
+    <div class="card">
+      <div class="section-card-title">
+        <span class="card-title">Visits By City</span>
+      </div>
+      <div class="card-content">
+        <table class="highlight">
+          <thead>
+            <tr>
+              <th>City</th>
+              <th>Number of Visits</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @top_cities.each do |visit| %>
+              <tr>
+                <td><%= visit[0] %></td>
+                <td><%= visit[1] %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

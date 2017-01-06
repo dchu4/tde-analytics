@@ -2,7 +2,6 @@ class PagesController < ApplicationController
 
   def index
     @visits = Visit.all
-
     @visit_count = @visits.length
     @user_count = User.count
     @most_frequent_os = User.top(:device_os, 1).keys[0]
@@ -21,7 +20,9 @@ class PagesController < ApplicationController
   end
 
   def location_charts
-
+    @visits = Visit.all
+    @top_states = Visit.top(:state)
+    @top_cities = Visit.top(:city)
   end
 
   def visit_charts

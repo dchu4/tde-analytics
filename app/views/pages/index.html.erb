@@ -1,4 +1,3 @@
-<!-- for medium and large -->
 <!-- beginning row -->
 <div class="row" style="margin: 0">
   <div class="col s12 m12 l12">
@@ -113,7 +112,7 @@
         <span class="card-title">Website Visitors Per Day</span>
       </div>
       <div class="card-content">
-        <%= line_chart Visit.group_by_day(:created_at).count, ytitle: "Number of Visitors" %>
+        <%= line_chart Visit.group_by_day(:created_at).count, adapter: "highcharts", ytitle: "Number of Visitors" %>
       </div>
     </div>
   </div>
@@ -129,7 +128,7 @@
         <span class="card-title">Countries</span>
       </div>
       <div class="card-content">
-        <%= pie_chart Visit.group(:country).count, donut: true %>
+        <%= pie_chart Visit.group(:country).count, adapter: "highcharts", donut: true %>
       </div>
     </div>
   </div>
@@ -140,7 +139,7 @@
         <span class="card-title">Product Page Views</span>
       </div>
       <div class="card-content">
-        <%= bar_chart Visit.group(:product_id).count, xtitle: "Number of Visitors", ytitle: "Product ID" %>
+        <%= bar_chart Visit.group(:product_id).count, adapter: "highcharts", xtitle: "Number of Visitors", ytitle: "Product ID" %>
       </div>
     </div>
   </div>
@@ -157,7 +156,7 @@
         <span class="card-title">Cities</span>
       </div>
       <div class="card-content">
-        <%= area_chart Visit.group(:city).count, xtitle: "City", ytitle: "Number of Users" %>
+        <%= area_chart Visit.group(:city).count, adapter: "highcharts", xtitle: "City", ytitle: "Number of Users" %>
       </div>
     </div>
   </div>
@@ -168,7 +167,7 @@
         <span class="card-title">User Device OS</span>
       </div>
       <div class="card-content">
-        <%= bar_chart User.group(:device_os).count, xtitle: "Number of Users", ytitle: "OS" %>
+        <%= bar_chart User.group(:device_os).count, adapter: "highcharts", xtitle: "Number of Users", ytitle: "OS" %>
       </div>
     </div>
   </div>
@@ -179,7 +178,7 @@
         <span class="card-title">User Device Type</span>
       </div>
       <div class="card-content">
-        <%= column_chart User.group(:device_type).count, xtitle: "Device Type", ytitle: "Number of Users" %>
+        <%= column_chart User.group(:device_type).count, adapter: "highcharts", xtitle: "Device Type", ytitle: "Number of Users" %>
       </div>
     </div>
   </div>

@@ -1,5 +1,9 @@
 class VisitsController < ApplicationController
 
+  def index
+
+  end
+
   def create
     ip = request.remote_ip
     location = Geocoder.search(ip).first
