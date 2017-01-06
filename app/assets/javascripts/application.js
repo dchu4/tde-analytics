@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require highcharts
 //= require Chart.bundle
 //= require chartkick
 //= require materialize
