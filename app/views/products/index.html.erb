@@ -1,12 +1,9 @@
-<table class="bordered highlight responsive-table">
+<table class="bordered highlight striped responsive-table table-rows">
   <thead>
     <tr>
         <th data-field="product_name">Product Name</th>
         <th data-field="product_number">Product Number</th>
         <th data-field="product_number">Visits</th>
-        <th data-field="product_number">Unique Visits</th>
-        <th data-field="product_number">Favorite Color</th>
-        <th data-field="product_number">Purchases</th>
     </tr>
   </thead>
 
@@ -15,9 +12,7 @@
       <tr>
         <td><%= product.product_name %></td>
         <td><%= product.product_number %></td>
-        <td><%= product.visits %></td>
-        <td><%= product.users %></td>
-        <td><%= product.purchases %></td>
+        <td><%= product.visits.length %></td>
       </tr>
     <% end %>
   </tbody>
