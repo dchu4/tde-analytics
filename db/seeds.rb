@@ -154,7 +154,7 @@
       country: "Canada",
       city: "Toronto",
       state: "Ontario",
-      user_: 2,
+      user_id: 2,
       product_id: rand(9) + 1
     )
 end
@@ -164,7 +164,7 @@ end
       country: "Canada",
       city: "Montreal",
       state: "Quebec",
-      user_: 3,
+      user_id: 3,
       product_id: rand(9) + 1
     )
 end
@@ -173,7 +173,7 @@ end
   Visit.create(
       country: "China",
       city: "Beijing",
-      user_: 4,
+      user_id: 4,
       product_id: rand(9) + 1
     )
 end
@@ -183,7 +183,7 @@ end
       country: "United States",
       city: "North Pole",
       state: "Alaska",
-      user_: 5,
+      user_id: 5,
       product_id: rand(9) + 1
     )
 end
