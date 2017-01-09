@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col s12 m3 l3">
+    <div class="card-panel">
+      <div class="center-align">Most Popular Product Visited</div>
+      <h5 class="center-align"><%= @most_popular_product %></h5>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="card">
+    <div class="section-card-title">
+      <span class="card-title">Visit Timeline</span>
+    </div>
+    <div class="card-content">
+      <%= area_chart Visit.group_by_day(:created_at).count %>
+    </div>
+  </div>
+</div>

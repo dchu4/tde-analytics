@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col s12 m6 l6">
+    <div class="card-panel">
+      <div class="center-align">Average Number of Visits Per User</div>
+      <h5 class="center-align"></h5>
+    </div>
+  </div>
+  <div class="col s12 m6 l6">
+    <div class="card-panel">
+      <div class="center-align">Average Number of Purchases Per User</div>
+      <h5 class="center-align"></h5>
+    </div>
+  </div>
+</div>
+
+<table class="striped">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Number of Visits</th>
+      <th>Number of Purchases</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.visits.count %></td>
+        <td><%= user.purchases.count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
