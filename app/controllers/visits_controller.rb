@@ -9,7 +9,7 @@ class VisitsController < ApplicationController
     location = Geocoder.search(ip).first
 
     user = User.find_or_create_by(
-        device_type: params[:device_type],
+        device_model: params[:device_model],
         device_os: params[:device_os],
         device_unique_id: params[:device_unique_id]
       )
@@ -17,7 +17,6 @@ class VisitsController < ApplicationController
     Visit.create(
         user_id: user.id,
         product_id: params[:product_id],
-        time: Time.now,
         ip: ip,
         country: location.country,
         city: location.city,

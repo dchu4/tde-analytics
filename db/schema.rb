@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170106195442) do
+ActiveRecord::Schema.define(version: 20170109174040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20170106195442) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "device_type"
+    t.string   "device_model"
     t.string   "device_os"
     t.string   "device_unique_id"
     t.datetime "created_at",       null: false
@@ -43,12 +43,9 @@ ActiveRecord::Schema.define(version: 20170106195442) do
   end
 
   create_table "visits", force: :cascade do |t|
-    t.datetime "time"
     t.string   "ip"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.float    "latitude"
-    t.float    "longitude"
     t.string   "country"
     t.string   "city"
     t.string   "state"
