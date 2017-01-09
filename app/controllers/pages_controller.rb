@@ -5,7 +5,7 @@ class PagesController < ApplicationController
     @visit_count = @visits.length
     @user_count = User.count
     @most_frequent_os = User.top(:device_os, 1).keys[0]
-    @most_frequent_type = User.top(:device_type, 1).keys[0]
+    @most_frequent_model = User.top(:device_model, 1).keys[0]
     @common_user_city = Visit.top(:city, 1).keys[0]
     most_viewed_product = Visit.top(:product_id).keys[0]
     @most_viewed_product = Product.find(most_viewed_product).product_name
