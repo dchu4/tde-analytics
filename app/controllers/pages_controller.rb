@@ -16,7 +16,8 @@ class PagesController < ApplicationController
   end
 
   def user_charts
-
+    @users = User.all
+    
   end
 
   def location_charts
@@ -26,11 +27,16 @@ class PagesController < ApplicationController
   end
 
   def visit_charts
-
+    most_popular_product = Visit.top(:product_id).keys[0]
+    @most_popular_product = Product.find(most_popular_product).product_name
   end
 
   def purchase_charts
-
+    most_purchased_product = Purchase.top(:product_id).keys[0]
+    @most_purchased_product = Product.find(most_purchased_product).product_name
+    @most_popular_color = Purchase.top(:color).keys[0]
+    @most_common_quantity = Purchase.top(:quantity).keys[0]
+    @average_cost = Purchase.average(:cost)
   end
 
 end
