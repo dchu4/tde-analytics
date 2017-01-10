@@ -139,7 +139,7 @@
         <span class="card-title">Product Page Views</span>
       </div>
       <div class="card-content">
-        <%= bar_chart Visit.group(:product_id).count, adapter: "highcharts", xtitle: "Number of Visitors", ytitle: "Product ID", refresh: 1 %>
+        <%= bar_chart Visit.group(:product_id).count, adapter: "highcharts", xtitle: "Number of Visitors", ytitle: "Product ID" %>
       </div>
     </div>
   </div>
