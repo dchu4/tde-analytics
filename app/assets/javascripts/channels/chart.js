@@ -5,10 +5,20 @@ App.room = App.cable.subscriptions.create("ChartChannel", {
 
   received: function(){
 
-    $.getJSON('messages', function(dataResults) {
+    $.getJSON('/api/v1/charts' + window.location.pathname, function(dataResults) {
       // console.log(dataResults);
       // myChart.data.datasets[0].data = dataResults;
       // myChart.update();
+      switch(window.location.pathname) {
+        case "/":
+            // code block
+            break;
+        case n:
+            // code block
+            break;
+        default:
+            dataResults;
+      }
     });
   }
 

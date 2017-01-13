@@ -23,10 +23,11 @@ Rails.application.routes.draw do
 
   post '/purchases' => 'purchases#create'
 
-  get '/pages/product_page_views' => 'pages#product_page_views'
   namespace :api do
     namespace :v1 do
-      get '/charts/product_page_views' => 'charts'
+      get '/charts/product_page_views' => 'charts#product_page_views'
+      get '/charts/user_device_os' => 'charts#user_device_os'
+      get '/charts/user_device_model' => 'charts#user_device_model'
     end
   end
 end
