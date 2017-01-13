@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require highcharts
-//= require Chart.bundle
 //= require chartkick
 //= require materialize
 //= require jquery_ujs
