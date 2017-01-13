@@ -17,7 +17,6 @@ class PagesController < ApplicationController
 
   def user_charts
     @users = User.all
-    
   end
 
   def location_charts

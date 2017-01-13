@@ -25,9 +25,8 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      get '/charts/product_page_views' => 'charts#product_page_views'
-      get '/charts/user_device_os' => 'charts#user_device_os'
-      get '/charts/user_device_model' => 'charts#user_device_model'
+      get '/charts' => 'charts#index'
     end
   end
+
 end

@@ -20,6 +20,7 @@ App.room = App.cable.subscriptions.create("ChartChannel", {
             dataResults;
       }
     });
+
   }
 
 });
