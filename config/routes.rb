@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount  ActionCable.server => '/cable'
+
   get '/' => 'pages#index'
   get '/product_charts' => 'pages#product_charts'
   get '/user_charts' => 'pages#user_charts'
@@ -20,4 +22,11 @@ Rails.application.routes.draw do
   delete '/products/:id' => 'products#destroy'
 
   post '/purchases' => 'purchases#create'
+
+  get '/pages/product_page_views' => 'pages#product_page_views'
+  namespace :api do
+    namespace :v1 do
+      get '/charts/product_page_views' => 'charts'
+    end
+  end
 end
