@@ -6,3 +6,4 @@ class RenameDeviceTypeFromUserAndRemoveLatLonTimeFromVisit < ActiveRecord::Migra
     remove_column :visits, :time, :datetime
   end
 end
+ 

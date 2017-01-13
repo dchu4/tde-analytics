@@ -112,8 +112,7 @@
         <span class="card-title">Website Visitors Per Day</span>
       </div>
       <div class="card-content">
-        <!-- <%= line_chart Visit.group_by_day(:created_at).count, adapter: "highcharts", ytitle: "Number of Visitors" %> -->
-        <canvas id="visitorsPerDay"></canvas>
+        <canvas id="visits_timeline_chart" height="100"></canvas>
       </div>
     </div>
   </div>
@@ -129,7 +128,7 @@
         <span class="card-title">Countries</span>
       </div>
       <div class="card-content">
-        <%= pie_chart Visit.group(:country).count, adapter: "highcharts", donut: true %>
+        <canvas id="countries_chart" height="170"></canvas>
       </div>
     </div>
   </div>
