@@ -23,13 +23,9 @@ Rails.application.routes.draw do
 
   post '/purchases' => 'purchases#create'
 
-  get '/pages/visits_timeline_chart' => 'pages#visits_timeline_chart'
-  get '/pages/countries_chart' => 'pages#countries_chart'
-
-  get '/pages/product_page_views' => 'pages#product_page_views'
   namespace :api do
     namespace :v1 do
-      get '/charts/product_page_views' => 'charts'
+      get '/charts' => 'charts#index'
     end
   end
 

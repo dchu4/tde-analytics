@@ -38,15 +38,4 @@ class PagesController < ApplicationController
     @average_cost = Purchase.average(:cost)
   end
 
-  def visits_timeline_chart
-    @visits_timeline = Visit.group_by_day(:created_at).count
-    # @dates = @visits_timeline.keys
-    @dates = @visits_timeline.collect { |key| key[0].strftime("%b %d, %Y") }
-    @numbers = @visits_timeline.values
-  end
-
-  def countries_chart
-
-  end
-
 end

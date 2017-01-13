@@ -128,8 +128,7 @@
         <span class="card-title">Countries</span>
       </div>
       <div class="card-content">
-        <%= pie_chart Visit.group(:country).count, adapter: "highcharts", donut: true %>
-        <canvas id="countries_chart" height="100"></canvas>
+        <canvas id="countries_chart" height="170"></canvas>
       </div>
     </div>
   </div>
