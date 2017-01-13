@@ -112,7 +112,8 @@
         <span class="card-title">Website Visitors Per Day</span>
       </div>
       <div class="card-content">
-        <%= line_chart Visit.group_by_day(:created_at).count, adapter: "highcharts", ytitle: "Number of Visitors" %>
+        <!-- <%= line_chart Visit.group_by_day(:created_at).count, adapter: "highcharts", ytitle: "Number of Visitors" %> -->
+        <canvas id="visitorsPerDay"></canvas>
       </div>
     </div>
   </div>
@@ -184,4 +185,4 @@
   </div>
 
 </div>
-<!-- ending row -->
+<!-- ending row  -->
