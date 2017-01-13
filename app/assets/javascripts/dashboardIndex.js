@@ -1,3 +1,6 @@
+var visitsTimelineChart;
+var countries_chart
+
 $(document).ready(function() {
 
   $.getJSON('api/v1/charts', function(result) {
@@ -17,7 +20,7 @@ $(document).ready(function() {
       }]
     };
     var vtc = document.getElementById("visits_timeline_chart");
-    var visitsTimelineChart = new Chart(vtc, {
+    visitsTimelineChart = new Chart(vtc, {
       type: 'line',
       data: timelineChartData
     });
@@ -42,7 +45,7 @@ $(document).ready(function() {
       }]
     };
     var cc = document.getElementById("countries_chart");
-    var countries_chart = new Chart(cc, {
+    countries_chart = new Chart(cc, {
       type: 'doughnut',
       data: countryChartData
     });
