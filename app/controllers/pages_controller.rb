@@ -17,7 +17,6 @@ class PagesController < ApplicationController
 
   def user_charts
     @users = User.all
-    
   end
 
   def location_charts
@@ -37,6 +36,17 @@ class PagesController < ApplicationController
     @most_popular_color = Purchase.top(:color).keys[0]
     @most_common_quantity = Purchase.top(:quantity).keys[0]
     @average_cost = Purchase.average(:cost)
+  end
+
+  def visits_timeline_chart
+    @visits_timeline = Visit.group_by_day(:created_at).count
+    # @dates = @visits_timeline.keys
+    @dates = @visits_timeline.collect { |key| key[0].strftime("%b %d, %Y") }
+    @numbers = @visits_timeline.values
+  end
+
+  def countries_chart
+
   end
 
 end

@@ -20,4 +20,7 @@ Rails.application.routes.draw do
   delete '/products/:id' => 'products#destroy'
 
   post '/purchases' => 'purchases#create'
+
+  get '/pages/visits_timeline_chart' => 'pages#visits_timeline_chart'
+  get '/pages/countries_chart' => 'pages#countries_chart'
 end
