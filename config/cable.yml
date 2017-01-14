@@ -7,8 +7,3 @@ test:
 production:
   adapter: redis
   url: redis://redistogo:0ab2b1be26961c3bdd286326d03c3ef2@crestfish.redistogo.com:11560/
-  host: crestfish.redistogo.com
-  port: 11560
-  password: 0ab2b1be26961c3bdd286326d03c3ef2
-  inline: true
-  timeout: 1
