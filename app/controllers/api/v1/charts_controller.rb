@@ -30,7 +30,7 @@ class Api::V1::ChartsController < ApplicationController
     @device_models = device_model_count.values
 
     #For the quick stats 
-    @site_visits = @visits.length
+    @site_visits = Visit.all.length
     @user_count = User.count
     @most_frequent_os = User.top(:device_os, 1).keys[0]
     @most_frequent_model = User.top(:device_model, 1).keys[0]
