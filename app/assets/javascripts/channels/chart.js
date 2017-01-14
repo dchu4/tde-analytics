@@ -37,8 +37,8 @@ App.room = App.cable.subscriptions.create("ChartChannel", {
             commonUserCity[1].innerHTML = dataResults["common_user_city"];
 
 
-            visitTimelineChart.data.datasets[0].data = dataResults["visits"];
-            countriesChart.data.datasets[0].data = dataResults["countries"];
+            visitsTimelineChart.data.datasets[0].data = dataResults["visits"];
+            countries_chart.data.datasets[0].data = dataResults["countries"];
 
             visitTimelineChart.update();
             countriesChart.update();
