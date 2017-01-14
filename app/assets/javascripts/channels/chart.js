@@ -11,11 +11,10 @@ App.room = App.cable.subscriptions.create("ChartChannel", {
       // myChart.update();
       switch(window.location.pathname) {
         case '/':
-            console.log("index case");
-            console.log("dataResults");
+            console.log(dataResults);
             var visitCount = document.getElementsByClassName("visit_count");
-            visitCount[0].innerHTML = dataResults["visit_count"];
-            visitCount[1].innerHTML = dataResults["visit_count"];
+            visitCount[0].innerHTML = dataResults["site_visits"];
+            visitCount[1].innerHTML = dataResults["site_visits"];
 
             var userCount = document.getElementsByClassName("user_count");
             userCount[0].innerHTML = dataResults["user_count"];
