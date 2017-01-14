@@ -1,5 +1,5 @@
 var visitsTimelineChart;
-var countries_chart
+var countries_chart;
 
 $(document).ready(function() {
 
