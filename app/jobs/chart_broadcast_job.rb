@@ -1,5 +1,5 @@
 class ChartBroadcastJob < ApplicationJob
-  queue_as :default
+  # queue_as :default
 
   def perform
     # Do something later
