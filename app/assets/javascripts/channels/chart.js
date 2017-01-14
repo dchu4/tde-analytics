@@ -40,8 +40,8 @@ App.room = App.cable.subscriptions.create("ChartChannel", {
             visitsTimelineChart.data.datasets[0].data = dataResults["visits"];
             countries_chart.data.datasets[0].data = dataResults["countries"];
 
-            visitTimelineChart.update();
-            countriesChart.update();
+            visitsTimelineChart.update();
+            countries_chart.update();
             break;
         default:
             break;
