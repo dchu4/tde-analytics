@@ -1,7 +1,7 @@
 class ChartBroadcastJob < ApplicationJob
   queue_as :default
 
-  def perform_last
+  def perform
     ActionCable.server.broadcast "chart_channel", {}
   end
 
