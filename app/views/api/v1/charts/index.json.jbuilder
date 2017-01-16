@@ -9,13 +9,18 @@ json.dates @dates
 json.numbers @numbers
 
 json.countries @countries
-json.visits @visits
+json.countries_visits @countries_visits
+
+json.product_names @product_names
+json.visit_counts @visit_counts
+
+json.cities @cities
+json.city_visits @city_visits
+
+json.device_os_names @device_names
+json.device_oss @device_oss
 
 json.device_model_names @device_model_names
 json.device_models @device_models
 
-json.device_names @device_names
-json.device_oss @device_oss
-
-json.product_names @product_names
-json.visit_counts @visit_counts
+json.visits @visits

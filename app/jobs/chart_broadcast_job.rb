@@ -4,5 +4,4 @@ class ChartBroadcastJob < ApplicationJob
   def perform
     ActionCable.server.broadcast "chart_channel", {}
   end
-
 end

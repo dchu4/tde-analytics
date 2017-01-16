@@ -146,7 +146,7 @@
         <span class="card-title">Product Page Views</span>
       </div>
       <div class="card-content">
-        <%= bar_chart Visit.group(:product_id).count, adapter: "highcharts", xtitle: "Number of Visitors", ytitle: "Product ID" %>
+        <canvas id="products_chart" height="170"></canvas>
       </div>
     </div>
   </div>
@@ -163,7 +163,7 @@
         <span class="card-title">Cities</span>
       </div>
       <div class="card-content">
-        <%= area_chart Visit.group(:city).count, adapter: "highcharts", xtitle: "City", ytitle: "Number of Users" %>
+        <canvas id="cities_chart" height="300"></canvas>
       </div>
     </div>
   </div>
@@ -174,7 +174,7 @@
         <span class="card-title">User Device OS</span>
       </div>
       <div class="card-content">
-        <%= bar_chart User.group(:device_os).count, adapter: "highcharts", xtitle: "Number of Users", ytitle: "OS" %>
+        <canvas id="device_os_chart" height="300"></canvas>
       </div>
     </div>
   </div>
@@ -185,10 +185,10 @@
         <span class="card-title">User Device Model</span>
       </div>
       <div class="card-content">
-        <%= column_chart User.group(:device_model).count, adapter: "highcharts", xtitle: "Device Type", ytitle: "Number of Users" %>
+        <canvas id="device_model_chart" height="300"></canvas>
       </div>
     </div>
   </div>
 
 </div>
-<!-- ending row -->
+<!-- ending row  -->
