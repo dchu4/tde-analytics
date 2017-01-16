@@ -9,7 +9,7 @@ json.dates @dates
 json.numbers @numbers
 
 json.countries @countries
-json.countries_visits @countries_visits
+json.country_visits @country_visits
 
 json.product_names @product_names
 json.visit_counts @visit_counts
