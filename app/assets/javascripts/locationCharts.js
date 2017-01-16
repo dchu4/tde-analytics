@@ -1,66 +1,69 @@
-google.charts.load('upcoming', {'packages':['geochart']});
+$(document).ready(function() {
 
-google.charts.setOnLoadCallback(drawMaps);
+  google.charts.load('upcoming', {'packages':['geochart']});
 
-function drawMaps() {
+  google.charts.setOnLoadCallback(drawMaps);
 
-  $.getJSON('/api/v1/location_charts', function(json) {
-    //world map
-    var worldData = new google.visualization.arrayToDataTable(json["world_chart"]);
+  function drawMaps() {
 
-    var worldOptions = {
-      colorAxis: {
-        colors: ['#ffd777', '#4BB5CC']
-      }
-    };
+    $.getJSON('/api/v1/location_charts', function(json) {
+      //world map
+      var worldData = new google.visualization.arrayToDataTable(json["world_chart"]);
 
-    var worldChart = new google.visualization.GeoChart(document.getElementById('world_chart'));
-    worldChart.draw(worldData, worldOptions);
+      var worldOptions = {
+        colorAxis: {
+          colors: ['#ffd777', '#4BB5CC']
+        }
+      };
 
-    //top states table
-    var newStates = json["states"];
-    var statesTblBody = document.getElementById('top_states');
+      var worldChart = new google.visualization.GeoChart(document.getElementById('world_chart'));
+      worldChart.draw(worldData, worldOptions);
 
-    for (var i = 0; i < newStates.length; i++) {
-      var row = document.createElement("tr");
+      //top states table
+      var newStates = json["states"];
+      var statesTblBody = document.getElementById('top_states');
 
-      var cell = document.createElement("td");
-      var cell2 = document.createElement("td");
+      for (var i = 0; i < newStates.length; i++) {
+        var row = document.createElement("tr");
 
-      var cellText = document.createTextNode(newStates[i][0]);
-      var cellText2 = document.createTextNode(newStates[i][1]);
+        var cell = document.createElement("td");
+        var cell2 = document.createElement("td");
 
-      cell.appendChild(cellText);
-      cell2.appendChild(cellText2);
+        var cellText = document.createTextNode(newStates[i][0]);
+        var cellText2 = document.createTextNode(newStates[i][1]);
 
-      row.appendChild(cell);
-      row.appendChild(cell2);
+        cell.appendChild(cellText);
+        cell2.appendChild(cellText2);
 
-      statesTblBody.appendChild(row);
-    };
+        row.appendChild(cell);
+        row.appendChild(cell2);
 
-    //top cities table
-    var newCities = json["cities"];
-    var citiesTblBody = document.getElementById('top_cities');
+        statesTblBody.appendChild(row);
+      };
 
-    for (var j = 0; j < newCities.length; j++) {
-      var row = document.createElement("tr");
+      //top cities table
+      var newCities = json["cities"];
+      var citiesTblBody = document.getElementById('top_cities');
 
-      var cell = document.createElement("td");
-      var cell2 = document.createElement("td");
+      for (var j = 0; j < newCities.length; j++) {
+        var row = document.createElement("tr");
 
-      var cellText = document.createTextNode(newCities[j][0]);
-      var cellText2 = document.createTextNode(newCities[j][1]);
+        var cell = document.createElement("td");
+        var cell2 = document.createElement("td");
 
-      cell.appendChild(cellText);
-      cell2.appendChild(cellText2);
+        var cellText = document.createTextNode(newCities[j][0]);
+        var cellText2 = document.createTextNode(newCities[j][1]);
 
-      row.appendChild(cell);
-      row.appendChild(cell2);
+        cell.appendChild(cellText);
+        cell2.appendChild(cellText2);
 
-      citiesTblBody.appendChild(row);
-    };
+        row.appendChild(cell);
+        row.appendChild(cell2);
 
-  });
+        citiesTblBody.appendChild(row);
+      };
 
-}
+    });
+
+  }
+});
