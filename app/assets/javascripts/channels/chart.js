@@ -39,11 +39,14 @@ App.room = App.cable.subscriptions.create("ChartChannel", {
             console.log(visitsTimelineChart);
             console.log(countries_chart);
 
-            // visitsTimelineChart.data.datasets[0].data = dataResults["visits"];
-            // countries_chart.data.datasets[0].data = dataResults["countries"];
+            visitsTimelineChart.data.label = dataResults["dates"];
+            visitsTimelineChart.data.datasets[0].data = dataResults["numbers"];
 
-            // visitsTimelineChart.update();
-            // countries_chart.update();
+            countries_chart.data.label = dataResults["countries"];
+            countries_chart.data.datasets[0].data = dataResults["visits"];
+
+            visitsTimelineChart.update();
+            countries_chart.update();
             break;
         default:
             break;
