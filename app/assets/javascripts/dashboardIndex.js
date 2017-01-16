@@ -49,7 +49,7 @@ $(document).ready(function() {
     var countryChartData = {
       labels: result["countries"],
       datasets: [{
-        data: result["countries_visits"],
+        data: result["country_visits"],
         backgroundColor: [
           'rgb(255, 99, 132)',
           '#4BB5CC',
