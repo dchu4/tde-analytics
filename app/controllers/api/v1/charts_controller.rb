@@ -8,7 +8,7 @@ class Api::V1::ChartsController < ApplicationController
 
     countries_count = Visit.group(:country).count
     @countries = countries_count.keys
-    @countries_visits = countries_count.values
+    @country_visits = countries_count.values
 
     product_view_count = Visit.group(:product_id).order(:product_id).count
     @product_names = product_view_count.keys
