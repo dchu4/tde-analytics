@@ -55,11 +55,7 @@ $(document).ready(function() {
       labels: result["countries"],
       datasets: [{
         data: result["country_visits"],
-        backgroundColor: [
-          'rgb(255, 99, 132)',
-          '#4BB5CC',
-          '#ffd777'
-        ]
+        backgroundColor: colorArray
       }]
     };
     var cc = document.getElementById("countries_chart");
@@ -74,11 +70,7 @@ $(document).ready(function() {
       datasets: [{
         label: 'Number of Views',
         data: result["visit_counts"],
-        backgroundColor: [
-          'rgb(255, 99, 132)',
-          '#4BB5CC',
-          '#ffd777'
-        ]
+        backgroundColor: colorArray
       }]
     };
     var pc = document.getElementById("products_chart");
