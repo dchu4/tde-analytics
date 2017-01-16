@@ -11,7 +11,8 @@ App.room = App.cable.subscriptions.create("ChartChannel", {
       // myChart.update();
       switch(window.location.pathname) {
         case '/':
-            console.log(dataResults);
+
+            // Quick stats update
             var visitCount = document.getElementsByClassName("visit_count");
             visitCount[0].innerHTML = dataResults["site_visits"];
             visitCount[1].innerHTML = dataResults["site_visits"];
@@ -36,9 +37,7 @@ App.room = App.cable.subscriptions.create("ChartChannel", {
             commonUserCity[0].innerHTML = dataResults["common_user_city"];
             commonUserCity[1].innerHTML = dataResults["common_user_city"];
 
-            console.log(visitsTimelineChart);
-            console.log(countries_chart);
-
+            // Chart updates
             visitsTimelineChart.data.label = dataResults["dates"];
             visitsTimelineChart.data.datasets[0].data = dataResults["numbers"];
 
