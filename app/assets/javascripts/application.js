@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require moment.min
 //= require highcharts
 //= require chartkick
 //= require materialize
