@@ -11,8 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require moment.min
-//= require chartkick
 //= require materialize
 //= require jquery_ujs
 //= require turbolinks
