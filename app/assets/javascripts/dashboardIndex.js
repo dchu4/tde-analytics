@@ -1,3 +1,10 @@
+var visitsTimelineChart;
+var countriesChart;
+var productsChart;
+var citiesChart;
+var deviceOsChart;
+var deviceModelChart;
+
 $(document).ready(function() {
 
   $.getJSON('api/v1/charts', function(result) {
@@ -18,7 +25,7 @@ $(document).ready(function() {
       }]
     };
     var vtc = document.getElementById("visits_timeline_chart");
-    var visitsTimelineChart = new Chart(vtc, {
+    visitsTimelineChart = new Chart(vtc, {
       type: 'line',
       data: timelineChartData,
       options: { 
@@ -51,7 +58,7 @@ $(document).ready(function() {
       }]
     };
     var cc = document.getElementById("countries_chart");
-    var countriesChart = new Chart(cc, {
+    countriesChart = new Chart(cc, {
       type: 'pie',
       data: countryChartData
     });
@@ -70,7 +77,7 @@ $(document).ready(function() {
       }]
     };
     var pc = document.getElementById("products_chart");
-    var productsChart = new Chart(pc, {
+    productsChart = new Chart(pc, {
       type: 'bar',
       data: productsChartData,
       options:{ 
@@ -101,7 +108,7 @@ $(document).ready(function() {
       }]
     };
     var cic = document.getElementById("cities_chart");
-    var citiesChart = new Chart(cic, {
+    citiesChart = new Chart(cic, {
       type: 'doughnut',
       data: cityChartData
     });
@@ -121,7 +128,7 @@ $(document).ready(function() {
       }]
     };
     var osc = document.getElementById("device_os_chart");
-    var deviceOsChart = new Chart(osc, {
+    deviceOsChart = new Chart(osc, {
       type: 'bar',
       data: osChartData,
       options:{ 
@@ -152,7 +159,7 @@ $(document).ready(function() {
       }]
     };
     var mc = document.getElementById("device_model_chart");
-    var deviceModelChart = new Chart(mc, {
+    deviceModelChart = new Chart(mc, {
       type: 'pie',
       data: modelChartData
     });
