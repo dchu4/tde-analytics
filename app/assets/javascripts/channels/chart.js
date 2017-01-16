@@ -9,6 +9,7 @@ App.room = App.cable.subscriptions.create("ChartChannel", {
       // console.log(dataResults);
       // myChart.data.datasets[0].data = dataResults;
       visitsTimelineChart.update();
+      countriesChart.udpate();
     });
 
   }

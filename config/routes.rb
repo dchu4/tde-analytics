@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get '/charts' => 'charts#index'
+      get '/visit_charts' => 'charts#visit_charts'
+      get '/location_charts' => 'charts#location_charts'
     end
   end
 end
