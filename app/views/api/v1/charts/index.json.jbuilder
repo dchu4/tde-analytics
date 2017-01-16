@@ -22,5 +22,3 @@ json.device_oss @device_oss
 
 json.device_model_names @device_model_names
 json.device_models @device_models
-
-json.visits @visits
