@@ -5,6 +5,11 @@ var citiesChart;
 var deviceOsChart;
 var deviceModelChart;
 
+Chart.defaults.global.defaultColor = 'rgb(255, 99, 132)';
+Chart.defaults.global.elements.responsive = true;
+
+var colorArray = ['rgb(255, 99, 132)', '#4BB5CC', '#ffd777','rgb(255, 99, 132)', '#4BB5CC', '#ffd777', 'rgb(255, 99, 132)', '#4BB5CC', '#ffd777']
+
 $(document).ready(function() {
 
   $.getJSON('api/v1/charts', function(result) {
@@ -100,11 +105,7 @@ $(document).ready(function() {
       labels: result["cities"],
       datasets: [{
         data: result["city_visits"],
-        backgroundColor: [
-          'rgb(255, 99, 132)',
-          '#4BB5CC',
-          '#ffd777'
-        ]
+        backgroundColor: colorArray
       }]
     };
     var cic = document.getElementById("cities_chart");
@@ -120,11 +121,7 @@ $(document).ready(function() {
       datasets: [{
         label: 'Number of Users',
         data: result["device_oss"],
-        backgroundColor: [
-          'rgb(255, 99, 132)',
-          '#4BB5CC',
-          '#ffd777'
-        ]
+        backgroundColor: colorArray
       }]
     };
     var osc = document.getElementById("device_os_chart");
@@ -151,11 +148,7 @@ $(document).ready(function() {
       labels: result["device_model_names"],
       datasets: [{
         data: result["device_models"],
-        backgroundColor: [
-          'rgb(255, 99, 132)',
-          '#4BB5CC',
-          '#ffd777'
-        ]
+        backgroundColor: colorArray
       }]
     };
     var mc = document.getElementById("device_model_chart");
