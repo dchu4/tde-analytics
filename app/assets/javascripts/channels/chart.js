@@ -6,9 +6,6 @@ App.room = App.cable.subscriptions.create("ChartChannel", {
   received: function(){
 
     $.getJSON('/api/v1/charts' + window.location.pathname, function(dataResults) {
-      // console.log(dataResults);
-      // myChart.data.datasets[0].data = dataResults;
-      // myChart.update();
       switch(window.location.pathname) {
         case '/':
 
@@ -41,11 +38,27 @@ App.room = App.cable.subscriptions.create("ChartChannel", {
             visitsTimelineChart.data.label = dataResults["dates"];
             visitsTimelineChart.data.datasets[0].data = dataResults["numbers"];
 
-            countries_chart.data.label = dataResults["countries"];
-            countries_chart.data.datasets[0].data = dataResults["visits"];
+            countriesChart.data.label = dataResults["countries"];
+            countriesChart.data.datasets[0].data = dataResults["country_visits"];
+
+            productsChart.data.label = dataResults["product_names"];
+            productsChart.data.datasets[0].data = dataResults["visit_counts"];
+
+            citiesChart.data.label = dataResults["cities"];
+            citiesChart.data.datasets[0].data = dataResults["city_visits"];
+
+            deviceOsChart.data.label = dataResults["device_names"];
+            deviceOsChart.data.datasets[0].data = dataResults["device_oss"];
+
+            deviceModelChart.data.label = dataResults["device_model_names"];
+            deviceModelChart.data.datasets[0].data = dataResults["device_models"];
 
             visitsTimelineChart.update();
-            countries_chart.update();
+            countriesChart.update();
+            productsChart.update();
+            citiesChart.update();
+            deviceOsChart.update();
+            deviceModelChart.update();
             break;
         default:
             break;

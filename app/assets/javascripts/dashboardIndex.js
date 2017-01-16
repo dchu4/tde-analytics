@@ -101,7 +101,7 @@ $(document).ready(function() {
       }]
     };
     var cic = document.getElementById("cities_chart");
-    var countriesChart = new Chart(cic, {
+    var citiesChart = new Chart(cic, {
       type: 'doughnut',
       data: cityChartData
     });
