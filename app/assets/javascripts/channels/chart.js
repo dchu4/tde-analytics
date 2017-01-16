@@ -36,12 +36,14 @@ App.room = App.cable.subscriptions.create("ChartChannel", {
             commonUserCity[0].innerHTML = dataResults["common_user_city"];
             commonUserCity[1].innerHTML = dataResults["common_user_city"];
 
+            console.log(visitsTimelineChart);
+            console.log(countries_chart);
 
-            visitsTimelineChart.data.datasets[0].data = dataResults["visits"];
-            countries_chart.data.datasets[0].data = dataResults["countries"];
+            // visitsTimelineChart.data.datasets[0].data = dataResults["visits"];
+            // countries_chart.data.datasets[0].data = dataResults["countries"];
 
-            visitsTimelineChart.update();
-            countries_chart.update();
+            // visitsTimelineChart.update();
+            // countries_chart.update();
             break;
         default:
             break;
