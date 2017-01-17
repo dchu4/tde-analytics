@@ -19,12 +19,8 @@ $(document).ready(function() {
       datasets: [{
         label: 'Number of Visits',
         data: result["numbers"],
-        backgroundColor: [
-          'rgb(255, 99, 132)'
-        ],
-        borderColor: [
-          'rgb(255, 99, 132)'
-        ],
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
         borderWidth: 2,
         fill: false
       }]
