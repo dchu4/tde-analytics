@@ -1,3 +1,7 @@
+var worldChart;
+var newStates;
+var newCities;
+
 $(document).ready(function() {
 
   google.charts.load('upcoming', {'packages':['geochart']});
@@ -16,11 +20,11 @@ $(document).ready(function() {
         }
       };
 
-      var worldChart = new google.visualization.GeoChart(document.getElementById('world_chart'));
+      worldChart = new google.visualization.GeoChart(document.getElementById('world_chart'));
       worldChart.draw(worldData, worldOptions);
 
       //top states table
-      var newStates = json["states"];
+      newStates = json["states"];
       var statesTblBody = document.getElementById('top_states');
 
       for (var i = 0; i < newStates.length; i++) {
@@ -42,7 +46,7 @@ $(document).ready(function() {
       };
 
       //top cities table
-      var newCities = json["cities"];
+      newCities = json["cities"];
       var citiesTblBody = document.getElementById('top_cities');
 
       for (var j = 0; j < newCities.length; j++) {
