@@ -16,7 +16,7 @@ $(document).ready(function() {
 
       var worldOptions = {
         colorAxis: {
-          colors: ['#ffd777', '#4BB5CC']
+          colors: ['#FF9999', '#EE4036']
         }
       };
 

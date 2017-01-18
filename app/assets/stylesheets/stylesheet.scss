@@ -1,29 +1,42 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
+@font-face {
+  font-family:'Slim Joe';
+  src:font-url('slim_joe.otf') format('opentype');
+}
 
-$primary-color: #4C4C42;
-$secondary-color: #ffd777;
-$accent-color: #4BB5CC;
+$primary-color: #F05A28;
+$secondary-color: #FF9999;
+$accent-color: #EE4036;
 $grey: #e0e0e0;
 $light-grey: #f5f5f5;
 $dark-grey: #212121;
-$header-font: Poppins;
+$header-font: Slim Joe;
+
+@mixin gradient {
+  background: $primary-color !important;
+  background: -webkit-linear-gradient(left, $primary-color , $accent-color) !important;
+  background: -o-linear-gradient(right, $primary-color, $accent-color) !important;
+  background: -moz-linear-gradient(right, $primary-color, $accent-color) !important;
+  background: linear-gradient(to right, $primary-color , $accent-color) !important;
+}
 
 body {
   background: $grey;
+  font-family: Poppins;
 }
 
 .side-navbar {
-  background: $primary-color;
+  @include gradient;
   margin: 0px;
   height: 100vh;
   position: fixed;
 }
 
 .navbar-button {
+  @include gradient;
   margin: 0;
   padding: 20px 10px;
   width: 100%;
-  background: $primary-color;
   color: #fff;
   border-bottom: 1px solid $light-grey;
 }
@@ -33,7 +46,7 @@ body {
 }
 
 .nav-wrapper {
-  background: $primary-color !important;
+  @include gradient;
 }
 
 .card {
@@ -48,18 +61,22 @@ body {
 }
 
 .brand-logo {
-  margin-left: 10px;
+  margin-left: 15px;
+  margin-top: 5px;
   font-family: $header-font, sans-serif;
-  font-size: 2.6rem !important;
+  font-size: 2.1rem !important;
+  font-weight: bold;
 }
 
 .section-card-title {
-  background: $secondary-color;
+  @include gradient;
   text-align: center;
   margin: 0px;
   width: 100%;
   padding: 10px;
   font-family: $header-font, sans-serif;
+  font-weight: bold;
+  color: #fff;
 }
 
 .collapsible-body {
@@ -67,7 +84,7 @@ body {
 }
 
 .collapsible li {
-  background-color: $accent-color;
+  @include gradient;
 }
 
 .card-title {
@@ -76,14 +93,14 @@ body {
 }
 
 .card-panel {
-  background: $accent-color !important;
-  color: #fff !important;
-  max-height: 130px;
-  min-height: 130px;
+  background: #fff !important;
+  color: $dark-grey !important;
+  max-height: 135px;
+  min-height: 135px;
   overflow: scroll;
 }
 
 .card-panel:hover {
-  background: #fff !important;
-  color: $accent-color !important;
+  background: $secondary-color !important;
+  color: #fff !important;
 }
