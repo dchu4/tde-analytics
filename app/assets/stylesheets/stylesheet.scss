@@ -1,8 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins');
 @font-face {
   font-family:'Slim Joe';
   src:font-url('slim_joe.otf') format('opentype');
-}
+};
+
+@font-face {
+  font-family:'Gotham Rounded';
+  src:font-url('GothamRounded-Light.otf') format('opentype');
+};
 
 $primary-color: #F05A28;
 $secondary-color: #FF9999;
@@ -12,7 +16,7 @@ $light-grey: #f5f5f5;
 $dark-grey: #212121;
 $header-font: Slim Joe;
 
-@mixin gradient {
+@mixin title-gradient {
   background: $primary-color !important;
   background: -webkit-linear-gradient(left, $primary-color , $accent-color) !important;
   background: -o-linear-gradient(right, $primary-color, $accent-color) !important;
@@ -22,18 +26,18 @@ $header-font: Slim Joe;
 
 body {
   background: $grey;
-  font-family: Poppins;
+  font-family: Gotham Rounded, sans-serif;
 }
 
 .side-navbar {
-  @include gradient;
+  @include title-gradient;
   margin: 0px;
   height: 100vh;
   position: fixed;
 }
 
 .navbar-button {
-  @include gradient;
+  @include title-gradient;
   margin: 0;
   padding: 20px 10px;
   width: 100%;
@@ -46,7 +50,11 @@ body {
 }
 
 .nav-wrapper {
-  @include gradient;
+  background: $primary-color !important;
+  background: -webkit-linear-gradient(left, $primary-color , $accent-color, $secondary-color) !important;
+  background: -o-linear-gradient(right, $primary-color, $accent-color, $secondary-color) !important;
+  background: -moz-linear-gradient(right, $primary-color, $accent-color, $secondary-color) !important;
+  background: linear-gradient(to right, $primary-color , $accent-color, $secondary-color) !important;
 }
 
 .card {
@@ -69,7 +77,7 @@ body {
 }
 
 .section-card-title {
-  @include gradient;
+  @include title-gradient;
   text-align: center;
   margin: 0px;
   width: 100%;
@@ -84,7 +92,7 @@ body {
 }
 
 .collapsible li {
-  @include gradient;
+  @include title-gradient;
 }
 
 .card-title {

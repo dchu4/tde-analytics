@@ -1,73 +1,46 @@
-var worldChart;
-var newStates;
-var newCities;
+// var newStates;
+// var newCities;
 
-$(document).ready(function() {
+//top states table
+// newStates = json["states"];
+// var statesTblBody = document.getElementById('top_states');
 
-  google.charts.load('upcoming', {'packages':['geochart']});
+// for (var i = 0; i < newStates.length; i++) {
+//   var row = document.createElement("tr");
 
-  google.charts.setOnLoadCallback(drawMaps);
+//   var cell = document.createElement("td");
+//   var cell2 = document.createElement("td");
 
-  function drawMaps() {
+//   var cellText = document.createTextNode(newStates[i][0]);
+//   var cellText2 = document.createTextNode(newStates[i][1]);
 
-    $.getJSON('/api/v1/location_charts', function(json) {
-      //world map
-      var worldData = new google.visualization.arrayToDataTable(json["world_chart"]);
+//   cell.appendChild(cellText);
+//   cell2.appendChild(cellText2);
 
-      var worldOptions = {
-        colorAxis: {
-          colors: ['#FF9999', '#EE4036']
-        }
-      };
+//   row.appendChild(cell);
+//   row.appendChild(cell2);
 
-      worldChart = new google.visualization.GeoChart(document.getElementById('world_chart'));
-      worldChart.draw(worldData, worldOptions);
+//   statesTblBody.appendChild(row);
+// };
 
-      //top states table
-      newStates = json["states"];
-      var statesTblBody = document.getElementById('top_states');
+//top cities table
+// newCities = json["cities"];
+// var citiesTblBody = document.getElementById('top_cities');
 
-      for (var i = 0; i < newStates.length; i++) {
-        var row = document.createElement("tr");
+// for (var j = 0; j < newCities.length; j++) {
+//   var row = document.createElement("tr");
 
-        var cell = document.createElement("td");
-        var cell2 = document.createElement("td");
+//   var cell = document.createElement("td");
+//   var cell2 = document.createElement("td");
 
-        var cellText = document.createTextNode(newStates[i][0]);
-        var cellText2 = document.createTextNode(newStates[i][1]);
+//   var cellText = document.createTextNode(newCities[j][0]);
+//   var cellText2 = document.createTextNode(newCities[j][1]);
 
-        cell.appendChild(cellText);
-        cell2.appendChild(cellText2);
+//   cell.appendChild(cellText);
+//   cell2.appendChild(cellText2);
 
-        row.appendChild(cell);
-        row.appendChild(cell2);
+//   row.appendChild(cell);
+//   row.appendChild(cell2);
 
-        statesTblBody.appendChild(row);
-      };
-
-      //top cities table
-      newCities = json["cities"];
-      var citiesTblBody = document.getElementById('top_cities');
-
-      for (var j = 0; j < newCities.length; j++) {
-        var row = document.createElement("tr");
-
-        var cell = document.createElement("td");
-        var cell2 = document.createElement("td");
-
-        var cellText = document.createTextNode(newCities[j][0]);
-        var cellText2 = document.createTextNode(newCities[j][1]);
-
-        cell.appendChild(cellText);
-        cell2.appendChild(cellText2);
-
-        row.appendChild(cell);
-        row.appendChild(cell2);
-
-        citiesTblBody.appendChild(row);
-      };
-
-    });
-
-  }
-});
+//   citiesTblBody.appendChild(row);
+// };
