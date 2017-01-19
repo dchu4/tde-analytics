@@ -1,53 +1,58 @@
-<div class="row">
-  <div class="col s12 m12 l12">
-    <div class="card">
-      <div class="section-card-title">
-        <span class="card-title">Visits By Country</span>
-      </div>
-      <div class="card-content">
-        <div id="world_chart" style="height: 400px"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col s12 m6 l6">
-    <div class="card table-card">
-      <div class="section-card-title">
-        <span class="card-title">Visits By State</span>
-      </div>
-      <div class="card-content">
-        <table class="highlight">
-          <thead>
-            <tr>
-              <th>State</th>
-              <th>Number of Visits</th>
-            </tr>
-          </thead>
-          <tbody id="top_states">
-          </tbody>
-        </table>
+<div ng-app="app">
+  <div ng-controller="locationCtrl" ng-init="locationChartSetup()">
+    
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <div class="card">
+          <div class="section-card-title">
+            <span class="card-title">Visits By Country</span>
+          </div>
+          <div class="card-content">
+            <div id="world_chart" style="height: 400px"></div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="col s12 m6 l6">
-    <div class="card table-card">
-      <div class="section-card-title">
-        <span class="card-title">Visits By City</span>
+    <div class="row">
+      <div class="col s12 m6 l6">
+        <div class="card table-card">
+          <div class="section-card-title">
+            <span class="card-title">Visits By State</span>
+          </div>
+          <div class="card-content">
+            <table class="highlight">
+              <thead>
+                <tr>
+                  <th>State</th>
+                  <th>Number of Visits</th>
+                </tr>
+              </thead>
+              <tbody id="top_states">
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-      <div class="card-content">
-        <table class="highlight">
-          <thead>
-            <tr>
-              <th>City</th>
-              <th>Number of Visits</th>
-            </tr>
-          </thead>
-          <tbody id="top_cities">
-          </tbody>
-        </table>
+
+      <div class="col s12 m6 l6">
+        <div class="card table-card">
+          <div class="section-card-title">
+            <span class="card-title">Visits By City</span>
+          </div>
+          <div class="card-content">
+            <table class="highlight">
+              <thead>
+                <tr>
+                  <th>City</th>
+                  <th>Number of Visits</th>
+                </tr>
+              </thead>
+              <tbody id="top_cities">
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>

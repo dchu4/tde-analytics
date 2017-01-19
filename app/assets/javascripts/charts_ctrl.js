@@ -147,7 +147,7 @@
         });
 
       });
-    }
+    };
     window.scope = $scope;
   });
 
