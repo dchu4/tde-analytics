@@ -13,6 +13,7 @@ var colorArray = ['#FF9999', '#EE4036', '#E3F14F', '#F05A28', '#186CBB', '#A11C1
 $(document).ready(function() {
 
   $.getJSON('api/v1/charts', function(result) {
+    console.log(result);
     // timeline chart
     var timelineChartData = {
       labels: result["dates"],

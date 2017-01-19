@@ -1,3 +1,6 @@
-$(document).ready(function(){
-  $('.collapsible').collapsible();
-});
+(function() {
+  "use strict";
+
+  angular.module("app", ["chart.js"]);
+
+}());

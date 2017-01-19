@@ -53,4 +53,12 @@ class Api::V1::ChartsController < ApplicationController
     @cities_array = []
     cities.each { |x| @cities_array << [x[0], x[1]] }
   end
+
+  def product_charts
+    gon.product_id = params[:id]
+
+    product_visits = Visit.where(product_id: params[:id]).group_by_day(:created_at).count
+    @product_visit_dates = product_visits.collect { |key| key[0].strftime("%b %d, %Y") }
+    @product_visit_counts = product_visits.values
+  end
 end

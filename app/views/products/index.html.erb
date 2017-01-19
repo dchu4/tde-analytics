@@ -11,7 +11,7 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= link_to product.product_name, "/products/#{product.id}" %></td>
+        <td><%= link_to product.product_name, "/product_charts/#{product.id}" %></td>
         <td><%= product.product_number %></td>
         <td><%= product.visits.length %></td>
         <td><%= product.purchases.sum(:quantity) %></td>
