@@ -16,5 +16,4 @@
 //= require angular-chart
 //= require materialize
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
