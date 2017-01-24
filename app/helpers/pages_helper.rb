@@ -1,6 +1,6 @@
 module PagesHelper
   def get_data(results_date)
-    ENV["GOOGLE_APPLICATION_CREDENTIALS"] = "#{Rails.root}/key.json"
+    Google::Auth::ServiceAccountCredentials.new
     analytics = Google::Apis::AnalyticsV3::AnalyticsService.new
     scope = ['https://www.googleapis.com/auth/analytics.readonly']
     analytics.authorization = Google::Auth.get_application_default(scope)
