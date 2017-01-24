@@ -15,9 +15,11 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+<<<<<<< HEAD
 
 # Ignore application configuration
 /config/application.yml
 /key.json
 
 *.DS_Store
+g
