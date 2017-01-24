@@ -1,7 +1,7 @@
 (function() {
   "use strict";
 
-  angular.module("app").controller("chartsCtrl",function($scope, $http){
+  angular.module("app").controller("chartsCtrl",['$scope','$http',function($scope, $http){
     var visitsTimelineChart;
     var countriesChart;
     var productsChart;
@@ -173,6 +173,6 @@
       }
     }
     window.scope = $scope;
-  })
+  }])
 
 }());
