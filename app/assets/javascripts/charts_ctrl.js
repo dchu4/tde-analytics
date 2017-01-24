@@ -8,15 +8,16 @@
     var citiesChart;
     var deviceOsChart;
     var deviceModelChart;
+    var worldChart;
 
     Chart.defaults.global.defaultColor = '#F05A28';
     Chart.defaults.global.elements.responsive = true;
 
-    var colorArray = ['#FF9999', '#EE4036', '#E3F14F', '#F05A28', '#186CBB', '#A11C14', '#1D61A1']
+    var colorArray = ['#FF9999', '#EE4036', '#E3F14F', '#F05A28', '#186CBB', '#A11C14', '#1D61A1', '#FF9999', '#EE4036', '#E3F14F', '#F05A28', '#186CBB', '#A11C14', '#1D61A1']
 
     $scope.dashboardIndexSetup = function(){
       $http.get('api/v1/charts.json').then(function(result) {
-        console.log(result.data);
+        // console.log(result.data);
         // timeline chart
         var timelineChartData = {
           labels: result.data["dates"],
@@ -147,8 +148,31 @@
         });
 
       });
+    };
+
+    $scope.locationsSetup = function(){
+      google.charts.load('upcoming', {'packages':['geochart']});
+
+      google.charts.setOnLoadCallback(drawMaps);
+
+      function drawMaps() {
+
+        $.getJSON('/api/v1/location_charts', function(json) {
+          //world map
+          var worldData = new google.visualization.arrayToDataTable(json["world_chart"]);
+
+          var worldOptions = {
+            colorAxis: {
+              colors: ['#FF9999', '#EE4036']
+            }
+          };
+
+          worldChart = new google.visualization.GeoChart(document.getElementById('world_chart'));
+          worldChart.draw(worldData, worldOptions);
+        })
+      }
     }
     window.scope = $scope;
-  });
+  })
 
 }());
