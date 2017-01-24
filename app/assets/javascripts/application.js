@@ -13,7 +13,6 @@
 //= require jquery
 //= require angular
 //= require Chart
-//= require angular-chart
 //= require materialize
 //= require jquery_ujs
 //= require_tree .
