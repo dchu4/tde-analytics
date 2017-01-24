@@ -1,7 +1,8 @@
+require 'googleauth'
+
 class VisitsController < ApplicationController
 
   def index
-
   end
 
   def create

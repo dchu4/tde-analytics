@@ -12,11 +12,11 @@
     Chart.defaults.global.defaultColor = '#F05A28';
     Chart.defaults.global.elements.responsive = true;
 
-    var colorArray = ['#FF9999', '#EE4036', '#E3F14F', '#F05A28', '#186CBB', '#A11C14', '#1D61A1']
+    var colorArray = ['#FF9999', '#EE4036', '#E3F14F', '#F05A28', '#186CBB', '#A11C14', '#1D61A1', '#FF9999', '#EE4036', '#E3F14F', '#F05A28', '#186CBB', '#A11C14', '#1D61A1']
 
     $scope.dashboardIndexSetup = function(){
       $http.get('api/v1/charts.json').then(function(result) {
-        console.log(result.data);
+        // console.log(result.data);
         // timeline chart
         var timelineChartData = {
           labels: result.data["dates"],
