@@ -6,37 +6,37 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-6.times do |device_id|
-  User.create(
-      device_unique_id: "OKLQ-RF-#{device_id}",
-      device_model: "Nexus 5X",
-      device_os: "Android OS 7.0"
-    )
-end
+# 6.times do |device_id|
+#   User.create(
+#       device_unique_id: "OKLQ-RF-#{device_id}",
+#       device_model: "Nexus 5X",
+#       device_os: "Android OS 7.0"
+#     )
+# end
 
-4.times do |device_id|
-  User.create(
-      device_unique_id: "ROQS-RF-#{device_id}",
-      device_model: "iPhone 7",
-      device_os: "iOS 10"
-    )
-end
+# 4.times do |device_id|
+#   User.create(
+#       device_unique_id: "ROQS-RF-#{device_id}",
+#       device_model: "iPhone 7",
+#       device_os: "iOS 10"
+#     )
+# end
 
-3.times do |device_id|
-  User.create(
-      device_unique_id: "PESQ-RF-#{device_id}",
-      device_model: "Nexus 5",
-      device_os: "Android OS 7.0"
-    )
-end
+# 3.times do |device_id|
+#   User.create(
+#       device_unique_id: "PESQ-RF-#{device_id}",
+#       device_model: "Nexus 5",
+#       device_os: "Android OS 7.0"
+#     )
+# end
 
-7.times do |device_id|
-  User.create(
-      device_unique_id: "ILSK-RF-#{device_id}",
-      device_model: "iPhone 6",
-      device_os: "iOS 10"
-    )
-end
+# 7.times do |device_id|
+#   User.create(
+#       device_unique_id: "ILSK-RF-#{device_id}",
+#       device_model: "iPhone 6",
+#       device_os: "iOS 10"
+#     )
+# end
 
 # 20.times do |device_id|
 #   User.create(
@@ -149,89 +149,89 @@ end
     # end
 # end
 
-# 5.times do |index|
-#   Visit.create(
-#       country: "Canada",
-#       city: "Toronto",
-#       state: "Ontario",
-#       user_id: 2,
-#       product_id: rand(6) + 1
-#     )
-# end
+5.times do |index|
+  Visit.create(
+      country: "Canada",
+      city: "Toronto",
+      state: "Ontario",
+      user_id: 1,
+      product_id: rand(6) + 1
+    )
+end
 
-# 5.times do |index|
-#   Visit.create(
-#       country: "Canada",
-#       city: "Montreal",
-#       state: "Quebec",
-#       user_id: 3,
-#       product_id: rand(6) + 1
-#     )
-# end
+5.times do |index|
+  Visit.create(
+      country: "Canada",
+      city: "Montreal",
+      state: "Quebec",
+      user_id: 2,
+      product_id: rand(6) + 1
+    )
+end
 
-# 5.times do |index|
-#   Visit.create(
-#       country: "China",
-#       city: "Beijing",
-#       user_id: 4,
-#       product_id: rand(6) + 1
-#     )
-# end
+5.times do |index|
+  Visit.create(
+      country: "China",
+      city: "Beijing",
+      user_id: 3,
+      product_id: rand(6) + 1
+    )
+end
 
-# 5.times do |index|
-#   Visit.create(
-#       country: "United States",
-#       city: "North Pole",
-#       state: "Alaska",
-#       user_id: 5,
-#       product_id: rand(6) + 1
-#     )
-# end
+5.times do |index|
+  Visit.create(
+      country: "United States",
+      city: "North Pole",
+      state: "Alaska",
+      user_id: 4,
+      product_id: rand(6) + 1
+    )
+end
 
-Product.create(
-    product_number: "123.456.1",
-    product_name: "Desk Lamp",
-    product_sku: "LA-237343",
-    retailer: "Rezide",
-    url: "http://rezide-store.herokuapp.com/products/1"
-  )
+# Product.create(
+#     product_number: "123.456.1",
+#     product_name: "Desk Lamp",
+#     product_sku: "LA-237343",
+#     retailer: "Rezide",
+#     url: "http://rezide-store.herokuapp.com/products/1"
+#   )
 
-Product.create(
-    product_number: "123.456.2",
-    product_name: "Decorative Pillow",
-    product_sku: "PI-243534",
-    retailer: "Rezide",
-    url: "http://rezide-store.herokuapp.com/products/6"
-  )
+# Product.create(
+#     product_number: "123.456.2",
+#     product_name: "Decorative Pillow",
+#     product_sku: "PI-243534",
+#     retailer: "Rezide",
+#     url: "http://rezide-store.herokuapp.com/products/6"
+#   )
 
-Product.create(
-    product_number: "123.456.3",
-    product_name: "Chair",
-    product_sku: "CH-235345",
-    retailer: "Rezide",
-    url: "http://rezide-store.herokuapp.com/products/2"
-  )
+# Product.create(
+#     product_number: "123.456.3",
+#     product_name: "Chair",
+#     product_sku: "CH-235345",
+#     retailer: "Rezide",
+#     url: "http://rezide-store.herokuapp.com/products/2"
+#   )
 
-Product.create(
-    product_number: "123.456.4",
-    product_name: "Bedside Lamp",
-    product_sku: "LA-234863",
-    retailer: "Rezide",
-    url: "http://rezide-store.herokuapp.com/products/3"
-  )
+# Product.create(
+#     product_number: "123.456.4",
+#     product_name: "Bedside Lamp",
+#     product_sku: "LA-234863",
+#     retailer: "Rezide",
+#     url: "http://rezide-store.herokuapp.com/products/3"
+#   )
 
-Product.create(
-    product_number: "123.456.5",
-    product_name: "Arm Chair",
-    product_sku: "AC-213325",
-    retailer: "Rezide",
-    url: "http://rezide-store.herokuapp.com/products/4"
-  )
+# Product.create(
+#     product_number: "123.456.5",
+#     product_name: "Arm Chair",
+#     product_sku: "AC-213325",
+#     retailer: "Rezide",
+#     url: "http://rezide-store.herokuapp.com/products/4"
+#   )
 
-Product.create(
-    product_number: "123.456.6",
-    product_name: "Drawer Chest",
-    product_sku: "DC-125323",
-    retailer: "Rezide",
-    url: "http://rezide-store.herokuapp.com/products/5"
-  )
+# Product.create(
+#     product_number: "123.456.6",
+#     product_name: "Drawer Chest",
+#     product_sku: "DC-125323",
+#     retailer: "Rezide",
+#     url: "http://rezide-store.herokuapp.com/products/5"
+#   )
