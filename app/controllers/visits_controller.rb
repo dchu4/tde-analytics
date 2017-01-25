@@ -17,7 +17,7 @@ class VisitsController < ApplicationController
 
     Visit.create(
         user_id: user.id,
-        product_id: params[:product_id],
+        product_id: Product.find_by(product_sku: params[:product_sku]).id,
         ip: ip,
         country: location.country,
         city: location.city,
