@@ -77,14 +77,15 @@ body {
 }
 
 .section-card-title {
-  @include title-gradient;
+  background-color: #fff;
   text-align: center;
   margin: 0px;
   width: 100%;
   padding: 10px;
   font-family: $header-font, sans-serif;
   font-weight: bold;
-  color: #fff;
+  color: $accent-color;
+  border-bottom: 1px solid $grey;
 }
 
 .collapsible-body {

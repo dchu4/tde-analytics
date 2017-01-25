@@ -25,7 +25,7 @@ module PagesHelper
     monthly_date = Visit.where(created_at: 31.days.ago..1.day.ago).count
 
     if monthly_date > 0 && monthly_result
-      @monthly_conversion_rate = "#{(monthly_result.length/monthly_date)*100}%"
+      @monthly_conversion_rate = "#{((monthly_result.length.to_f/monthly_date.to_f)*100).round(2)}%"
 
       p "monthly conversion"
       p @monthly_conversion_rate
@@ -57,7 +57,7 @@ module PagesHelper
     biweekly_date = Visit.where(created_at: 15.days.ago..1.day.ago).count
 
     if biweekly_date > 0 && biweekly_result
-      @biweekly_conversion_rate = "#{(biweekly_result.length/biweekly_date)*100}%"
+      @biweekly_conversion_rate = "#{((biweekly_result.length.to_f/biweekly_date.to_f)*100).round(2)}%"
 
       biweekly_amount = Hash.new 0
       biweekly_quantity = Hash.new 0
@@ -86,7 +86,7 @@ module PagesHelper
     weekly_date = Visit.where(created_at: 8.days.ago..1.day.ago).count
 
     if weekly_date > 0 && weekly_result
-      @weekly_conversion_rate = "#{(weekly_result.length/weekly_date)*100}%"
+      @weekly_conversion_rate = "#{((weekly_result.length.to_f/weekly_date.to_f)*100).round(2)}%"
 
       weekly_amount = Hash.new 0
       weekly_quantity = Hash.new 0
@@ -115,7 +115,7 @@ module PagesHelper
     yesterday_date = Visit.where(created_at: 2.days.ago.beginning_of_day..1.day.ago.beginning_of_day).count
     
     if yesterday_date > 0 && yesterday_result
-      @yesterday_conversion_rate = "#{(yesterday_result.length/yesterday_date)*100}%"
+      @yesterday_conversion_rate = "#{((yesterday_result.length.to_f/yesterday_date.to_f)*100).round(2)}%"
 
       yesterday_amount = Hash.new 0
       yesterday_quantity = Hash.new 0
