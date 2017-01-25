@@ -24,12 +24,6 @@ module PagesHelper
     monthly_result = self.get_data('31daysAgo')
     monthly_date = Visit.where(created_at: 31.days.ago..1.day.ago).count
 
-    p "********************************************************************************************************"
-      p "monthly date"
-      p monthly_date
-      p "monthly result"
-      p monthly_result
-
     if monthly_date > 0 && monthly_result
       @monthly_conversion_rate = "#{(monthly_result.length/monthly_date)*100}%"
 
