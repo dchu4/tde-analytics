@@ -9,7 +9,7 @@
 6.times do |device_id|
   User.create(
       device_unique_id: "OKLQ-RF-#{device_id}",
-      device_type: "Nexus 5X",
+      device_model: "Nexus 5X",
       device_os: "Android OS 7.0"
     )
 end
@@ -17,7 +17,7 @@ end
 4.times do |device_id|
   User.create(
       device_unique_id: "ROQS-RF-#{device_id}",
-      device_type: "iPhone 7",
+      device_model: "iPhone 7",
       device_os: "iOS 10"
     )
 end
@@ -25,7 +25,7 @@ end
 3.times do |device_id|
   User.create(
       device_unique_id: "PESQ-RF-#{device_id}",
-      device_type: "Nexus 5",
+      device_model: "Nexus 5",
       device_os: "Android OS 7.0"
     )
 end
@@ -33,7 +33,7 @@ end
 7.times do |device_id|
   User.create(
       device_unique_id: "ILSK-RF-#{device_id}",
-      device_type: "iPhone 6",
+      device_model: "iPhone 6",
       device_os: "iOS 10"
     )
 end
@@ -149,44 +149,44 @@ end
     # end
 # end
 
-# 5.times do |index|
-#   Visit.create(
-#       country: "Canada",
-#       city: "Toronto",
-#       state: "Ontario",
-#       user_id: 2,
-#       product_id: rand(6) + 1
-#     )
-# end
+5.times do |index|
+  Visit.create(
+      country: "Canada",
+      city: "Toronto",
+      state: "Ontario",
+      user_id: 1,
+      product_id: rand(6) + 1
+    )
+end
 
-# 5.times do |index|
-#   Visit.create(
-#       country: "Canada",
-#       city: "Montreal",
-#       state: "Quebec",
-#       user_id: 3,
-#       product_id: rand(6) + 1
-#     )
-# end
+5.times do |index|
+  Visit.create(
+      country: "Canada",
+      city: "Montreal",
+      state: "Quebec",
+      user_id: 2,
+      product_id: rand(6) + 1
+    )
+end
 
-# 5.times do |index|
-#   Visit.create(
-#       country: "China",
-#       city: "Beijing",
-#       user_id: 4,
-#       product_id: rand(6) + 1
-#     )
-# end
+5.times do |index|
+  Visit.create(
+      country: "China",
+      city: "Beijing",
+      user_id: 3,
+      product_id: rand(6) + 1
+    )
+end
 
-# 5.times do |index|
-#   Visit.create(
-#       country: "United States",
-#       city: "North Pole",
-#       state: "Alaska",
-#       user_id: 5,
-#       product_id: rand(6) + 1
-#     )
-# end
+5.times do |index|
+  Visit.create(
+      country: "United States",
+      city: "North Pole",
+      state: "Alaska",
+      user_id: 4,
+      product_id: rand(6) + 1
+    )
+end
 
 Product.create(
     product_number: "123.456.1",

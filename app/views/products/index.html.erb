@@ -4,7 +4,6 @@
         <th data-field="product_name">Product Name</th>
         <th data-field="product_number">Product Number</th>
         <th data-field="product_number">Visits</th>
-        <th data-field="product_number">Purchases</th>
     </tr>
   </thead>
 
@@ -14,7 +13,6 @@
         <td><%= link_to product.product_name, "/product_charts/#{product.id}" %></td>
         <td><%= product.product_number %></td>
         <td><%= product.visits.length %></td>
-        <td><%= product.purchases.sum(:quantity) %></td>
       </tr>
     <% end %>
   </tbody>
