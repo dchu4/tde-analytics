@@ -1,118 +1,124 @@
-<div class="row">
-  <div class="col s12 m3 l3">
-    <div class="card-panel">
-      <div class="center-align">Monthly Conversion Rate</div>
-      <h5 class="center-align visit_count" ><%= @monthly_conversion_rate %></h5>
-    </div>
-  </div>
-  <div class="col s12 m3 l3">
-    <div class="card-panel">
-      <div class="center-align">Bi-Weekly Conversion Rate</div>
-      <h5 class="center-align visit_count" ><%= @biweekly_conversion_rate %></h5>
-    </div>
-  </div>
-  <div class="col s12 m3 l3">
-    <div class="card-panel">
-      <div class="center-align">Weekly Conversion Rate</div>
-      <h5 class="center-align visit_count" ><%= @weekly_conversion_rate %></h5>
-    </div>
-  </div>
-  <div class="col s12 m3 l3">
-    <div class="card-panel">
-      <div class="center-align">Yesterday's Conversion Rate</div>
-      <h5 class="center-align visit_count" ><%= @yesterday_conversion_rate %></h5>
-    </div>
-  </div>
-</div>
+<div ng-app="app">
+  <div ng-controller="chartsCtrl" ng-init="purchasesSetup()">
 
-<div class="row">
-  <div class="col s12 m6 l6">
-    <div class="card">
-      <div class="section-card-title">
-        <span class="card-title">Monthly Total Purchase Amounts Per Product</span>
+    <div class="row">
+      <div class="col s12 m3 l3">
+        <div class="card-panel">
+          <div class="center-align">Monthly Conversion Rate</div>
+          <h5 class="center-align visit_count" ><%= @monthly_conversion_rate %></h5>
+        </div>
       </div>
-      <div class="card-content">
-        <canvas id="monthly_amount_chart"></canvas>
+      <div class="col s12 m3 l3">
+        <div class="card-panel">
+          <div class="center-align">Bi-Weekly Conversion Rate</div>
+          <h5 class="center-align visit_count" ><%= @biweekly_conversion_rate %></h5>
+        </div>
+      </div>
+      <div class="col s12 m3 l3">
+        <div class="card-panel">
+          <div class="center-align">Weekly Conversion Rate</div>
+          <h5 class="center-align visit_count" ><%= @weekly_conversion_rate %></h5>
+        </div>
+      </div>
+      <div class="col s12 m3 l3">
+        <div class="card-panel">
+          <div class="center-align">Yesterday's Conversion Rate</div>
+          <h5 class="center-align visit_count" ><%= @yesterday_conversion_rate %></h5>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col s12 m6 l6">
-    <div class="card">
-      <div class="section-card-title">
-        <span class="card-title">Monthly Total Quantity Purchased Per Product</span>
-      </div>
-      <div class="card-content">
-        <canvas id="monthly_quantity_chart"></canvas>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div class="row">
-  <div class="col s12 m6 l6">
-    <div class="card">
-      <div class="section-card-title">
-        <span class="card-title">Bi-Weekly Total Purchase Amounts Per Product</span>
+    <div class="row">
+      <div class="col s12 m6 l6">
+        <div class="card">
+          <div class="section-card-title">
+            <span class="card-title">Monthly Total Purchase Amounts Per Product</span>
+          </div>
+          <div class="card-content">
+            <canvas id="monthly_amount_chart"></canvas>
+          </div>
+        </div>
       </div>
-      <div class="card-content">
-        <canvas id="biweekly_amount_chart"></canvas>
+      <div class="col s12 m6 l6">
+        <div class="card">
+          <div class="section-card-title">
+            <span class="card-title">Monthly Total Quantity Purchased Per Product</span>
+          </div>
+          <div class="card-content">
+            <canvas id="monthly_quantity_chart"></canvas>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col s12 m6 l6">
-    <div class="card">
-      <div class="section-card-title">
-        <span class="card-title">Bi-Weekly Total Quantity Purchased Per Product</span>
-      </div>
-      <div class="card-content">
-        <canvas id="biweekly_quantity_chart"></canvas>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div class="row">
-  <div class="col s12 m6 l6">
-    <div class="card">
-      <div class="section-card-title">
-        <span class="card-title">Weekly Total Purchase Amounts Per Product</span>
+    <div class="row">
+      <div class="col s12 m6 l6">
+        <div class="card">
+          <div class="section-card-title">
+            <span class="card-title">Bi-Weekly Total Purchase Amounts Per Product</span>
+          </div>
+          <div class="card-content">
+            <canvas id="biweekly_amount_chart"></canvas>
+          </div>
+        </div>
       </div>
-      <div class="card-content">
-        <canvas id="weekly_amount_chart"></canvas>
+      <div class="col s12 m6 l6">
+        <div class="card">
+          <div class="section-card-title">
+            <span class="card-title">Bi-Weekly Total Quantity Purchased Per Product</span>
+          </div>
+          <div class="card-content">
+            <canvas id="biweekly_quantity_chart"></canvas>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col s12 m6 l6">
-    <div class="card">
-      <div class="section-card-title">
-        <span class="card-title">Weekly Total Quantity Purchased Per Product</span>
-      </div>
-      <div class="card-content">
-        <canvas id="weekly_quantity_chart"></canvas>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div class="row">
-  <div class="col s12 m6 l6">
-    <div class="card">
-      <div class="section-card-title">
-        <span class="card-title">Yesterday Total Purchase Amounts Per Product</span>
+    <div class="row">
+      <div class="col s12 m6 l6">
+        <div class="card">
+          <div class="section-card-title">
+            <span class="card-title">Weekly Total Purchase Amounts Per Product</span>
+          </div>
+          <div class="card-content">
+            <canvas id="weekly_amount_chart"></canvas>
+          </div>
+        </div>
       </div>
-      <div class="card-content">
-        <canvas id="yesterday_amount_chart"></canvas>
+      <div class="col s12 m6 l6">
+        <div class="card">
+          <div class="section-card-title">
+            <span class="card-title">Weekly Total Quantity Purchased Per Product</span>
+          </div>
+          <div class="card-content">
+            <canvas id="weekly_quantity_chart"></canvas>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col s12 m6 l6">
-    <div class="card">
-      <div class="section-card-title">
-        <span class="card-title">Yesterday Total Quantity Purchased Per Product</span>
+
+    <div class="row">
+      <div class="col s12 m6 l6">
+        <div class="card">
+          <div class="section-card-title">
+            <span class="card-title">Yesterday Total Purchase Amounts Per Product</span>
+          </div>
+          <div class="card-content">
+            <canvas id="yesterday_amount_chart"></canvas>
+          </div>
+        </div>
       </div>
-      <div class="card-content">
-        <canvas id="yesterday_quantity_chart"></canvas>
+      <div class="col s12 m6 l6">
+        <div class="card">
+          <div class="section-card-title">
+            <span class="card-title">Yesterday Total Quantity Purchased Per Product</span>
+          </div>
+          <div class="card-content">
+            <canvas id="yesterday_quantity_chart"></canvas>
+          </div>
+        </div>
       </div>
     </div>
+
   </div>
 </div>

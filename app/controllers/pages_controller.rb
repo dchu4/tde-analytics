@@ -13,7 +13,7 @@ class PagesController < ApplicationController
     @most_viewed_product = Product.find(most_viewed_product).product_name
 
     result = PagesHelper.get_data('31daysAgo')
-    @conversion_rate = "#{(result.length/Visit.all.count)*100}%"
+    @conversion_rate = "#{(result.length/Visit.where(created_at: 31.days.ago..1.day.ago).count)*100}%"
   end
 
   def product_charts

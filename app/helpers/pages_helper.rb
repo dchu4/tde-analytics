@@ -21,7 +21,7 @@ module PagesHelper
   end
 
   def monthly_check
-    monthly_result = PagesHelper.get_data('31daysAgo')
+    monthly_result = self.get_data('31daysAgo')
     monthly_date = Visit.where(created_at: 31.days.ago..1.day.ago).count
 
     if monthly_date > 0 && monthly_result
@@ -50,7 +50,7 @@ module PagesHelper
   end
 
   def biweekly_check
-    biweekly_result = PagesHelper.get_data('15daysAgo')
+    biweekly_result = self.get_data('15daysAgo')
     biweekly_date = Visit.where(created_at: 15.days.ago..1.day.ago).count
 
     if biweekly_date > 0 && biweekly_result
@@ -79,7 +79,7 @@ module PagesHelper
   end
 
   def weekly_check
-    weekly_result = PagesHelper.get_data('8daysAgo')
+    weekly_result = self.get_data('8daysAgo')
     weekly_date = Visit.where(created_at: 8.days.ago..1.day.ago).count
 
     if weekly_date > 0 && weekly_result
@@ -108,7 +108,7 @@ module PagesHelper
   end
 
   def yesterday_check
-    yesterday_result = PagesHelper.get_data('yesterday')
+    yesterday_result = self.get_data('yesterday')
     yesterday_date = Visit.where(created_at: 2.days.ago.beginning_of_day..1.day.ago.beginning_of_day).count
     
     if yesterday_date > 0 && yesterday_result
