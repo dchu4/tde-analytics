@@ -9,7 +9,7 @@
 6.times do |device_id|
   User.create(
       device_unique_id: "OKLQ-RF-#{device_id}",
-      device_type: "Nexus 5X",
+      device_model: "Nexus 5X",
       device_os: "Android OS 7.0"
     )
 end
@@ -17,7 +17,7 @@ end
 4.times do |device_id|
   User.create(
       device_unique_id: "ROQS-RF-#{device_id}",
-      device_type: "iPhone 7",
+      device_model: "iPhone 7",
       device_os: "iOS 10"
     )
 end
@@ -25,7 +25,7 @@ end
 3.times do |device_id|
   User.create(
       device_unique_id: "PESQ-RF-#{device_id}",
-      device_type: "Nexus 5",
+      device_model: "Nexus 5",
       device_os: "Android OS 7.0"
     )
 end
@@ -33,7 +33,7 @@ end
 7.times do |device_id|
   User.create(
       device_unique_id: "ILSK-RF-#{device_id}",
-      device_type: "iPhone 6",
+      device_model: "iPhone 6",
       device_os: "iOS 10"
     )
 end
