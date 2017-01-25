@@ -27,6 +27,14 @@ module PagesHelper
     if monthly_date > 0 && monthly_result
       @monthly_conversion_rate = "#{(monthly_result.length/monthly_date)*100}%"
 
+      p "********************************************************************************************************"
+      p "monthly date"
+      p monthly_date
+      p "monthly result"
+      p monthly_result
+      p "monthly conversion"
+      p @monthly_conversion_rate
+
       monthly_amount = Hash.new 0
       monthly_quantity = Hash.new 0
       @monthly_dates = Hash.new 0
