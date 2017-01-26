@@ -155,7 +155,8 @@ end
       city: "Toronto",
       state: "Ontario",
       user_id: 1,
-      product_id: rand(6) + 1
+      product_id: rand(6) + 1,
+      created_at: 45.days.ago
     )
 end
 
@@ -165,7 +166,8 @@ end
       city: "Montreal",
       state: "Quebec",
       user_id: 2,
-      product_id: rand(6) + 1
+      product_id: rand(6) + 1,
+      created_at: 35.days.ago
     )
 end
 
@@ -174,7 +176,8 @@ end
       country: "China",
       city: "Beijing",
       user_id: 3,
-      product_id: rand(6) + 1
+      product_id: rand(6) + 1,
+      created_at: 25.days.ago
     )
 end
 
@@ -184,7 +187,51 @@ end
       city: "North Pole",
       state: "Alaska",
       user_id: 4,
-      product_id: rand(6) + 1
+      product_id: rand(6) + 1,
+      created_at: 15.days.ago
+    )
+end
+
+5.times do |index|
+  Visit.create(
+      country: "Canada",
+      city: "Toronto",
+      state: "Ontario",
+      user_id: 1,
+      product_id: rand(6) + 1,
+      created_at: 40.days.ago
+    )
+end
+
+5.times do |index|
+  Visit.create(
+      country: "Canada",
+      city: "Montreal",
+      state: "Quebec",
+      user_id: 2,
+      product_id: rand(6) + 1,
+      created_at: 30.days.ago
+    )
+end
+
+5.times do |index|
+  Visit.create(
+      country: "China",
+      city: "Beijing",
+      user_id: 3,
+      product_id: rand(6) + 1,
+      created_at: 20.days.ago
+    )
+end
+
+5.times do |index|
+  Visit.create(
+      country: "United States",
+      city: "North Pole",
+      state: "Alaska",
+      user_id: 4,
+      product_id: rand(6) + 1,
+      created_at: 6.days.ago
     )
 end
 
