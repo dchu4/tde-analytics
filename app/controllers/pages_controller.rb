@@ -18,6 +18,9 @@ class PagesController < ApplicationController
     @most_purchased_product = product_hash.key(most_purchased_product)
 
     @conversion_rate = "#{((result.length.to_f/Visit.where(created_at: 31.days.ago..1.day.ago).count.to_f)*100).round(2)}%"
+
+    @total_revenue = 0
+    result.each { |row| @total_revenue += row[6].to_f }
   end
 
   def product_charts

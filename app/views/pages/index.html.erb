@@ -41,7 +41,7 @@
         <li>
           <div class="collapsible-header center-align">Most Purchased Product</div>
           <div class="collapsible-body">
-            <h5 class="center-align most_frequent_os" ><%=  %></h5>
+            <h5 class="center-align most_frequent_os" ><%= @most_purchased_product %></h5>
           </div>
         </li>
 
@@ -53,9 +53,9 @@
         </li>
 
         <li>
-          <div class="collapsible-header center-align"> </div>
+          <div class="collapsible-header center-align">Total Revenue</div>
           <div class="collapsible-body">
-            <h5 class="center-align most_frequent_model"><%=  %></h5>
+            <h5 class="center-align most_frequent_model"><%= @total_visits %></h5>
           </div>
         </li>
 
@@ -105,8 +105,8 @@
 
     <div class="col s12 m2 l2">
       <div class="card-panel">
-        <div class="center-align"> </div>
-        <h5 class="center-align most_frequent_os" ><%=  %></h5>
+        <div class="center-align">Total Revenue</div>
+        <h5 class="center-align most_frequent_os" ><%= number_to_currency(@total_revenue) %></h5>
       </div>
     </div>
 

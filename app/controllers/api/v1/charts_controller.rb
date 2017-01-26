@@ -12,7 +12,8 @@ class Api::V1::ChartsController < ApplicationController
     @country_visits = countries_count.values
 
     product_view_count = Visit.group(:product_id).order(:product_id).count
-    @product_names = product_view_count.keys
+    product_ids = product_view_count.keys
+    @product_names = product_ids.collect { |p| Product.find(p).product_name }
     @visit_counts = product_view_count.values
 
     cities_count = Visit.group(:city).count
