@@ -8,7 +8,7 @@ module PagesHelper
 
     view_id = ENV["view_id"]
     start_date = results_date
-    end_date = 'today'
+    end_date = 'yesterday'
     metrics = 'ga:itemRevenue, ga:itemQuantity'
     filters = 'ga:campaign==buy_me_now'
     dimensions = {
@@ -26,9 +26,6 @@ module PagesHelper
 
     if monthly_date > 0 && monthly_result
       @monthly_conversion_rate = "#{((monthly_result.length.to_f/monthly_date.to_f)*100).round(2)}%"
-
-      p "monthly conversion"
-      p @monthly_conversion_rate
 
       monthly_amount = Hash.new 0
       monthly_quantity = Hash.new 0
@@ -138,4 +135,38 @@ module PagesHelper
       @yesterday_conversion_rate = "0%"
     end
   end
+
+  def purchase_data
+    purchases = self.get_data('2017-01-01')
+    users = User.all.count
+
+    if purchases
+      transactions = Hash.new 0
+      unique_item_trans = Hash.new 0
+
+      purchases.each do |row| 
+        transactions["#{row[3]}"] += row[7].to_i
+        unique_item_trans["#{row[3]}"] += 1
+      end
+
+      transaction_items = transactions.values
+      item_count = transaction_items.inject(:+)
+      unique_items = unique_item_trans.values
+      unique_item_count = unique_items.inject(:+)
+      transaction_count = transactions.keys.count
+
+      @avg_num_items_per_trans = item_count / transactions.count
+      @avg_num_pur_per_user = transaction_count / users
+      @avg_num_items_per_user = item_count / users
+      @avg_items_per_trans = item_count / transaction_count
+      @avg_uniq_items_per_trans = unique_item_count / transaction_count
+    else
+      @avg_num_items_per_trans = 0
+      @avg_num_pur_per_user = 0
+      @avg_num_items_per_user = 0
+      @avg_items_per_trans = 0
+      @avg_uniq_items_per_trans = 0
+    end
+  end
+
 end

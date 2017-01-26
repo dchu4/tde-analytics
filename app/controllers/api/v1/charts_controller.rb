@@ -1,7 +1,8 @@
+include PagesHelper
+
 class Api::V1::ChartsController < ApplicationController
 
   def index
-    #For visitors per day chart
     visits_timeline = Visit.group_by_day(:created_at).count
     @dates = visits_timeline.collect { |key| key[0].strftime("%b %d, %Y") }
     @numbers = visits_timeline.values
@@ -25,6 +26,47 @@ class Api::V1::ChartsController < ApplicationController
     device_model_count = User.group(:device_model).count
     @device_model_names = device_model_count.keys
     @device_models = device_model_count.values
+
+    #Visits and Purchases grouped by day
+    month_product_visits = Visit.where(created_at: 31.days.ago..1.day.ago).group_by_day(:created_at).count
+    formatted_date = month_product_visits.collect { |key| key[0].strftime("%Y%m%d") }
+    @month_product_visit_counts = month_product_visits.values
+
+    month_product_purchases = get_data('31daysAgo')
+    month_purchase_data = Hash.new 0
+    month_product_purchases.each { |row| month_purchase_data["#{row[0]}"] += 1 }
+
+    @month_product_purchases = []
+    formatted_date.each do |date|
+      if month_purchase_data.key?(date)
+        @month_product_purchases << month_purchase_data[:date]
+      else
+        @month_product_purchases << 0
+      end
+    end
+    @month_product_visit_dates = formatted_date.collect { |date| date.to_date.strftime("%b %d, %Y") }
+
+    #Visits and Purchases grouped by products
+    product_visits = Visit.group(:product_id).count
+    product_hash = Hash.new 0
+    product_visits.each { |v| product_hash[Product.find(v[0]).product_name] = v[1] }
+    sorted_visit_hash = Hash[product_hash.sort]
+    @sorted_product_names = sorted_visit_hash.keys
+    @product_visit_counts = sorted_visit_hash.values
+
+    product_purchases = get_data('2017-01-01')
+    purchase_data = Hash.new 0
+    product_purchases.each { |row| purchase_data["#{row[5]}"] += row[7].to_i }
+    purchase_data = Hash[purchase_data.sort]
+
+    @sorted_purchases = []
+    @sorted_product_names.each do |name|
+      if purchase_data.key?(name)
+        @sorted_purchases << purchase_data[name]
+      else
+        @sorted_purchases << 0
+      end
+    end
     
     #For the quick stats 
     @site_visits = Visit.all.length
@@ -58,7 +100,5 @@ class Api::V1::ChartsController < ApplicationController
     gon.product_id = params[:id]
 
     product_visits = Visit.where(product_id: params[:id]).group_by_day(:created_at).count
-    @product_visit_dates = product_visits.collect { |key| key[0].strftime("%b %d, %Y") }
-    @product_visit_counts = product_visits.values
   end
 end
