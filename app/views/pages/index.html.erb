@@ -15,7 +15,7 @@
   <!-- beginning row -->
   <div class="row hide-on-large-only">
     <div class="col s12 m12 l12">
-      <ul class="collapsible" data-collapsible="accordion">
+      <ul class="collapsible" data-collapsible="expandable">
 
         <li>
           <div class="collapsible-header center-align">Total Visits</div>
@@ -32,21 +32,6 @@
         </li>
 
         <li>
-          <div class="collapsible-header center-align">Most Frequent OS</div>
-          <div class="collapsible-body">
-            <h5 class="center-align most_frequent_os" ><%= @most_frequent_os %></h5>
-          </div>
-        </li>
-
-        <li>
-          <div class="collapsible-header center-align">Most Frequent Device Model</div>
-          <div class="collapsible-body">
-            <h5 class="center-align most_frequent_model"><%= @most_frequent_model %></h5>
-          </div>
-        </li>
-
-
-        <li>
           <div class="collapsible-header center-align">Most Viewed Product</div>
           <div class="collapsible-body">
             <h5 class="center-align most_viewed_product"><%= @most_viewed_product %></h5>
@@ -54,9 +39,23 @@
         </li>
 
         <li>
+          <div class="collapsible-header center-align">Most Purchased Product</div>
+          <div class="collapsible-body">
+            <h5 class="center-align most_frequent_os" ><%=  %></h5>
+          </div>
+        </li>
+
+        <li>
           <div class="collapsible-header center-align">Conversion Rate</div>
           <div class="collapsible-body">
             <h5 class="center-align common_user_city"><%= @conversion_rate %></h5>
+          </div>
+        </li>
+
+        <li>
+          <div class="collapsible-header center-align"> </div>
+          <div class="collapsible-body">
+            <h5 class="center-align most_frequent_model"><%=  %></h5>
           </div>
         </li>
 
@@ -85,20 +84,6 @@
 
     <div class="col s12 m2 l2">
       <div class="card-panel">
-        <div class="center-align">Most Frequent OS</div>
-        <h5 class="center-align most_frequent_os" ><%= @most_frequent_os %></h5>
-      </div>
-    </div>
-
-    <div class="col s12 m2 l2">
-      <div class="card-panel">
-        <div class="center-align">Most Frequent Device Model</div>
-        <h5 class="center-align most_frequent_model"><%= @most_frequent_model %></h5>
-      </div>
-    </div>
-
-    <div class="col s12 m2 l2">
-      <div class="card-panel">
         <div class="center-align">Most Viewed Product</div>
         <h5 class="center-align most_viewed_product"><%= @most_viewed_product %></h5>
       </div>
@@ -106,8 +91,22 @@
 
     <div class="col s12 m2 l2">
       <div class="card-panel">
-        <div class="center-align">Monthly Conversion Rate</div>
+        <div class="center-align">Most Purchased Product</div>
+        <h5 class="center-align most_frequent_model"><%= @most_purchased_product %></h5>
+      </div>
+    </div>
+
+    <div class="col s12 m2 l2">
+      <div class="card-panel">
+        <div class="center-align">Conversion Rate</div>
         <h5 class="center-align common_user_city"><%= @conversion_rate %></h5>
+      </div>
+    </div>
+
+    <div class="col s12 m2 l2">
+      <div class="card-panel">
+        <div class="center-align"> </div>
+        <h5 class="center-align most_frequent_os" ><%=  %></h5>
       </div>
     </div>
 

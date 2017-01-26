@@ -402,6 +402,92 @@
         }
       })
     }
+
+    $scope.productsSetup = function(){
+      $http.get('api/v1/charts.json').then(function(result) {
+        var monthTimelineChartData = {
+          labels: result.data["product_visit_dates"],
+          datasets: [
+            {
+              label: 'Number of Visits',
+              data: result.data["product_visit_counts"],
+              backgroundColor: '#FF9999',
+              borderColor: '#FF9999',
+              borderWidth: 2,
+              fill: false
+            },
+            {
+              label: 'Number of Purchases',
+              data: result.data["month_product_purchases"],
+              backgroundColor: '#EE4036',
+              borderColor: '#EE4036',
+              borderWidth: 2,
+              fill: false
+            }
+          ]
+        };
+        var mtc = document.getElementById("month_timeline_chart");
+        var monthTimelineChart = new Chart(mtc, {
+          type: 'line',
+          data: monthTimelineChartData,
+          options: { 
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }],
+              xAxes: [{
+                gridLines: {
+                  display: false
+                }
+              }]
+            }
+          }
+        });
+
+        var visitPurchaseChartData = {
+          labels: result.data["product_hash_names"],
+          datasets: [
+            {
+              label: 'Visits Per Product',
+              data: result.data["product_visits"],
+              backgroundColor: '#FF9999',
+              borderColor: '#FF9999',
+              borderWidth: 2,
+              fill: false
+            },
+            {
+              label: 'Purchases Per Product',
+              data: result.data["sorted_purchases"],
+              backgroundColor: '#EE4036',
+              borderColor: '#EE4036',
+              borderWidth: 2,
+              fill: false
+            }
+          ]
+        };
+        var vpc = document.getElementById("visit_purchase_chart");
+        var visitPurchaseChart = new Chart(vpc, {
+          type: 'bar',
+          data: visitPurchaseChartData,
+          options: { 
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }],
+              xAxes: [{
+                gridLines: {
+                  display: false
+                }
+              }]
+            }
+          }
+        })
+      })
+    }
     window.scope = $scope;
   }])
 

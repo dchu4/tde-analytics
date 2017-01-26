@@ -93,7 +93,7 @@ body {
 }
 
 .collapsible li {
-  @include title-gradient;
+  background: $secondary-color;
 }
 
 .card-title {
