@@ -17,7 +17,7 @@
 
     $scope.dashboardIndexSetup = function(){
       $http.get('api/v1/charts.json').then(function(result) {
-        // console.log(result.data);
+
         // timeline chart
         var timelineChartData = {
           labels: result.data["dates"],
