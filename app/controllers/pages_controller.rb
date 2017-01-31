@@ -60,7 +60,8 @@ class PagesController < ApplicationController
     gon.countryPurchases = @country_purchases
     @top_purchases_country = @country_purchases[1][0]
 
-    
+    gon.countryLabels = @country_revenue.keys
+    gon.countryRevenue = @country_revenue.values
   end
 
   def visit_charts

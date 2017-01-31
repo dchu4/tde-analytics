@@ -61,7 +61,12 @@
         var cc = document.getElementById("countries_chart");
         countriesChart = new Chart(cc, {
           type: 'pie',
-          data: countryChartData
+          data: countryChartData,
+          options: {
+            legend: {
+              display: true
+            }
+          }
         });
 
         // products_chart
@@ -102,7 +107,12 @@
         var cic = document.getElementById("cities_chart");
         citiesChart = new Chart(cic, {
           type: 'doughnut',
-          data: cityChartData
+          data: cityChartData,
+          options: {
+            legend: {
+              display: true
+            }
+          }
         });
 
 
@@ -144,7 +154,12 @@
         var mc = document.getElementById("device_model_chart");
         deviceModelChart = new Chart(mc, {
           type: 'pie',
-          data: modelChartData
+          data: modelChartData,
+          options: {
+            legend: {
+              display: true
+            }
+          }
         });
 
       });
@@ -154,6 +169,11 @@
       google.charts.load('upcoming', {'packages':['geochart']});
 
       google.charts.setOnLoadCallback(drawMaps);
+
+      Chart.defaults.global.defaultColor = '#F05A28';
+      Chart.defaults.global.elements.responsive = true;
+
+      var colorArray = ['#FF9999', '#EE4036', '#E3F14F', '#F05A28', '#186CBB', '#A11C14', '#1D61A1', '#FF9999', '#EE4036', '#E3F14F', '#F05A28', '#186CBB', '#A11C14', '#1D61A1'];
 
       function drawMaps() {
         console.log(gon.countryPurchases);
@@ -185,6 +205,25 @@
         var purchaseChart = new google.visualization.GeoChart(document.getElementById('purchase_chart'));
         purchaseChart.draw(purchaseData, purchaseOptions);
       }
+
+      var crc = document.getElementById("country_revenue_chart");
+      new Chart(crc, {
+        type: 'pie',
+        data: {
+          labels: gon.countryLabels,
+          datasets: [{
+            label: 'Total Revenue',
+            data: gon.countryRevenue,
+            backgroundColor: colorArray,
+            borderWidth: 0
+          }]
+        },
+        options: {
+          legend: {
+            display: true
+          }
+        }
+      })
     }
 
     $scope.purchasesSetup = function(){
@@ -488,6 +527,11 @@
             backgroundColor: colorArray,
             borderWidth: 0
           }]
+        },
+        options: {
+          legend: {
+            display: true
+          }
         }
       })
 
@@ -502,6 +546,11 @@
             backgroundColor: colorArray,
             borderWidth: 0
           }]
+        },
+        options: {
+          legend: {
+            display: true
+          }
         }
       })
 
@@ -516,6 +565,11 @@
             backgroundColor: colorArray,
             borderWidth: 0
           }]
+        },
+        options: {
+          legend: {
+            display: true
+          }
         }
       })
 
@@ -530,6 +584,11 @@
             backgroundColor: colorArray,
             borderWidth: 0
           }]
+        },
+        options: {
+          legend: {
+            display: true
+          }
         }
       })
     }

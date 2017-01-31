@@ -236,11 +236,14 @@ module PagesHelper
   end
 
   def location_data
-    @purchase_data = self.session_data('ga:itemRevenue,ga:itemQuantity', 'ga:transactionId,ga:country,ga:productName')
+    purchase_data = self.session_data('ga:itemRevenue,ga:itemQuantity', 'ga:transactionId,ga:country')
     purchase_hash = Hash.new 0
     purchase_hash["Country"] = "Visits"
-    @purchase_data.each { |row| purchase_hash["#{row[1]}"] += 1 }
+    purchase_data.each { |row| purchase_hash["#{row[1]}"] += 1 }
     @country_purchases = purchase_hash.to_a
+
+    country_revenue = self.session_data('ga:itemRevenue', 'ga:country')
+    @country_revenue = country_revenue.to_h
   end
 
 end
