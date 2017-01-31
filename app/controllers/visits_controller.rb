@@ -1,6 +1,7 @@
 class VisitsController < ApplicationController
 
   def index
+    
   end
 
   def create

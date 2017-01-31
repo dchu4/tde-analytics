@@ -156,7 +156,9 @@
       google.charts.setOnLoadCallback(drawMaps);
 
       function drawMaps() {
+        console.log(gon.countryPurchases);
 
+        //realtime visits map
         $.getJSON('/api/v1/location_charts', function(json) {
           //world map
           var worldData = new google.visualization.arrayToDataTable(json["world_chart"]);
@@ -170,13 +172,86 @@
           worldChart = new google.visualization.GeoChart(document.getElementById('world_chart'));
           worldChart.draw(worldData, worldOptions);
         })
+
+        //non-realtime purchases map
+        var purchaseData = new google.visualization.arrayToDataTable(gon.countryPurchases);
+
+        var purchaseOptions = {
+          colorAxis: {
+            colors: ['#FF9999', '#EE4036']
+          }
+        };
+
+        var purchaseChart = new google.visualization.GeoChart(document.getElementById('purchase_chart'));
+        purchaseChart.draw(purchaseData, purchaseOptions);
       }
     }
+
     $scope.purchasesSetup = function(){
       Chart.defaults.global.defaultColor = '#F05A28';
       Chart.defaults.global.elements.responsive = true;
 
       var colorArray = ['#FF9999', '#EE4036', '#E3F14F', '#F05A28', '#186CBB', '#A11C14', '#1D61A1', '#FF9999', '#EE4036', '#E3F14F', '#F05A28', '#186CBB', '#A11C14', '#1D61A1'];
+
+      var drc = document.getElementById("revenue_timeline_chart");
+      new Chart(drc, {
+        type: 'line',
+        data: {
+          labels: gon.days,
+          datasets: [{
+            label: 'Daily Revenue',
+            data: gon.dailyRevenue,
+            backgroundColor: '#FF9999',
+            borderColor: '#FF9999',
+            borderWidth: 2,
+            fill: false
+          }]
+        },
+        options: { 
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero:true
+              }
+            }],
+            xAxes: [{
+              gridLines: {
+                display: false
+              }
+            }]
+          }
+        }
+      })
+
+      var ptc = document.getElementById("purchases_timeline_chart");
+      new Chart(ptc, {
+        type: 'line',
+        data: {
+          labels: gon.days,
+          datasets: [{
+            label: 'Daily Purchases',
+            data: gon.dailyPurchases,
+            backgroundColor: '#FF9999',
+            borderColor: '#FF9999',
+            borderWidth: 2,
+            fill: false
+          }]
+        },
+        options: { 
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero:true
+              }
+            }],
+            xAxes: [{
+              gridLines: {
+                display: false
+              }
+            }]
+          }
+        }
+      })
 
       var mac = document.getElementById("monthly_amount_chart");
       new Chart(mac, {
@@ -401,51 +476,66 @@
           }
         }
       })
+
+      var ovt = document.getElementById("os_version_transactions");
+      new Chart(ovt, {
+        type: 'pie',
+        data: {
+          labels: gon.osDataLabels,
+          datasets: [{
+            label: 'Total Number of Purchases',
+            data: gon.osVersionTrans,
+            backgroundColor: colorArray,
+            borderWidth: 0
+          }]
+        }
+      })
+
+      var dvt = document.getElementById("device_type_transactions");
+      new Chart(dvt, {
+        type: 'pie',
+        data: {
+          labels: gon.deviceDataLabels,
+          datasets: [{
+            label: 'Total Number of Purchases',
+            data: gon.deviceTypeTrans,
+            backgroundColor: colorArray,
+            borderWidth: 0
+          }]
+        }
+      })
+
+      var ovr = document.getElementById("os_version_revenue");
+      new Chart(ovr, {
+        type: 'pie',
+        data: {
+          labels: gon.osDataLabels,
+          datasets: [{
+            label: 'Total Revenue',
+            data: gon.osVersionRev,
+            backgroundColor: colorArray,
+            borderWidth: 0
+          }]
+        }
+      })
+
+      var dvr = document.getElementById("device_type_revenue");
+      new Chart(dvr, {
+        type: 'pie',
+        data: {
+          labels: gon.deviceDataLabels,
+          datasets: [{
+            label: 'Total Revenue',
+            data: gon.deviceTypeRev,
+            backgroundColor: colorArray,
+            borderWidth: 0
+          }]
+        }
+      })
     }
 
     $scope.productsSetup = function(){
       $http.get('api/v1/charts.json').then(function(result) {
-        var monthTimelineChartData = {
-          labels: result.data["product_visit_dates"],
-          datasets: [
-            {
-              label: 'Number of Visits',
-              data: result.data["product_visit_counts"],
-              backgroundColor: '#FF9999',
-              borderColor: '#FF9999',
-              borderWidth: 2,
-              fill: false
-            },
-            {
-              label: 'Number of Purchases',
-              data: result.data["month_product_purchases"],
-              backgroundColor: '#EE4036',
-              borderColor: '#EE4036',
-              borderWidth: 2,
-              fill: false
-            }
-          ]
-        };
-        var mtc = document.getElementById("month_timeline_chart");
-        var monthTimelineChart = new Chart(mtc, {
-          type: 'line',
-          data: monthTimelineChartData,
-          options: { 
-            scales: {
-              yAxes: [{
-                ticks: {
-                  beginAtZero: true
-                }
-              }],
-              xAxes: [{
-                gridLines: {
-                  display: false
-                }
-              }]
-            }
-          }
-        });
-
         var visitPurchaseChartData = {
           labels: result.data["product_hash_names"],
           datasets: [
@@ -488,6 +578,82 @@
         })
       })
     }
+
+    $scope.visitsSetup = function(){
+      $http.get('api/v1/charts.json').then(function(result) {
+        var monthTimelineChartData = {
+          labels: result.data["product_visit_dates"],
+          datasets: [
+            {
+              label: 'Number of Visits',
+              data: result.data["product_visit_counts"],
+              backgroundColor: '#FF9999',
+              borderColor: '#FF9999',
+              borderWidth: 2,
+              fill: false
+            },
+            {
+              label: 'Number of Purchases',
+              data: result.data["month_product_purchases"],
+              backgroundColor: '#EE4036',
+              borderColor: '#EE4036',
+              borderWidth: 2,
+              fill: false
+            }
+          ]
+        };
+        var mtc = document.getElementById("month_timeline_chart");
+        var monthTimelineChart = new Chart(mtc, {
+          type: 'line',
+          data: monthTimelineChartData,
+          options: { 
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }],
+              xAxes: [{
+                gridLines: {
+                  display: false
+                }
+              }]
+            }
+          }
+        });
+      })
+    }
+
+    $scope.usersSetup = function(){
+      var ovd = document.getElementById("os_version_duration");
+      new Chart(ovd, {
+        type: 'bar',
+        data: {
+          labels: gon.osDataLabels,
+          datasets: [{
+            label: 'Average Duration (minutes)',
+            data: gon.osVersionDur,
+            backgroundColor: colorArray,
+            borderWidth: 0
+          }]
+        }
+      })
+
+      var dvd = document.getElementById("device_type_duration");
+      new Chart(dvd, {
+        type: 'bar',
+        data: {
+          labels: gon.deviceDataLabels,
+          datasets: [{
+            label: 'Average Duration (minutes)',
+            data: gon.deviceTypeDur,
+            backgroundColor: colorArray,
+            borderWidth: 0
+          }]
+        }
+      })
+    }
+
     window.scope = $scope;
   }])
 

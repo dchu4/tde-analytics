@@ -28,16 +28,48 @@
       </div>
     </div>
     <div class="row">
-      <div class="col s12 m6 l6">
+      <div class="col s12 m4 l4">
         <div class="card-panel">
           <div class="center-align">Average Number of Items Per Transaction</div>
           <h5 class="center-align"><%= @avg_items_per_trans %></h5>
         </div>
       </div>
-      <div class="col s12 m6 l6">
+      <div class="col s12 m4 l4">
         <div class="card-panel">
           <div class="center-align">Average Number of Unique Items Per Transaction</div>
           <h5 class="center-align"><%= @avg_uniq_items_per_trans %></h5>
+        </div>
+      </div>
+      <div class="col s12 m4 l4">
+        <div class="card-panel">
+          <div class="center-align">Average Total Per Transaction</div>
+          <h5 class="center-align"><%= number_to_currency(@avg_total_per_trans) %></h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <div class="card">
+          <div class="section-card-title">
+            <span class="card-title">Daily Revenue</span>
+          </div>
+          <div class="card-content">
+            <canvas id="revenue_timeline_chart" height="100"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <div class="card">
+          <div class="section-card-title">
+            <span class="card-title">Daily Number of Transactions</span>
+          </div>
+          <div class="card-content">
+            <canvas id="purchases_timeline_chart" height="100"></canvas>
+          </div>
         </div>
       </div>
     </div>
@@ -129,6 +161,52 @@
           </div>
           <div class="card-content">
             <canvas id="yesterday_quantity_chart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12 m6 l6">
+        <div class="card">
+          <div class="section-card-title">
+            <span class="card-title">Number of Purchases Per OS</span>
+          </div>
+          <div class="card-content">
+            <canvas id="os_version_transactions" height="150"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m6 l6">
+        <div class="card">
+          <div class="section-card-title">
+            <span class="card-title">Number of Purchases Per Device Type</span>
+          </div>
+          <div class="card-content">
+            <canvas id="device_type_transactions" height="150"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12 m6 l6">
+        <div class="card">
+          <div class="section-card-title">
+            <span class="card-title">Total Revenue Per OS</span>
+          </div>
+          <div class="card-content">
+            <canvas id="os_version_revenue" height="150"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m6 l6">
+        <div class="card">
+          <div class="section-card-title">
+            <span class="card-title">Total Revenue Per Device Type</span>
+          </div>
+          <div class="card-content">
+            <canvas id="device_type_revenue" height="150"></canvas>
           </div>
         </div>
       </div>

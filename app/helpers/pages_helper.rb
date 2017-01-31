@@ -143,10 +143,16 @@ module PagesHelper
     if purchases
       transactions = Hash.new 0
       unique_item_trans = Hash.new 0
+      total_revenue = 0
+      daily_revenue_hash = Hash.new 0
+      daily_purchases_hash = Hash.new 0
 
       purchases.each do |row| 
         transactions["#{row[3]}"] += row[7].to_i
         unique_item_trans["#{row[3]}"] += 1
+        total_revenue += row[6].to_i
+        daily_revenue_hash["#{row[0].to_date}"] += row[6].to_f
+        daily_purchases_hash["#{row[0].to_date}"] += 1
       end
 
       transaction_items = transactions.values
@@ -155,18 +161,86 @@ module PagesHelper
       unique_item_count = unique_items.inject(:+)
       transaction_count = transactions.keys.count
 
+      @days = daily_revenue_hash.keys
+      @daily_revenue = daily_revenue_hash.values
+      @daily_purchases = daily_purchases_hash.values
+
       @avg_num_items_per_trans = item_count / transactions.count
       @avg_num_pur_per_user = transaction_count / users
       @avg_num_items_per_user = item_count / users
       @avg_items_per_trans = item_count / transaction_count
       @avg_uniq_items_per_trans = unique_item_count / transaction_count
+      @avg_total_per_trans = total_revenue / purchases.length
     else
       @avg_num_items_per_trans = 0
       @avg_num_pur_per_user = 0
       @avg_num_items_per_user = 0
       @avg_items_per_trans = 0
       @avg_uniq_items_per_trans = 0
+      @avg_total_per_trans = 0
     end
+  end
+
+  def session_data(session_metrics, session_dimensions)
+    Google::Auth::ServiceAccountCredentials.new
+    analytics = Google::Apis::AnalyticsV3::AnalyticsService.new
+    scope = ['https://www.googleapis.com/auth/analytics.readonly']
+    analytics.authorization = Google::Auth.get_application_default(scope)
+    analytics.authorization.fetch_access_token!
+
+    view_id = ENV["view_id"]
+    start_date = '2017-01-01'
+    end_date = 'yesterday'
+    metrics = session_metrics
+    # filters = 'ga:campaign==buy_me_now'
+    dimensions = {
+      dimensions: session_dimensions
+      # filters: filters
+    }
+
+    analytics_service = analytics.get_ga_data(view_id, start_date, end_date, metrics, dimensions)
+    analytics_service.rows
+  end
+
+  def os_device_data
+    os_data = self.session_data('ga:sessionDuration,ga:itemRevenue', 'ga:operatingSystem,ga:operatingSystemVersion, ga:mobileDeviceInfo')
+
+    @os_version_trans = Hash.new 0
+    @device_type_trans = Hash.new 0
+    @os_version_rev = Hash.new 0
+    @device_type_rev = Hash.new 0
+
+    os_data.each do |row|
+      @os_version_trans["#{row[0]} #{row[1]}"] += 1
+      @device_type_trans["#{row[2]}"] += 1
+      if row[4]
+        @os_version_rev["#{row[0]} #{row[1]}"] += row[4].to_f
+        @device_type_rev["#{row[2]}"] += row[4].to_f
+      else
+        @os_version_rev["#{row[0]} #{row[1]}"] = 0
+        @device_type_rev["#{row[2]}"] = 0
+      end
+    end
+  end
+
+  def duration_data
+    os_data = self.session_data('ga:sessions,ga:sessionDuration', 'ga:operatingSystem, ga:operatingSystemVersion, ga:mobileDeviceInfo')
+
+    @os_version_dur = Hash.new 0
+    @device_type_dur = Hash.new 0
+
+    os_data.each do |row|
+      @os_version_dur["#{row[0]} #{row[1]}"] += (row[4].to_f / row[3].to_f).round(2)
+      @device_type_dur["#{row[2]}"] += (row[4].to_f / row[3].to_f).round(2)
+    end
+  end
+
+  def location_data
+    @purchase_data = self.session_data('ga:itemRevenue,ga:itemQuantity', 'ga:transactionId,ga:country,ga:productName')
+    purchase_hash = Hash.new 0
+    purchase_hash["Country"] = "Visits"
+    @purchase_data.each { |row| purchase_hash["#{row[1]}"] += 1 }
+    @country_purchases = purchase_hash.to_a
   end
 
 end

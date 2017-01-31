@@ -37,6 +37,13 @@ class PagesController < ApplicationController
 
     @most_frequent_os = User.top(:device_os, 1).keys[0]
     @most_frequent_model = User.top(:device_model, 1).keys[0]
+
+    duration_data
+
+    gon.osDataLabels = @os_version_dur.keys
+    gon.deviceDataLabels = @device_type_dur.keys
+    gon.osVersionDur = @os_version_dur.values
+    gon.deviceTypeDur = @device_type_dur.values
   end
 
   def location_charts
@@ -47,11 +54,18 @@ class PagesController < ApplicationController
     @top_city = Visit.top(:city, 1).keys[0]
     @top_state = Visit.top(:state, 1).keys[0]
     @top_country = Visit.top(:country, 1).keys[0]
+
+    location_data
+
+    gon.countryPurchases = @country_purchases
+    @top_purchases_country = @country_purchases[1][0]
+
+    
   end
 
   def visit_charts
-    most_popular_product = Visit.top(:product_id).keys[0]
-    @most_popular_product = Product.find(most_popular_product).product_name
+    duration_results = session_data('ga:sessions,ga:sessionDuration', nil)
+    @avg_visit_duration = "#{((duration_results[0][1].to_f / duration_results[0][0].to_f) / 60).round(2)} minutes"
   end
 
   def purchase_charts
@@ -60,6 +74,19 @@ class PagesController < ApplicationController
     weekly_check
     yesterday_check
     purchase_data
+
+    gon.days = @days
+    gon.dailyRevenue = @daily_revenue
+    gon.dailyPurchases = @daily_purchases
+
+    os_device_data
+
+    gon.osDataLabels = @os_version_trans.keys
+    gon.deviceDataLabels = @device_type_trans.keys
+    gon.osVersionTrans = @os_version_trans.values
+    gon.deviceTypeTrans = @device_type_trans.values
+    gon.osVersionRev = @os_version_rev.values
+    gon.deviceTypeRev = @device_type_rev.values
   end
 
 end
