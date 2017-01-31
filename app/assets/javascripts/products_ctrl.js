@@ -9,7 +9,7 @@
     var colorArray = ['#FF9999', '#EE4036', '#E3F14F', '#F05A28', '#186CBB', '#A11C14', '#1D61A1', '#FF9999', '#EE4036', '#E3F14F', '#F05A28', '#186CBB', '#A11C14', '#1D61A1']
 
     $scope.productsSetup = function(){
-      $http.get('api/v1/products.json').then(function(result) {
+      $http.get('/api/v1/products.json').then(function(result) {
         var visitPurchaseChartData = {
           labels: result.data["product_hash_names"],
           datasets: [

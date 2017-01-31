@@ -2,11 +2,11 @@ Rails.application.routes.draw do
   mount  ActionCable.server => '/cable'
 
   get '/' => 'pages#index'
-  get '/product_charts' => 'pages#product_charts'
-  get '/user_charts' => 'pages#user_charts'
-  get '/location_charts' => 'pages#location_charts'
-  get '/visit_charts' => 'pages#visit_charts'
-  get '/purchase_charts' => 'pages#purchase_charts'
+  get '/pages/products' => 'pages#products'
+  get '/pages/users' => 'pages#users'
+  get '/pages/locations' => 'pages#locations'
+  get '/pages/visits' => 'pages#visits'
+  get '/pages/purchases' => 'pages#purchases'
 
   get '/visits' => 'visits#index'
   post '/visits' => 'visits#create'
@@ -26,8 +26,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get '/charts' => 'charts#index'
-      get '/visit_charts' => 'charts#visit_charts'
-      get '/location_charts' => 'charts#location_charts'
+      get '/visits' => 'charts#visits'
+      get '/locations' => 'charts#locations'
       get '/products' => 'charts#products'
     end
   end

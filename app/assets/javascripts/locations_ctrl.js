@@ -23,7 +23,7 @@
         console.log(gon.countryPurchases);
 
         //realtime visits map
-        $.getJSON('/api/v1/location_charts', function(json) {
+        $.getJSON('/api/v1/locations.json', function(json) {
           //world map
           var worldData = new google.visualization.arrayToDataTable(json["world_chart"]);
 

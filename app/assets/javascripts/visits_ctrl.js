@@ -9,7 +9,7 @@
     var colorArray = ['#FF9999', '#EE4036', '#E3F14F', '#F05A28', '#186CBB', '#A11C14', '#1D61A1', '#FF9999', '#EE4036', '#E3F14F', '#F05A28', '#186CBB', '#A11C14', '#1D61A1']
 
     $scope.visitsSetup = function(){
-      $http.get('api/v1/charts.json').then(function(result) {
+      $http.get('/api/v1/visits.json').then(function(result) {
         var monthTimelineChartData = {
           labels: result.data["product_visit_dates"],
           datasets: [

@@ -23,11 +23,11 @@ class PagesController < ApplicationController
     result.each { |row| @total_revenue += row[6].to_f }
   end
 
-  def product_charts
+  def products
 
   end
 
-  def user_charts
+  def users
     users = User.all
     user_visits = users.collect { |i| i.visits.count }
     total_visits = user_visits.inject(:+)
@@ -46,7 +46,7 @@ class PagesController < ApplicationController
     gon.deviceTypeDur = @device_type_dur.values
   end
 
-  def location_charts
+  def locations
     @visits = Visit.all
     @top_states = Visit.top(:state)
     @top_cities = Visit.top(:city)
@@ -64,12 +64,12 @@ class PagesController < ApplicationController
     gon.countryRevenue = @country_revenue.values
   end
 
-  def visit_charts
+  def visits
     duration_results = session_data('ga:sessions,ga:sessionDuration', nil)
     @avg_visit_duration = "#{((duration_results[0][1].to_f / duration_results[0][0].to_f) / 60).round(2)} minutes"
   end
 
-  def purchase_charts
+  def purchases
     monthly_check
     biweekly_check
     weekly_check
