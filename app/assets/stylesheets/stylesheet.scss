@@ -29,6 +29,18 @@ body {
   font-family: Gotham Rounded, sans-serif;
 }
 
+.row {
+  margin: 0 !important;
+}
+
+.side-nav {
+  @include title-gradient;
+}
+
+.side-nav a, i {
+  color: #fff !important;
+}
+
 .side-navbar {
   @include title-gradient;
   margin: 0px;
