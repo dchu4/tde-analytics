@@ -46,28 +46,6 @@ class Api::V1::ChartsController < ApplicationController
       end
     end
     @month_product_visit_dates = formatted_date.collect { |date| date.to_date.strftime("%b %d, %Y") }
-
-    #Visits and Purchases grouped by products
-    product_visits = Visit.group(:product_id).count
-    product_hash = Hash.new 0
-    product_visits.each { |v| product_hash[Product.find(v[0]).product_name] = v[1] }
-    sorted_visit_hash = Hash[product_hash.sort]
-    @sorted_product_names = sorted_visit_hash.keys
-    @product_visit_counts = sorted_visit_hash.values
-
-    product_purchases = get_data('2017-01-01')
-    purchase_data = Hash.new 0
-    product_purchases.each { |row| purchase_data["#{row[5]}"] += row[7].to_i }
-    purchase_data = Hash[purchase_data.sort]
-
-    @sorted_purchases = []
-    @sorted_product_names.each do |name|
-      if purchase_data.key?(name)
-        @sorted_purchases << purchase_data[name]
-      else
-        @sorted_purchases << 0
-      end
-    end
     
     #For the quick stats 
     @site_visits = Visit.all.length
@@ -97,9 +75,27 @@ class Api::V1::ChartsController < ApplicationController
     cities.each { |x| @cities_array << [x[0], x[1]] }
   end
 
-  def product_charts
-    gon.product_id = params[:id]
+  def products
+    #Visits and Purchases grouped by products
+    product_visits = Visit.group(:product_id).count
+    product_hash = Hash.new 0
+    product_visits.each { |v| product_hash[Product.find(v[0]).product_name] = v[1] }
+    sorted_visit_hash = Hash[product_hash.sort]
+    @sorted_product_names = sorted_visit_hash.keys
+    @product_visit_counts = sorted_visit_hash.values
 
-    product_visits = Visit.where(product_id: params[:id]).group_by_day(:created_at).count
+    product_purchases = get_data('2017-01-01')
+    purchase_data = Hash.new 0
+    product_purchases.each { |row| purchase_data["#{row[5]}"] += row[7].to_i }
+    purchase_data = Hash[purchase_data.sort]
+
+    @sorted_purchases = []
+    @sorted_product_names.each do |name|
+      if purchase_data.key?(name)
+        @sorted_purchases << purchase_data[name]
+      else
+        @sorted_purchases << 0
+      end
+    end
   end
 end

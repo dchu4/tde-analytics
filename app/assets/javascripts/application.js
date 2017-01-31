@@ -15,8 +15,6 @@
 //= require Chart
 //= require Chart.bundle
 //= require angular-chart
-//= require app
-//= require charts_ctrl
 //= require materialize
 //= require jquery_ujs
 //= require_tree .
