@@ -3,10 +3,10 @@
 
   angular.module("app").controller("usersCtrl",['$scope','$http',function($scope, $http){
 
-    Chart.defaults.global.defaultColor = '#F05A28';
+    Chart.defaults.global.defaultColor = '#FF9999';
     Chart.defaults.global.elements.responsive = true;
 
-    var colorArray = ['#FF9999', '#EE4036', '#E3F14F', '#F05A28', '#186CBB', '#A11C14', '#1D61A1', '#FF9999', '#EE4036', '#E3F14F', '#F05A28', '#186CBB', '#A11C14', '#1D61A1']
+    var colorArray = ['#66A5CC', '#FFFEB2', '#8ACC66', '#F8941D', '#FF7344', '#F7722C', '#F1857F', '#66A5CC', '#FFFEB2', '#8ACC66', '#F8941D', '#FF7344', '#F7722C', '#F1857F']
 
     $scope.usersSetup = function(){
       var ovd = document.getElementById("os_version_duration");

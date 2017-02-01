@@ -3,10 +3,13 @@
 
   angular.module("app").controller("productsCtrl",['$scope','$http',function($scope, $http){
 
-    Chart.defaults.global.defaultColor = '#F05A28';
+    Chart.defaults.global.defaultColor = '#FF9999';
     Chart.defaults.global.elements.responsive = true;
 
-    var colorArray = ['#FF9999', '#EE4036', '#E3F14F', '#F05A28', '#186CBB', '#A11C14', '#1D61A1', '#FF9999', '#EE4036', '#E3F14F', '#F05A28', '#186CBB', '#A11C14', '#1D61A1']
+    var colorArray = ['#66A5CC', '#FFFEB2', '#8ACC66', '#F8941D', '#FF7344', '#F7722C', '#F1857F', '#66A5CC', '#FFFEB2', '#8ACC66', '#F8941D', '#FF7344', '#F7722C', '#F1857F']
+
+    var color1 = colorArray[Math.floor(Math.random()*colorArray.length)];
+    var color2 = colorArray[Math.floor(Math.random()*colorArray.length)];
 
     $scope.productsSetup = function(){
       $http.get('/api/v1/products.json').then(function(result) {
@@ -16,16 +19,16 @@
             {
               label: 'Visits Per Product',
               data: result.data["product_visits"],
-              backgroundColor: '#FF9999',
-              borderColor: '#FF9999',
+              backgroundColor: color1,
+              borderColor: color1,
               borderWidth: 2,
               fill: false
             },
             {
               label: 'Purchases Per Product',
               data: result.data["sorted_purchases"],
-              backgroundColor: '#EE4036',
-              borderColor: '#EE4036',
+              backgroundColor: color2,
+              borderColor: color2,
               borderWidth: 2,
               fill: false
             }
