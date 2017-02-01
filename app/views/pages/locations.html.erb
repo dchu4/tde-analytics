@@ -1,0 +1,127 @@
+<div class="row">
+  <div class="col s12 m3 l3">
+    <div class="card-panel">
+      <div class="center-align">Top User Country</div>
+      <h5 class="center-align visit_count" ><%= @top_country %></h5>
+    </div>
+  </div>
+
+  <div class="col s12 m3 l3">
+    <div class="card-panel">
+      <div class="center-align">Top Country for Purchases</div>
+      <h5 class="center-align user_count"><%= @top_purchases_country %></h5>
+    </div>
+  </div>
+
+  <div class="col s12 m3 l3">
+    <div class="card-panel">
+      <div class="center-align">Top User City</div>
+      <h5 class="center-align user_count"><%= @top_city %></h5>
+    </div>
+  </div>
+
+  <div class="col s12 m3 l3">
+    <div class="card-panel">
+      <div class="center-align">Top User State</div>
+      <h5 class="center-align user_count"><%= @top_state %></h5>
+    </div>
+  </div>
+</div>
+
+<div ng-app="app">
+  <div ng-controller="locationsCtrl" ng-init="locationsSetup()">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <div class="card">
+          <div class="section-card-title">
+            <span class="card-title">Visits By Country</span>
+          </div>
+          <div class="card-content">
+            <div id="world_chart" style="height: 300px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12 m6 l6">
+        <div class="card table-card">
+          <div class="section-card-title">
+            <span class="card-title">Visits By State</span>
+          </div>
+          <div class="card-content">
+            <table class="highlight">
+              <thead>
+                <tr>
+                  <th>State</th>
+                  <th>Number of Visits</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @top_states.each do |visit| %>
+                  <tr>
+                    <td><%= visit[0] %></td>
+                    <td><%= visit[1] %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s12 m6 l6">
+        <div class="card table-card">
+          <div class="section-card-title">
+            <span class="card-title">Visits By City</span>
+          </div>
+          <div class="card-content">
+            <table class="highlight">
+              <thead>
+                <tr>
+                  <th>City</th>
+                  <th>Number of Visits</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @top_cities.each do |visit| %>
+                  <tr>
+                    <td><%= visit[0] %></td>
+                    <td><%= visit[1] %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <div class="card">
+          <div class="section-card-title">
+            <span class="card-title">Purchases By Country</span>
+          </div>
+          <div class="card-content">
+            <div id="purchase_chart" style="height: 300px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12 m6 l6">
+        <div class="card">
+          <div class="section-card-title">
+            <span class="card-title">Total Revenue Per Country</span>
+          </div>
+          <div class="card-content">
+            <canvas id="country_revenue_chart" height="125"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

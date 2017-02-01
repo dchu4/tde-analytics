@@ -27,7 +27,15 @@ class Api::V1::ChartsController < ApplicationController
     device_model_count = User.group(:device_model).count
     @device_model_names = device_model_count.keys
     @device_models = device_model_count.values
+    
+    #For the quick stats 
+    @site_visits = Visit.all.length
+    @user_count = User.count
+    most_viewed_product = Visit.top(:product_id).keys[0]
+    @most_viewed_product = Product.find(most_viewed_product).product_name
+  end
 
+  def visits
     #Visits and Purchases grouped by day
     month_product_visits = Visit.where(created_at: 31.days.ago..1.day.ago).group_by_day(:created_at).count
     formatted_date = month_product_visits.collect { |key| key[0].strftime("%Y%m%d") }
@@ -46,7 +54,23 @@ class Api::V1::ChartsController < ApplicationController
       end
     end
     @month_product_visit_dates = formatted_date.collect { |date| date.to_date.strftime("%b %d, %Y") }
+  end
 
+  def locations
+    countries = Visit.group(:country).count
+    @countries_array = [["Country", "Visitors"]]
+    countries.each { |x| @countries_array << [x[0], x[1]] }
+
+    states = Visit.group(:state).count
+    @states_array = []
+    states.each { |x| @states_array << [x[0], x[1]] }
+
+    cities = Visit.group(:city).count
+    @cities_array = []
+    cities.each { |x| @cities_array << [x[0], x[1]] }
+  end
+
+  def products
     #Visits and Purchases grouped by products
     product_visits = Visit.group(:product_id).count
     product_hash = Hash.new 0
@@ -68,38 +92,5 @@ class Api::V1::ChartsController < ApplicationController
         @sorted_purchases << 0
       end
     end
-    
-    #For the quick stats 
-    @site_visits = Visit.all.length
-    @user_count = User.count
-    @most_frequent_os = User.top(:device_os, 1).keys[0]
-    @most_frequent_model = User.top(:device_model, 1).keys[0]
-    @common_user_city = Visit.top(:city, 1).keys[0]
-    most_viewed_product = Visit.top(:product_id).keys[0]
-    @most_viewed_product = Product.find(most_viewed_product).product_name
-  end
-
-  def visit_charts
-
-  end
-
-  def location_charts
-    countries = Visit.group(:country).count
-    @countries_array = [["Country", "Visitors"]]
-    countries.each { |x| @countries_array << [x[0], x[1]] }
-
-    states = Visit.group(:state).count
-    @states_array = []
-    states.each { |x| @states_array << [x[0], x[1]] }
-
-    cities = Visit.group(:city).count
-    @cities_array = []
-    cities.each { |x| @cities_array << [x[0], x[1]] }
-  end
-
-  def product_charts
-    gon.product_id = params[:id]
-
-    product_visits = Visit.where(product_id: params[:id]).group_by_day(:created_at).count
   end
 end

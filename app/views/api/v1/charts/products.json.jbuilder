@@ -1,0 +1,3 @@
+json.product_hash_names @sorted_product_names
+json.product_visits @product_visit_counts
+json.sorted_purchases @sorted_purchases
