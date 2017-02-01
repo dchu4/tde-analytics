@@ -54,7 +54,8 @@
           labels: result.data["countries"],
           datasets: [{
             data: result.data["country_visits"],
-            backgroundColor: colorArray
+            backgroundColor: colorArray,
+            borderWidth: 0
           }]
         };
         var cc = document.getElementById("countries_chart");
@@ -74,7 +75,8 @@
           datasets: [{
             label: 'Number of Views',
             data: result.data["visit_counts"],
-            backgroundColor: colorArray
+            backgroundColor: colorArray,
+            borderWidth: 0
           }]
         };
         var pc = document.getElementById("products_chart");
@@ -100,7 +102,8 @@
           labels: result.data["cities"],
           datasets: [{
             data: result.data["city_visits"],
-            backgroundColor: colorArray
+            backgroundColor: colorArray,
+            borderWidth: 0
           }]
         };
         var cic = document.getElementById("cities_chart");
@@ -121,7 +124,8 @@
           datasets: [{
             label: 'Number of Users',
             data: result.data["device_oss"],
-            backgroundColor: colorArray
+            backgroundColor: colorArray,
+            borderWidth: 0
           }]
         };
         var osc = document.getElementById("device_os_chart");
@@ -147,7 +151,8 @@
           labels: result.data["device_model_names"],
           datasets: [{
             data: result.data["device_models"],
-            backgroundColor: colorArray
+            backgroundColor: colorArray,
+            borderWidth: 0
           }]
         };
         var mc = document.getElementById("device_model_chart");
