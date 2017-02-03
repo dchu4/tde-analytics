@@ -48,9 +48,6 @@ App.room = App.cable.subscriptions.create("ChartChannel", {
             deviceOsChart.update();
             deviceModelChart.update();
             break;
-        case ('/product_charts/' + gon.product_id):
-            
-            break;
         default:
             break;
       }

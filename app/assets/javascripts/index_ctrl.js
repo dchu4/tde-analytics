@@ -1,13 +1,14 @@
+var visitsTimelineChart;
+var countriesChart;
+var productsChart;
+var citiesChart;
+var deviceOsChart;
+var deviceModelChart;
+
 (function() {
   "use strict";
 
   angular.module("app").controller("indexCtrl",['$scope','$http',function($scope, $http){
-    var visitsTimelineChart;
-    var countriesChart;
-    var productsChart;
-    var citiesChart;
-    var deviceOsChart;
-    var deviceModelChart;
 
     Chart.defaults.global.defaultColor = '#FF9999';
     Chart.defaults.global.elements.responsive = true;
