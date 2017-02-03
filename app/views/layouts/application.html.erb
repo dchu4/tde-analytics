@@ -2,7 +2,7 @@
 <html>
   <head>
 
-    <title>AnalyticsApp</title>
+    <title>Buy Me Now Dashboard</title>
     <%= Gon::Base.render_data %>
     
     <%= csrf_meta_tags %>
@@ -14,6 +14,8 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+    <%= favicon_link_tag 'favicon.png' %>
   </head>
 
   <body>
@@ -42,7 +44,7 @@
     <div class="row">
       
       <!-- side navbar for large -->
-      <div class="col m1 l1 side-navbar hide-on-med-and-down" style="padding: 0">
+      <div class="col m1 l1 side-navbar hide-on-med-and-down" style="padding: 0;overflow: scroll">
         <ul style="margin: 0" class="center-align">
           <li><a href="/" class="waves-effect waves-light navbar-button" style="border-top: 1px solid #f5f5f5"><i class="material-icons small">dashboard</i><br>Home</a></li>
           <li><a href="/pages/visits" class="waves-effect waves-light navbar-button"><i class="material-icons small">trending_up</i><br>Visits</a></li>
@@ -70,7 +72,6 @@
       <div class="col s12 m12 l11 push-l1">
         <br>
         <%= yield %>
-        <br>
       </div>
 
       <%= javascript_include_tag 'application' %>

@@ -18,21 +18,9 @@ App.room = App.cable.subscriptions.create("ChartChannel", {
             userCount[0].innerHTML = dataResults["user_count"];
             userCount[1].innerHTML = dataResults["user_count"];
 
-            var mostFrequentOS = document.getElementsByClassName("most_frequent_os");
-            mostFrequentOS[0].innerHTML = dataResults["most_frequent_os"];
-            mostFrequentOS[1].innerHTML = dataResults["most_frequent_os"];
-
-            var mostFrequentModel = document.getElementsByClassName("most_frequent_model");
-            mostFrequentModel[0].innerHTML = dataResults["most_frequent_model"];
-            mostFrequentModel[1].innerHTML = dataResults["most_frequent_model"];
-
             var mostViewedProduct = document.getElementsByClassName("most_viewed_product");
             mostViewedProduct[0].innerHTML = dataResults["most_viewed_product"];
             mostViewedProduct[1].innerHTML = dataResults["most_viewed_product"];
-
-            var commonUserCity = document.getElementsByClassName("common_user_city");
-            commonUserCity[0].innerHTML = dataResults["common_user_city"];
-            commonUserCity[1].innerHTML = dataResults["common_user_city"];
 
             // Chart updates
             visitsTimelineChart.data.label = dataResults["dates"];
