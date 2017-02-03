@@ -41,21 +41,21 @@
         <li>
           <div class="collapsible-header center-align">Most Purchased Product</div>
           <div class="collapsible-body">
-            <h5 class="center-align most_frequent_os" ><%= @most_purchased_product %></h5>
+            <h5 class="center-align"><%= @most_purchased_product %></h5>
           </div>
         </li>
 
         <li>
           <div class="collapsible-header center-align">Conversion Rate</div>
           <div class="collapsible-body">
-            <h5 class="center-align common_user_city"><%= @conversion_rate %></h5>
+            <h5 class="center-align"><%= @conversion_rate %></h5>
           </div>
         </li>
 
         <li>
           <div class="collapsible-header center-align">Total Revenue</div>
           <div class="collapsible-body">
-            <h5 class="center-align most_frequent_model"><%= number_to_currency(@total_revenue) %></h5>
+            <h5 class="center-align"><%= number_to_currency(@total_revenue) %></h5>
           </div>
         </li>
 
@@ -66,7 +66,7 @@
 
   <!-- for large only -->
   <!-- beginning row -->
-  <div class="row hide-on-med-and-down">
+  <div class="row hide-on-med-and-down" style="margin-bottom: 4px">
 
     <div class="col s12 m2 l2">
       <div class="card-panel">
@@ -92,21 +92,21 @@
     <div class="col s12 m2 l2">
       <div class="card-panel">
         <div class="center-align">Most Purchased Product</div>
-        <h5 class="center-align most_frequent_model"><%= @most_purchased_product %></h5>
+        <h5 class="center-align"><%= @most_purchased_product %></h5>
       </div>
     </div>
 
     <div class="col s12 m2 l2">
       <div class="card-panel">
         <div class="center-align">Conversion Rate</div>
-        <h5 class="center-align common_user_city"><%= @conversion_rate %></h5>
+        <h5 class="center-align"><%= @conversion_rate %></h5>
       </div>
     </div>
 
     <div class="col s12 m2 l2">
       <div class="card-panel">
         <div class="center-align">Total Revenue</div>
-        <h5 class="center-align most_frequent_os" ><%= number_to_currency(@total_revenue) %></h5>
+        <h5 class="center-align" ><%= number_to_currency(@total_revenue) %></h5>
       </div>
     </div>
 

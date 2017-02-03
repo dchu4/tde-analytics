@@ -29,10 +29,6 @@ body {
   font-family: Gotham Rounded, sans-serif;
 }
 
-.row {
-  margin: 0 !important;
-}
-
 .side-nav {
   @include title-gradient;
 }
@@ -70,8 +66,8 @@ body {
 }
 
 .card {
-  margin-top: 4px !important;
-  margin-bottom: 4px !important;
+  margin-top: 2px !important;
+  margin-bottom: 2px !important;
 }
 
 .table-card {
