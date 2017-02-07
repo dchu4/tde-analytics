@@ -2,73 +2,89 @@
   <div ng-controller="purchasesCtrl" ng-init="purchasesSetup()">
 
     <div class="row">
-      <div class="col s12 m3 l3">
-        <div class="card-panel">
-          <div class="center-align">Monthly Conversion Rate</div>
-          <h5 class="center-align visit_count" ><%= @monthly_conversion_rate %></h5>
+      <div class="col s12 m5 l5">
+        <div class="card center-align">
+          <div class="section-card-title">
+            <span class="card-title">Conversion Rates</span>
+          </div>
+          <div class="card-tabs">
+            <ul class="tabs tabs-fixed-width">
+              <li class="tab"><a href="#tab1" class="active">Monthly</a></li>
+              <li class="tab"><a href="#tab2">Bi-Weekly</a></li>
+              <li class="tab"><a href="#tab3">Weekly</a></li>
+              <li class="tab"><a href="#tab4">Yesterday</a></li>
+            </ul>
+          </div>
+          <div class="card-content">
+            <div id="tab1">
+              Monthly Conversion Rate
+              <h5><%= @monthly_conversion_rate %></h5>
+            </div>
+            <div id="tab2">
+              Bi-Weekly Conversion Rate
+              <h5><%= @biweekly_conversion_rate %></h5>
+            </div>
+            <div id="tab3">
+              Weekly Conversion Rate
+              <h5><%= @weekly_conversion_rate %></h5>
+            </div>
+            <div id="tab4">
+              Yesterday's Conversion Rate
+              <h5><%= @yesterday_conversion_rate %></h5>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col s12 m3 l3">
-        <div class="card-panel">
-          <div class="center-align">Bi-Weekly Conversion Rate</div>
-          <h5 class="center-align visit_count" ><%= @biweekly_conversion_rate %></h5>
-        </div>
-      </div>
-      <div class="col s12 m3 l3">
-        <div class="card-panel">
-          <div class="center-align">Weekly Conversion Rate</div>
-          <h5 class="center-align visit_count" ><%= @weekly_conversion_rate %></h5>
-        </div>
-      </div>
-      <div class="col s12 m3 l3">
-        <div class="card-panel">
-          <div class="center-align">Yesterday's Conversion Rate</div>
-          <h5 class="center-align visit_count" ><%= @yesterday_conversion_rate %></h5>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s12 m4 l4">
-        <div class="card-panel">
-          <div class="center-align">Average Number of Items Per Transaction</div>
-          <h5 class="center-align"><%= @avg_items_per_trans %></h5>
-        </div>
-      </div>
-      <div class="col s12 m4 l4">
-        <div class="card-panel">
-          <div class="center-align">Average Number of Unique Items Per Transaction</div>
-          <h5 class="center-align"><%= @avg_uniq_items_per_trans %></h5>
-        </div>
-      </div>
-      <div class="col s12 m4 l4">
-        <div class="card-panel">
-          <div class="center-align">Average Total Per Transaction</div>
-          <h5 class="center-align"><%= number_to_currency(@avg_total_per_trans) %></h5>
-        </div>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col s12 m12 l12">
+      <div class="col s12 m7 l7">
         <div class="card">
           <div class="section-card-title">
             <span class="card-title">Daily Revenue</span>
           </div>
           <div class="card-content">
-            <canvas id="revenue_timeline_chart" height="75"></canvas>
+            <canvas id="revenue_timeline_chart" height="52px"></canvas>
           </div>
         </div>
       </div>
     </div>
 
     <div class="row">
-      <div class="col s12 m12 l12">
+      <div class="col s12 m8 l8">
         <div class="card">
           <div class="section-card-title">
             <span class="card-title">Daily Number of Transactions</span>
           </div>
           <div class="card-content">
-            <canvas id="purchases_timeline_chart" height="75"></canvas>
+            <canvas id="purchases_timeline_chart" height="45px"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s12 m4 l4">
+        <div class="card center-align">
+          <div class="section-card-title">
+            <span class="card-title">Transaction Averages</span>
+          </div>
+          <div class="card-tabs">
+            <ul class="tabs tabs-fixed-width">
+              <li class="tab"><a href="#tab5" class="active">Items</a></li>
+              <li class="tab"><a href="#tab6">Unique Items</a></li>
+              <li class="tab"><a href="#tab7">Total</a></li>
+            </ul>
+          </div>
+          <div class="card-content">
+            <div id="tab5">
+              Average Number of Items Per Transaction
+              <h5><%= @avg_items_per_trans %></h5>
+            </div>
+            <div id="tab6">
+              Average Number of Unique Items Per Transaction
+              <h5><%= @avg_uniq_items_per_trans %></h5>
+            </div>
+            <div id="tab7">
+              Average Total Per Transaction
+              <h5><%= number_to_currency(@avg_total_per_trans) %></h5>
+            </div>
           </div>
         </div>
       </div>
@@ -81,7 +97,7 @@
             <span class="card-title">Monthly Total Purchase Amounts Per Product</span>
           </div>
           <div class="card-content">
-            <canvas id="monthly_amount_chart" height="125"></canvas>
+            <canvas id="monthly_amount_chart" height="100"></canvas>
           </div>
         </div>
       </div>
@@ -91,7 +107,7 @@
             <span class="card-title">Monthly Total Quantity Purchased Per Product</span>
           </div>
           <div class="card-content">
-            <canvas id="monthly_quantity_chart" height="125"></canvas>
+            <canvas id="monthly_quantity_chart" height="100"></canvas>
           </div>
         </div>
       </div>
@@ -104,7 +120,7 @@
             <span class="card-title">Bi-Weekly Total Purchase Amounts Per Product</span>
           </div>
           <div class="card-content">
-            <canvas id="biweekly_amount_chart" height="125"></canvas>
+            <canvas id="biweekly_amount_chart" height="100"></canvas>
           </div>
         </div>
       </div>
@@ -114,7 +130,7 @@
             <span class="card-title">Bi-Weekly Total Quantity Purchased Per Product</span>
           </div>
           <div class="card-content">
-            <canvas id="biweekly_quantity_chart" height="125"></canvas>
+            <canvas id="biweekly_quantity_chart" height="100"></canvas>
           </div>
         </div>
       </div>
@@ -127,7 +143,7 @@
             <span class="card-title">Weekly Total Purchase Amounts Per Product</span>
           </div>
           <div class="card-content">
-            <canvas id="weekly_amount_chart" height="125"></canvas>
+            <canvas id="weekly_amount_chart" height="100"></canvas>
           </div>
         </div>
       </div>
@@ -137,7 +153,7 @@
             <span class="card-title">Weekly Total Quantity Purchased Per Product</span>
           </div>
           <div class="card-content">
-            <canvas id="weekly_quantity_chart" height="125"></canvas>
+            <canvas id="weekly_quantity_chart" height="100"></canvas>
           </div>
         </div>
       </div>
@@ -150,7 +166,7 @@
             <span class="card-title">Yesterday Total Purchase Amounts Per Product</span>
           </div>
           <div class="card-content">
-            <canvas id="yesterday_amount_chart" height="125"></canvas>
+            <canvas id="yesterday_amount_chart" height="100"></canvas>
           </div>
         </div>
       </div>
@@ -160,7 +176,7 @@
             <span class="card-title">Yesterday Total Quantity Purchased Per Product</span>
           </div>
           <div class="card-content">
-            <canvas id="yesterday_quantity_chart" height="125"></canvas>
+            <canvas id="yesterday_quantity_chart" height="100"></canvas>
           </div>
         </div>
       </div>
@@ -173,7 +189,7 @@
             <span class="card-title">Number of Purchases Per OS</span>
           </div>
           <div class="card-content">
-            <canvas id="os_version_transactions" height="125"></canvas>
+            <canvas id="os_version_transactions" height="100"></canvas>
           </div>
         </div>
       </div>
@@ -183,7 +199,7 @@
             <span class="card-title">Number of Purchases Per Device Type</span>
           </div>
           <div class="card-content">
-            <canvas id="device_type_transactions" height="125"></canvas>
+            <canvas id="device_type_transactions" height="100"></canvas>
           </div>
         </div>
       </div>
@@ -196,7 +212,7 @@
             <span class="card-title">Total Revenue Per OS</span>
           </div>
           <div class="card-content">
-            <canvas id="os_version_revenue" height="125"></canvas>
+            <canvas id="os_version_revenue" height="100"></canvas>
           </div>
         </div>
       </div>
@@ -206,7 +222,7 @@
             <span class="card-title">Total Revenue Per Device Type</span>
           </div>
           <div class="card-content">
-            <canvas id="device_type_revenue" height="125"></canvas>
+            <canvas id="device_type_revenue" height="100"></canvas>
           </div>
         </div>
       </div>

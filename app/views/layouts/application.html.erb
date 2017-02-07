@@ -19,39 +19,42 @@
   </head>
 
   <body>
-
-    <div class="navbar-fixed">
-      <nav class="z-depth-0">
-        <div class="nav-wrapper">
-          <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-          <!-- logo show on large -->
-          <div class="hide-on-med-and-down">
-            <span class="brand-logo"><a href="/" class="waves-effect waves-light">Dashboard</a></span>
-            <span class="brand-logo center"><a href="/"><%= image_tag 'BMN_horizontal_text_white.png', class: 'responsive-img', width: '55%', style: 'margin-top: 1.5%; margin-left: 15%' %></a></span>
-            <ul id="nav-mobile" class="right">
-              <li><a href="#" class="waves-effect waves-light"><i class="material-icons right">perm_identity</i>Account</a></li>
-              <li><a href="#" class="waves-effect waves-light"><i class="material-icons right">settings</i>Settings</a></li>
-            </ul>
-          </div>
-          <!-- logo show on small and medium -->
-          <div class="center hide-on-large-only">
-            <span class="brand-logo center"><a href="/"><%= image_tag 'BMN_horizontal_text_white.png', class: 'responsive-img' %></a></span>
-          </div>
-        </div>
-      </nav>
-    </div>
-
     <div class="row">
+
+      <!-- Nav Bar -->
+      <div class="col s12 m12 l11 push-l1" style="padding:0;margin:0">
+        <div class="navbar-fixed">
+          <nav class="z-depth-0">
+            <div class="nav-wrapper">
+              <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+              <!-- logo show on large -->
+              <div class="hide-on-med-and-down">
+                <span class="brand-logo"><a href="/" class="waves-effect waves-light">Dashboard</a></span>
+                <!-- <span class="brand-logo center"><a href="/"><%= image_tag 'BMN_horizontal_text_white.png', class: 'responsive-img', width: '55%', style: 'margin-top: 1.5%; margin-left: 15%' %></a></span> -->
+                <ul id="nav-mobile" class="right" style="margin-right: 8%">
+                  <li><a href="#" class="waves-effect waves-light"><i class="material-icons right">perm_identity</i>Account</a></li>
+                  <li><a href="#" class="waves-effect waves-light"><i class="material-icons right">settings</i>Settings</a></li>
+                </ul>
+              </div>
+              <!-- logo show on small and medium -->
+              <div class="center hide-on-large-only">
+                <span class="brand-logo center"><a href="/"><%= image_tag 'BMN_horizontal_text_white.png', class: 'responsive-img' %></a></span>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
       
       <!-- side navbar for large -->
-      <div class="col m1 l1 side-navbar hide-on-med-and-down" style="padding: 0;overflow: scroll">
+      <div class="col l1 side-navbar hide-on-med-and-down" style="padding: 0;overflow: scroll">
         <ul style="margin: 0" class="center-align">
-          <li><a href="/" class="waves-effect waves-light navbar-button" style="border-top: 1px solid #f5f5f5"><i class="material-icons small">dashboard</i><br>Home</a></li>
-          <li><a href="/pages/visits" class="waves-effect waves-light navbar-button"><i class="material-icons small">trending_up</i><br>Visits</a></li>
-          <li><a href="/pages/products" class="waves-effect waves-light navbar-button"><i class="material-icons small">store</i><br>Products</a></li>
-          <li><a href="/pages/users" class="waves-effect waves-light navbar-button"><i class="material-icons small">contacts</i><br>Users</a></li>
-          <li><a href="/pages/locations" class="waves-effect waves-light navbar-button"><i class="material-icons small">language</i><br>Locations</a></li>
-          <li><a href="/pages/purchases" class="waves-effect waves-light navbar-button"><i class="material-icons small">payment</i><br>Purchases</a></li>
+          <li class="center"><%= image_tag 'buymenowlogo.png', class: 'responsive-img', width: '85%', style: 'margin-top: 5%' %></li>
+          <li><a href="/" class="waves-effect waves-light navbar-button" style="border-top: 1px solid #f5f5f5"><i class="material-icons">dashboard</i><br>Home</a></li>
+          <li><a href="/pages/purchases" class="waves-effect waves-light navbar-button"><i class="material-icons">payment</i><br>Purchases</a></li>
+          <li><a href="/pages/users" class="waves-effect waves-light navbar-button"><i class="material-icons">contacts</i><br>Users</a></li>
+          <li><a href="/pages/locations" class="waves-effect waves-light navbar-button"><i class="material-icons">language</i><br>Locations</a></li>
+          <li><a href="/pages/visits" class="waves-effect waves-light navbar-button"><i class="material-icons">trending_up</i><br>Visits</a></li>
+          <li><a href="/pages/products" class="waves-effect waves-light navbar-button"><i class="material-icons">store</i><br>Products</a></li>
           <br>
         </ul>
       </div>
@@ -60,13 +63,13 @@
       <ul style="margin: 0" id="slide-out" class="side-nav">
         <li class="center"><%= image_tag 'buymenowlogo.png', class: 'responsive-img', width: '65%', style: 'margin-top: 9%' %></li>
         <li><a href="/" class="waves-effect waves-light navbar-button" style="border-top: 1px solid #f5f5f5">Dashboard<i class="material-icons right">dashboard</i></a></li>
-        <li><a href="/pages/visits" class="waves-effect waves-light navbar-button">Visits<i class="material-icons right">trending_up</i></a></li>
-        <li><a href="/pages/products" class="waves-effect waves-light navbar-button">Products<i class="material-icons right">store</i></a></li>
+        <li><a href="/pages/purchases" class="waves-effect waves-light navbar-button">Purchases<i class="material-icons right">payment</i></a></li>
         <li><a href="/pages/users" class="waves-effect waves-light navbar-button">Users<i class="material-icons right">contacts</i></a></li>
         <li><a href="/pages/locations" class="waves-effect waves-light navbar-button">Locations<i class="material-icons right">language</i></a></li>
-        <li><a href="/pages/purchases" class="waves-effect waves-light navbar-button">Purchases<i class="material-icons right">payment</i></a></li>
         <li><a href="#" class="waves-effect waves-light navbar-button">Account<i class="material-icons right">perm_identity</i></a></li>
         <li><a href="#" class="waves-effect waves-light navbar-button">Settings<i class="material-icons right">settings</i></a></li>
+        <li><a href="/pages/visits" class="waves-effect waves-light navbar-button">Visits<i class="material-icons right">trending_up</i></a></li>
+        <li><a href="/pages/products" class="waves-effect waves-light navbar-button">Products<i class="material-icons right">store</i></a></li>
       </ul>
 
       <div class="col s12 m12 l11 push-l1">

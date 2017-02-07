@@ -1,17 +1,16 @@
 <div class="row">
   <div class="col s12 m3 l3">
-    <div class="card-panel">
-      <div class="center-align">Average Visit Duration</div>
-      <h5 class="center-align"><%= @avg_visit_duration %></h5>
+    <div class="card center-align quick-stats-card">
+      <div class="section-card-title">
+        <span class="card-title">Average Visit Duration</span>
+      </div>
+      <h5><%= @avg_visit_duration %></h5>
     </div>
   </div>
-</div>
 
-<div ng-app="app">
-  <div ng-controller="visitsCtrl" ng-init="visitsSetup()">
-
-    <div class="row">
-      <div class="col s12 m12 l12">
+  <div ng-app="app">
+    <div ng-controller="visitsCtrl" ng-init="visitsSetup()">
+      <div class="col s12 m9 l9">
         <div class="card">
           <div class="section-card-title">
             <span class="card-title">Visits and Purchases in the Last 30 Days</span>
@@ -22,6 +21,5 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>

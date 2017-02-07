@@ -6,7 +6,7 @@
     Chart.defaults.global.defaultColor = '#FF9999';
     Chart.defaults.global.elements.responsive = true;
 
-    var colorArray = ['#66A5CC', '#FFFEB2', '#8ACC66', '#F8941D', '#FF7344', '#F7722C', '#F1857F', '#66A5CC', '#FFFEB2', '#8ACC66', '#F8941D', '#FF7344', '#F7722C', '#F1857F']
+    var colorArray = ['#66A5CC', '#FFFEB2', '#8ACC66', '#F8941D', '#FF7344', '#F7722C', '#F1857F', '#47B266', '#FFAE8C', '#FFB2B2', '#E880B4', '#FF5D53', '#66A5CC', '#FFFEB2', '#8ACC66', '#F8941D', '#FF7344', '#F7722C', '#F1857F', '#47B266', '#FFAE8C', '#FFB2B2', '#E880B4', '#FF5D53']
 
     var color1 = colorArray[Math.floor(Math.random()*colorArray.length)];
     var color2 = colorArray[Math.floor(Math.random()*colorArray.length)];
