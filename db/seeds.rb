@@ -55,9 +55,9 @@ end
   randomDates = rand(35) + 1
 
   Visit.create(
-      country: locationHolder["country"],
-      city: locationHolder["city"],
-      state: locationHolder["state"],
+      country: locationHolder[:country],
+      city: locationHolder[:city],
+      state: locationHolder[:state],
       user_id: rand(200) + 1,
       product_id: rand(6) + 1,
       created_at: randomDates.days.ago
