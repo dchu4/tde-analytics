@@ -48,7 +48,7 @@ class Api::V1::ChartsController < ApplicationController
     @month_product_purchases = []
     formatted_date.each do |date|
       if month_purchase_data.key?(date)
-        @month_product_purchases << month_purchase_data[:date]
+        @month_product_purchases << month_purchase_data["#{date}"]
       else
         @month_product_purchases << 0
       end
