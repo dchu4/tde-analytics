@@ -16,12 +16,12 @@ $light-grey: #f5f5f5;
 $dark-grey: #212121;
 $header-font: Slim Joe;
 
-@mixin title-gradient {
+@mixin reverse-gradient {
   background: $primary-color !important;
-  background: -webkit-linear-gradient(left, $primary-color , $accent-color) !important;
-  background: -o-linear-gradient(right, $primary-color, $accent-color) !important;
-  background: -moz-linear-gradient(right, $primary-color, $accent-color) !important;
-  background: linear-gradient(to right, $primary-color , $accent-color) !important;
+  background: -webkit-linear-gradient(left, $accent-color, $primary-color) !important;
+  background: -o-linear-gradient(right, $accent-color, $primary-color) !important;
+  background: -moz-linear-gradient(right, $accent-color, $primary-color) !important;
+  background: linear-gradient(to right, $accent-color, $primary-color) !important;
 }
 
 body {
@@ -30,7 +30,11 @@ body {
 }
 
 .side-nav {
-  @include title-gradient;
+  background: $primary-color !important;
+  background: -webkit-linear-gradient(left, $primary-color, $accent-color) !important;
+  background: -o-linear-gradient(right, $primary-color, $accent-color) !important;
+  background: -moz-linear-gradient(right, $primary-color, $accent-color) !important;
+  background: linear-gradient(to right, $primary-color, $accent-color) !important;
 }
 
 .side-nav a, i {
@@ -38,14 +42,14 @@ body {
 }
 
 .side-navbar {
-  @include title-gradient;
+  @include reverse-gradient;
   margin: 0px;
   height: 100vh;
   position: fixed;
 }
 
 .navbar-button {
-  @include title-gradient;
+  @include reverse-gradient;
   margin: 0;
   padding: 20px 10px;
   width: 100%;
@@ -59,15 +63,14 @@ body {
 
 .nav-wrapper {
   background: $primary-color !important;
-  background: -webkit-linear-gradient(left, $primary-color , $accent-color, $secondary-color) !important;
-  background: -o-linear-gradient(right, $primary-color, $accent-color, $secondary-color) !important;
-  background: -moz-linear-gradient(right, $primary-color, $accent-color, $secondary-color) !important;
-  background: linear-gradient(to right, $primary-color , $accent-color, $secondary-color) !important;
+  background: -webkit-linear-gradient(left, $primary-color , $accent-color) !important;
+  background: -o-linear-gradient(right, $primary-color, $accent-color) !important;
+  background: -moz-linear-gradient(right, $primary-color, $accent-color) !important;
+  background: linear-gradient(to right, $primary-color , $accent-color) !important;
 }
 
 .card {
-  margin-top: 2px !important;
-  margin-bottom: 2px !important;
+  box-shadow: none !important;
 }
 
 .table-card {
@@ -94,6 +97,11 @@ body {
   font-weight: bold;
   color: $accent-color;
   border-bottom: 1px solid $grey;
+  box-shadow: none !important;
+}
+
+.collapsible {
+  box-shadow: none !important;
 }
 
 .collapsible-body {
@@ -109,15 +117,10 @@ body {
   text-transform: uppercase !important;
 }
 
-.card-panel {
-  background: #fff !important;
-  color: $dark-grey !important;
-  max-height: 135px;
-  min-height: 135px;
-  overflow: scroll;
-}
-
-.card-panel:hover {
-  background: $secondary-color !important;
-  color: #fff !important;
+.quick-stats-card {
+  padding:5px 0 0 0;
+  background-color: #fff;
+  min-height: 130px !important;
+  max-height: 130px !important;
+  padding: 20px 0 20px 0 !important;
 }

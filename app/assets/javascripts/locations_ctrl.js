@@ -1,13 +1,14 @@
+var worldChart;
+
 (function() {
   "use strict";
 
   angular.module("app").controller("locationsCtrl",['$scope','$http',function($scope, $http){
-    var worldChart;
 
     Chart.defaults.global.defaultColor = '#FF9999';
     Chart.defaults.global.elements.responsive = true;
 
-    var colorArray = ['#66A5CC', '#FFFEB2', '#8ACC66', '#F8941D', '#FF7344', '#F7722C', '#F1857F', '#66A5CC', '#FFFEB2', '#8ACC66', '#F8941D', '#FF7344', '#F7722C', '#F1857F']
+    var colorArray = ['#66A5CC', '#FFFEB2', '#8ACC66', '#F8941D', '#FF7344', '#F7722C', '#F1857F', '#47B266', '#FFAE8C', '#FFB2B2', '#E880B4', '#FF5D53', '#66A5CC', '#FFFEB2', '#8ACC66', '#F8941D', '#FF7344', '#F7722C', '#F1857F', '#47B266', '#FFAE8C', '#FFB2B2', '#E880B4', '#FF5D53']
 
     $scope.locationsSetup = function(){
       google.charts.load('upcoming', {'packages':['geochart']});

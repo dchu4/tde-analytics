@@ -1,65 +1,61 @@
 <div ng-app="app">
   <div ng-controller="indexCtrl" ng-init="dashboardIndexSetup()">
 
-  <!-- beginning row -->
-  <div class="row" style="margin: 0">
-    <div class="col s12 m12 l12">
-      <div class="section-card-title center-align z-depth-1" style="border: 0">
-        <span class="card-title">Quick Stats</span>
-      </div>
-    </div>
-  </div>
-  <!-- ending row -->
-
   <!-- for medium and small -->
   <!-- beginning row -->
   <div class="row hide-on-large-only">
     <div class="col s12 m12 l12">
-      <ul class="collapsible" data-collapsible="expandable">
 
-        <li>
-          <div class="collapsible-header center-align">Total Visits</div>
-          <div class="collapsible-body">
-            <h5 class="center-align visit_count" ><%= @visit_count %></h5>
-          </div>
-        </li>
+      <div class="card center-align">
+        <div class="section-card-title" style="border:0">
+          <span class="card-title">Quick Stats</span>
+        </div>
+        
+        <ul class="collapsible" data-collapsible="expandable">
+          <li>
+            <div class="collapsible-header">Total Visits</div>
+            <div class="collapsible-body">
+              <h5 class="center-align visit_count" ><%= @visit_count %></h5>
+            </div>
+          </li>
 
-        <li>
-         <div class="collapsible-header center-align">Total Unique Visitors</div>
-         <div class="collapsible-body">
-           <h5 class="center-align user_count"><%= @user_count %></h5>
-          </div>
-        </li>
+          <li>
+            <div class="collapsible-header">Total Unique Visitors</div>
+            <div class="collapsible-body">
+              <h5 class="center-align user_count"><%= @user_count %></h5>
+            </div>
+          </li>
 
-        <li>
-          <div class="collapsible-header center-align">Most Viewed Product</div>
-          <div class="collapsible-body">
-            <h5 class="center-align most_viewed_product"><%= @most_viewed_product %></h5>
-          </div>
-        </li>
+          <li>
+            <div class="collapsible-header">Most Viewed Product</div>
+            <div class="collapsible-body">
+              <h5 class="center-align most_viewed_product"><%= @most_viewed_product %></h5>
+            </div>
+          </li>
 
-        <li>
-          <div class="collapsible-header center-align">Most Purchased Product</div>
-          <div class="collapsible-body">
-            <h5 class="center-align"><%= @most_purchased_product %></h5>
-          </div>
-        </li>
+          <li>
+            <div class="collapsible-header">Most Purchased Product</div>
+            <div class="collapsible-body">
+              <h5 class="center-align"><%= @most_purchased_product %></h5>
+            </div>
+          </li>
 
-        <li>
-          <div class="collapsible-header center-align">Conversion Rate</div>
-          <div class="collapsible-body">
-            <h5 class="center-align"><%= @conversion_rate %></h5>
-          </div>
-        </li>
+          <li>
+            <div class="collapsible-header">Conversion Rate</div>
+            <div class="collapsible-body">
+              <h5 class="center-align"><%= @conversion_rate %></h5>
+            </div>
+          </li>
 
-        <li>
-          <div class="collapsible-header center-align">Total Revenue</div>
-          <div class="collapsible-body">
-            <h5 class="center-align"><%= number_to_currency(@total_revenue) %></h5>
-          </div>
-        </li>
+          <li>
+            <div class="collapsible-header">Total Revenue</div>
+            <div class="collapsible-body">
+              <h5 class="center-align"><%= number_to_currency(@total_revenue) %></h5>
+            </div>
+          </li>
 
-      </ul>
+        </ul>
+      </div>
     </div>
   </div>
   <!-- ending row -->
@@ -67,66 +63,76 @@
   <!-- for large only -->
   <!-- beginning row -->
   <div class="row hide-on-med-and-down" style="margin-bottom: 4px">
+    <div class="col s12 m4 l4">
 
-    <div class="col s12 m2 l2">
-      <div class="card-panel">
-        <div class="center-align">Total Website Visits</div>
-        <h5 class="center-align visit_count" ><%= @visit_count %></h5>
+      <!-- quick stat cards -->
+      <div class="row" style="margin-bottom:0">
+
+        <div class="card center-align">
+          <div class="section-card-title">
+            <span class="card-title">Quick Stats</span>
+          </div>
+          
+          <div class="col s12 m4 l4 quick-stats-card">
+            <div>Total Website Visits:</div>
+            <h5 class="visit_count"><%= @visit_count %></h5>
+          </div>
+
+          <div class="col s12 m4 l4 quick-stats-card">
+            <div>Total Unique Visitors:</div>
+            <h5 class="user_count"><%= @user_count %></h5>
+          </div>
+
+          <div class="col s12 m4 l4 quick-stats-card">
+            <div>Most Viewed Product:</div>
+            <h5 class="most_viewed_product"><%= @most_viewed_product %></h5>
+          </div>
+        </div>
+      
+        <!-- card with tabs -->
+        <div class="col s12 m12 l12" style="padding:0">
+          <div class="card center-align">
+            <div class="card-tabs">
+              <ul class="tabs">
+                <li class="tab"><a href="#tab1">Product</a></li>
+                <li class="tab"><a href="#tab2" class="active">Conversion</a></li>
+                <li class="tab"><a href="#tab3">Revenue</a></li>
+              </ul>
+            </div>
+            <div class="card-content">
+              <div id="tab1">
+                Most Purchased Product:
+                <h5><%= @most_purchased_product %></h5>
+              </div>
+              <div id="tab2">
+                Conversion Rate:
+                <h5><%= @conversion_rate %></h5>
+              </div>
+              <div id="tab3">
+                Total Revenue:
+                <h5><%= number_to_currency(@total_revenue) %></h5>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="col s12 m2 l2">
-      <div class="card-panel">
-        <div class="center-align">Total Unique Visitors</div>
-        <h5 class="center-align user_count"><%= @user_count %></h5>
-      </div>
-    </div>
-
-    <div class="col s12 m2 l2">
-      <div class="card-panel">
-        <div class="center-align">Most Viewed Product</div>
-        <h5 class="center-align most_viewed_product"><%= @most_viewed_product %></h5>
-      </div>
-    </div>
-
-    <div class="col s12 m2 l2">
-      <div class="card-panel">
-        <div class="center-align">Most Purchased Product</div>
-        <h5 class="center-align"><%= @most_purchased_product %></h5>
-      </div>
-    </div>
-
-    <div class="col s12 m2 l2">
-      <div class="card-panel">
-        <div class="center-align">Conversion Rate</div>
-        <h5 class="center-align"><%= @conversion_rate %></h5>
-      </div>
-    </div>
-
-    <div class="col s12 m2 l2">
-      <div class="card-panel">
-        <div class="center-align">Total Revenue</div>
-        <h5 class="center-align" ><%= number_to_currency(@total_revenue) %></h5>
-      </div>
-    </div>
-
-  </div>
-  <!-- ending row -->
-
-  <!-- beginning row -->
-  <div class="row">
-    <div class="col s12 m12 l12">
+    <!-- visitors chart -->
+    <div class="col s12 m8 l8">
       <div class="card">
         <div class="section-card-title">
           <span class="card-title">Website Visitors Per Day</span>
         </div>
         <div class="card-content">
-          <canvas id="visits_timeline_chart" height="75"></canvas>
+          <canvas id="visits_timeline_chart" height="96px"></canvas>
         </div>
       </div>
     </div>
+
   </div>
   <!-- ending row -->
+
 
   <!-- beginning row -->
   <div class="row">
@@ -137,7 +143,7 @@
           <span class="card-title">Countries</span>
         </div>
         <div class="card-content">
-          <canvas id="countries_chart" height="150"></canvas>
+          <canvas id="countries_chart" height="130"></canvas>
         </div>
       </div>
     </div>
@@ -148,7 +154,7 @@
           <span class="card-title">Product Page Views</span>
         </div>
         <div class="card-content">
-          <canvas id="products_chart" height="150"></canvas>
+          <canvas id="products_chart" height="130"></canvas>
         </div>
       </div>
     </div>

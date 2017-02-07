@@ -6,7 +6,7 @@
     Chart.defaults.global.defaultColor = '#FF9999';
     Chart.defaults.global.elements.responsive = true;
 
-    var colorArray = ['#66A5CC', '#FFFEB2', '#8ACC66', '#F8941D', '#FF7344', '#F7722C', '#F1857F', '#66A5CC', '#FFFEB2', '#8ACC66', '#F8941D', '#FF7344', '#F7722C', '#F1857F']
+    var colorArray = ['#66A5CC', '#FFFEB2', '#8ACC66', '#F8941D', '#FF7344', '#F7722C', '#F1857F', '#47B266', '#FFAE8C', '#FFB2B2', '#E880B4', '#FF5D53', '#66A5CC', '#FFFEB2', '#8ACC66', '#F8941D', '#FF7344', '#F7722C', '#F1857F', '#47B266', '#FFAE8C', '#FFB2B2', '#E880B4', '#FF5D53']
 
     var color1 = colorArray[Math.floor(Math.random()*colorArray.length)];
     var color2 = colorArray[Math.floor(Math.random()*colorArray.length)];
@@ -17,7 +17,7 @@
           labels: result.data["product_hash_names"],
           datasets: [
             {
-              label: 'Visits Per Product',
+              label: 'Number of Visits',
               data: result.data["product_visits"],
               backgroundColor: color1,
               borderColor: color1,
@@ -25,7 +25,7 @@
               fill: false
             },
             {
-              label: 'Purchases Per Product',
+              label: 'Number of Purchases',
               data: result.data["sorted_purchases"],
               backgroundColor: color2,
               borderColor: color2,
