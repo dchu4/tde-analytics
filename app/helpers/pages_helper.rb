@@ -20,12 +20,18 @@ module PagesHelper
     analytics_service.rows
   end
 
+  def conversion_rate(transactions, visits)
+    "#{((transactions.to_f/visits.to_f)*100).round(2)}%"
+  end
+
   def monthly_check
     monthly_result = self.get_data('31daysAgo')
-    monthly_date = Visit.where(created_at: 31.days.ago..1.day.ago).count
+    monthly_visits = Visit.where(created_at: 31.days.ago..1.day.ago).count
 
-    if monthly_date > 0 && monthly_result
-      @monthly_conversion_rate = "#{((monthly_result.length.to_f/monthly_date.to_f)*100).round(2)}%"
+    if monthly_visits > 0 && monthly_result
+      monthly_transactions = monthly_result.collect { |row| row[3] }
+      monthly_trans_count = monthly_transactions.uniq.length
+      @monthly_conversion_rate = conversion_rate(monthly_trans_count, monthly_visits)
 
       monthly_amount = Hash.new 0
       monthly_quantity = Hash.new 0
@@ -51,10 +57,12 @@ module PagesHelper
 
   def biweekly_check
     biweekly_result = self.get_data('15daysAgo')
-    biweekly_date = Visit.where(created_at: 15.days.ago..1.day.ago).count
+    biweekly_visits = Visit.where(created_at: 15.days.ago..1.day.ago).count
 
-    if biweekly_date > 0 && biweekly_result
-      @biweekly_conversion_rate = "#{((biweekly_result.length.to_f/biweekly_date.to_f)*100).round(2)}%"
+    if biweekly_visits > 0 && biweekly_result
+      biweekly_transactions = biweekly_result.collect { |row| row[3] }
+      biweekly_trans_count = biweekly_transactions.uniq.length
+      @biweekly_conversion_rate = conversion_rate(biweekly_trans_count, biweekly_visits)
 
       biweekly_amount = Hash.new 0
       biweekly_quantity = Hash.new 0
@@ -80,10 +88,12 @@ module PagesHelper
 
   def weekly_check
     weekly_result = self.get_data('8daysAgo')
-    weekly_date = Visit.where(created_at: 8.days.ago..1.day.ago).count
+    weekly_visits = Visit.where(created_at: 8.days.ago..1.day.ago).count
 
-    if weekly_date > 0 && weekly_result
-      @weekly_conversion_rate = "#{((weekly_result.length.to_f/weekly_date.to_f)*100).round(2)}%"
+    if weekly_visits > 0 && weekly_result
+      weekly_transactions = weekly_result.collect { |row| row[3] }
+      weekly_trans_count = weekly_transactions.uniq.length
+      @weekly_conversion_rate = conversion_rate(weekly_trans_count, weekly_visits)
 
       weekly_amount = Hash.new 0
       weekly_quantity = Hash.new 0
@@ -109,10 +119,12 @@ module PagesHelper
 
   def yesterday_check
     yesterday_result = self.get_data('yesterday')
-    yesterday_date = Visit.where(created_at: 2.days.ago.beginning_of_day..1.day.ago.beginning_of_day).count
+    yesterday_visits = Visit.where(created_at: 2.days.ago.beginning_of_day..1.day.ago.beginning_of_day).count
     
-    if yesterday_date > 0 && yesterday_result
-      @yesterday_conversion_rate = "#{((yesterday_result.length.to_f/yesterday_date.to_f)*100).round(2)}%"
+    if yesterday_visits > 0 && yesterday_result
+      yesterday_transactions = yesterday_result.collect { |row| row[3] }
+      yesterday_trans_count = yesterday_transactions.uniq.length
+      @yesterday_conversion_rate = conversion_rate(yesterday_trans_count, yesterday_visits)
 
       yesterday_amount = Hash.new 0
       yesterday_quantity = Hash.new 0

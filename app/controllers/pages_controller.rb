@@ -3,22 +3,29 @@ include PagesHelper
 class PagesController < ApplicationController
 
   def index
-    @visits = Visit.all
-    @visit_count = @visits.length
+    visits = Visit.all
+    @visit_count = visits.length
     @user_count = User.count
     
-    most_viewed_product = Visit.top(:product_id).keys[0]
-    @most_viewed_product = Product.find(most_viewed_product).product_name
+    # most viewed product
+    most_viewed_product_id = Visit.top(:product_id).keys[0]
+    @most_viewed_product = Product.find(most_viewed_product_id).product_name
 
     result = get_data('2017-01-01')
-    product_hash = Hash.new 0
 
+    # most purchased product
+    product_hash = Hash.new 0
     result.each { |row| product_hash["#{row[5]}"] += row[7].to_i }
     most_purchased_product = product_hash.values.sort[-1]
     @most_purchased_product = product_hash.key(most_purchased_product)
 
-    @conversion_rate = "#{((result.length.to_f/Visit.where(created_at: 31.days.ago..1.day.ago).count.to_f)*100).round(2)}%"
+    # conversion rate
+    transactions = result.collect { |row| row[3] }
+    transaction_count = transactions.uniq.length
+    month_visit_count = Visit.where(created_at: 31.days.ago..1.day.ago).count
+    @conversion_rate = "#{((transaction_count.to_f/month_visit_count.to_f)*100).round(2)}%"
 
+    # total revenue
     @total_revenue = 0
     result.each { |row| @total_revenue += row[6].to_f }
   end

@@ -41,14 +41,18 @@ class Api::V1::ChartsController < ApplicationController
     formatted_date = month_product_visits.collect { |key| key[0].strftime("%Y%m%d") }
     @month_product_visit_counts = month_product_visits.values
 
-    month_product_purchases = get_data('31daysAgo')
-    month_purchase_data = Hash.new 0
-    month_product_purchases.each { |row| month_purchase_data["#{row[0]}"] += 1 }
+    month_purchase_data = get_data('31daysAgo')
+    month_purchase_hash = Hash.new { |hash, key| hash[key] = [] }
+    month_purchase_data.each { |row| month_purchase_hash["#{row[0]}"] << row[3] }
+
+    month_purchase_count = Hash.new 0
+    month_purchase_hash.each { |date| month_purchase_count["#{date[0]}"] = date[1].uniq.count }
+
 
     @month_product_purchases = []
     formatted_date.each do |date|
-      if month_purchase_data.key?(date)
-        @month_product_purchases << month_purchase_data["#{date}"]
+      if month_purchase_count.key?(date)
+        @month_product_purchases << month_purchase_count["#{date}"]
       else
         @month_product_purchases << 0
       end
