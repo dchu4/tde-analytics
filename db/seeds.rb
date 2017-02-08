@@ -15,7 +15,7 @@ location = [{country: "Canada", city: "Toronto", state: "Ontario"},
             {country: "United States", city: "Kingsville", state: "Texas"},
             {country: "United States", city: "Kingston", state: "New York"}]
 
-10.times do |device_mult|
+15.times do |device_mult|
   6.times do |device_id|
     User.create(
         device_unique_id: "OKLQ-RF-#{device_id}-#{device_mult}",
@@ -50,7 +50,7 @@ location = [{country: "Canada", city: "Toronto", state: "Ontario"},
 end
 
 
-300.times do |index|
+400.times do |index|
   locationHolder = location[rand(9)]
   randomDates = rand(35) + 1
 
@@ -58,7 +58,7 @@ end
       country: locationHolder[:country],
       city: locationHolder[:city],
       state: locationHolder[:state],
-      user_id: rand(200) + 1,
+      user_id: rand(300) + 1,
       product_id: rand(6) + 1,
       created_at: randomDates.days.ago
     )
